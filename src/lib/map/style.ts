@@ -1,5 +1,8 @@
 import type { StyleSpecification } from "maplibre-gl";
-import { QUALITY_SETTINGS, TERRAIN_ATTRIBUTION, TERRAIN_TILES } from "./config";
+import type { ExpressionSpecification } from "maplibre-gl";
+import georgiaClip from "@/data/geo/georgia-clip.json";
+import { QUALITY_SETTINGS, TERRAIN_ATTRIBUTION } from "./config";
+import { CLIPPED_DEM_TILES } from "./clippedDem";
 import type { Quality } from "@/lib/device";
 
 /**
@@ -10,6 +13,8 @@ import type { Quality } from "@/lib/device";
 export function buildBaseStyle(quality: Quality): StyleSpecification {
   const q = QUALITY_SETTINGS[quality];
   const font = ["Noto Sans Regular"];
+  // Labels only for places inside Georgia: the rest of the map is a void.
+  const inGeorgia = ["within", georgiaClip] as unknown as ExpressionSpecification;
 
   return {
     version: 8,
@@ -24,7 +29,7 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
       // Separate DEM sources for terrain mesh vs. shading is MapLibre's recommended setup.
       dem: {
         type: "raster-dem",
-        tiles: [TERRAIN_TILES],
+        tiles: [CLIPPED_DEM_TILES],
         encoding: "terrarium",
         tileSize: q.demTileSize,
         maxzoom: q.demMaxZoom,
@@ -32,7 +37,7 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
       },
       demShade: {
         type: "raster-dem",
-        tiles: [TERRAIN_TILES],
+        tiles: [CLIPPED_DEM_TILES],
         encoding: "terrarium",
         tileSize: 256,
         maxzoom: quality === "high" ? 13 : 11,
@@ -40,7 +45,7 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
     },
     sky: {
       "sky-color": "#06070b",
-      "horizon-color": "#3a2410",
+      "horizon-color": "#2a1a0c",
       "fog-color": "#0c0a09",
       "sky-horizon-blend": 0.55,
       "horizon-fog-blend": 0.65,
@@ -153,14 +158,6 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
           "line-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.45, 10, 0.75],
         },
       },
-      {
-        id: "state-lines",
-        type: "line",
-        source: "omt",
-        "source-layer": "boundary",
-        filter: ["all", ["==", ["get", "admin_level"], 4], ["!=", ["get", "maritime"], 1]],
-        paint: { "line-color": "#5b544c", "line-width": 0.8, "line-dasharray": [3, 2], "line-opacity": 0.6 },
-      },
       ...(q.buildings
         ? ([
             {
@@ -192,7 +189,7 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
         source: "omt",
         "source-layer": "place",
         minzoom: 9.5,
-        filter: ["match", ["get", "class"], ["town", "village"], true, false],
+        filter: ["all", ["match", ["get", "class"], ["town", "village"], true, false], inGeorgia],
         layout: {
           "text-field": ["coalesce", ["get", "name:en"], ["get", "name"]],
           "text-font": font,
@@ -208,7 +205,7 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
         source: "omt",
         "source-layer": "place",
         minzoom: 5,
-        filter: ["==", ["get", "class"], "city"],
+        filter: ["all", ["==", ["get", "class"], "city"], inGeorgia],
         layout: {
           "text-field": ["coalesce", ["get", "name:en"], ["get", "name"]],
           "text-font": font,
@@ -217,22 +214,6 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
           "text-transform": "uppercase",
         },
         paint: { "text-color": "#b3a998", "text-halo-color": "#0a0a0b", "text-halo-width": 1.4 },
-      },
-      {
-        id: "place-state",
-        type: "symbol",
-        source: "omt",
-        "source-layer": "place",
-        maxzoom: 7,
-        filter: ["==", ["get", "class"], "state"],
-        layout: {
-          "text-field": ["coalesce", ["get", "name:en"], ["get", "name"]],
-          "text-font": font,
-          "text-size": 11,
-          "text-letter-spacing": 0.4,
-          "text-transform": "uppercase",
-        },
-        paint: { "text-color": "#6f675d", "text-halo-color": "#0a0a0b", "text-halo-width": 1 },
       },
     ],
   };

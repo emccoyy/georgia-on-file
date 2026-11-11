@@ -7,6 +7,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { feature } from "topojson-client";
+import { buffer } from "@turf/buffer";
 import type { Topology, GeometryCollection } from "topojson-specification";
 import type { Feature, MultiPolygon, Polygon, Position } from "geojson";
 
@@ -30,9 +31,22 @@ const outline = {
   geometry: { type: "MultiPolygon", coordinates: rounded },
 };
 
+
+// Clip shape for the raised-state "slab": the outline grown by ~2 km so piers,
+// beaches and barrier islands that the generalized border shaves off stay on land.
+const clipped = buffer(outline as Feature<MultiPolygon>, 2, { units: "kilometers" });
+if (!clipped) throw new Error("buffer failed");
+const clipPolys: Position[][][] =
+  clipped.geometry.type === "Polygon" ? [clipped.geometry.coordinates] : (clipped.geometry.coordinates as Position[][][]);
+const clip = {
+  type: "Feature",
+  properties: { name: "Georgia (clip)" },
+  geometry: { type: "MultiPolygon", coordinates: clipPolys.map((p) => [round(p[0])]) },
+};
+
 // Mask: a big rectangle with every Georgia outer ring punched out as a hole.
 const world = [[-179, -85], [179, -85], [179, 85], [-179, 85], [-179, -85]];
-const holes = rounded.map((p) => [...p[0]].reverse());
+const holes = clip.geometry.coordinates.map((p) => [...p[0]].reverse());
 const mask = {
   type: "Feature",
   properties: {},
@@ -40,5 +54,6 @@ const mask = {
 };
 
 writeFileSync("src/data/geo/georgia.json", JSON.stringify(outline));
+writeFileSync("src/data/geo/georgia-clip.json", JSON.stringify(clip));
 writeFileSync("src/data/geo/georgia-mask.json", JSON.stringify(mask));
 console.log(`Wrote Georgia outline (${rounded.length} polygons, ${rounded.flat(2).length} vertices)`);

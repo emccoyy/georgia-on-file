@@ -63,6 +63,12 @@ export const QUALITY_SETTINGS: Record<
   low: { maxPitch: 60, homePitch: 45, demTileSize: 512, demMaxZoom: 12, buildings: false, pixelRatioCap: 1.5 },
 };
 
+/**
+ * Elevation (m, before exaggeration) assigned to everything outside Georgia.
+ * Deeper = taller cliff walls on the raised state.
+ */
+export const BASE_ELEVATION_M = -3500;
+
 /** Home camera: an angled establishing shot looking slightly NNW across the state. */
 export const HOME_BEARING = -12;
 

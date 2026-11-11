@@ -6,6 +6,7 @@ import type { Map as MLMap, MapGeoJSONFeature, GeoJSONSource } from "maplibre-gl
 import "maplibre-gl/dist/maplibre-gl.css";
 import { buildBaseStyle } from "@/lib/map/style";
 import { addOverlays, CLUSTER_LAYER, INTERACTIVE_LAYERS } from "@/lib/map/layers";
+import { registerClippedDem } from "@/lib/map/clippedDem";
 import { exaggerationAt, GEORGIA_BOUNDS, HOME_BEARING, QUALITY_SETTINGS } from "@/lib/map/config";
 import { detectQuality, prefersReducedMotion, type Quality } from "@/lib/device";
 import { locationById, type PinProperties } from "@/data";
@@ -13,6 +14,7 @@ import { MapControls } from "./MapControls";
 import { PinTooltip, type TooltipState } from "./PinTooltip";
 
 maplibregl.setWorkerUrl("/vendor/maplibre-gl-worker.mjs");
+registerClippedDem();
 
 const HOVER_SOURCES = ["pins", "beams-far", "beams-near"];
 
@@ -59,8 +61,8 @@ export default function GeorgiaMap({ onReady }: { onReady?: () => void }) {
         pixelRatio: Math.min(window.devicePixelRatio || 1, q.pixelRatioCap),
         attributionControl: false,
         maxBounds: [
-          [-100, 20],
-          [-65, 45],
+          [-92, 26],
+          [-74, 39],
         ],
         minZoom: 4.5,
         fadeDuration: 200,

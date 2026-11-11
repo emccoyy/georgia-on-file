@@ -1,9 +1,9 @@
 import type { Map as MLMap, ExpressionSpecification } from "maplibre-gl";
 import type { FeatureCollection, MultiPolygon, Polygon } from "geojson";
-import georgia from "@/data/geo/georgia.json";
+import georgiaClip from "@/data/geo/georgia-clip.json";
 import georgiaMask from "@/data/geo/georgia-mask.json";
 import { locationsToBeams, locationsToPoints } from "@/data";
-import { ACCENT, BEAM_MIN_ZOOM, CLUSTER_MAX_ZOOM, TYPE_COLORS } from "./config";
+import { ACCENT, BASE_ELEVATION_M, BEAM_MIN_ZOOM, CLUSTER_MAX_ZOOM, TYPE_COLORS } from "./config";
 
 /** Layer ids that respond to hover/click. */
 export const INTERACTIVE_LAYERS = ["pin-core", "pin-halo", "beam-near-core", "beam-far-core"] as const;
@@ -20,15 +20,40 @@ const hovered = (on: unknown, off: unknown) =>
   ["case", ["boolean", ["feature-state", "hover"], false], on, off] as ExpressionSpecification;
 
 export function addOverlays(map: MLMap) {
-  // --- Georgia focus: dim everything outside, glow along the border ---------
+  // --- Georgia only: hide everything outside, glow along the rim -----------
   map.addSource("ga-mask", { type: "geojson", data: georgiaMask as unknown as FeatureCollection<Polygon> });
-  map.addSource("ga", { type: "geojson", data: georgia as unknown as FeatureCollection<MultiPolygon> });
+  // The glow traces the clip edge, i.e. the rim of the raised slab.
+  map.addSource("ga", { type: "geojson", data: georgiaClip as unknown as FeatureCollection<MultiPolygon> });
 
   map.addLayer({
     id: "ga-mask",
     type: "fill",
     source: "ga-mask",
-    paint: { "fill-color": "#030304", "fill-opacity": 0.62 },
+    // Fully opaque: everything outside Georgia disappears into the void floor.
+    paint: { "fill-color": "#050506", "fill-opacity": 1 },
+  });
+  // Cliff walls: only elevations between the void floor and just below sea level
+  // exist on the walls, so a color ramp over that band paints them (dark umber
+  // at the base → warm amber at the rim) and leaves land, sea and floor untouched.
+  const B = BASE_ELEVATION_M;
+  map.addLayer({
+    id: "ga-walls",
+    type: "color-relief",
+    source: "demShade",
+    paint: {
+      "color-relief-opacity": 1,
+      "color-relief-color": [
+        "interpolate",
+        ["linear"],
+        ["elevation"],
+        B, "rgba(0,0,0,0)",
+        B + 15, "#0d0905",
+        B * 0.55, "#2b1b0c",
+        B * 0.2, "#6a4420",
+        -260, "#b07a3c",
+        -250, "rgba(0,0,0,0)",
+      ],
+    },
   });
   map.addLayer({
     id: "ga-tint",
