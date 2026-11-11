@@ -1,0 +1,1687 @@
+[
+  {
+    "id": "deliverance",
+    "title": "Deliverance",
+    "year": 1972,
+    "type": "feature film",
+    "distributor": "Warner Bros.",
+    "logline": "Four Atlanta men's canoe trip turns into a fight for survival.",
+    "locationIds": [
+      "chattooga-river",
+      "tallulah-gorge-state-park",
+      "downtown-clayton"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://movie-locations.com/movies/d/Deliverance.php",
+      "https://thecinemaholic.com/where-was-deliverance-filmed",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://www.slashfilm.com/1804885/deliverance-filming-locations-explained",
+      "https://en.wikipedia.org/wiki/Chatooga_River",
+      "https://mculocationscout.com/2020/09/16/forest-waterfall-wakanda-mcu-location-scout",
+      "https://roughdraftatlanta.com/2024/06/07/nature-in-cinema-a-movie-tour-through-georgias-parks/",
+      "https://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/rabun-county/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-longest-yard",
+    "title": "The Longest Yard",
+    "year": 1974,
+    "type": "feature film",
+    "distributor": "Paramount Pictures",
+    "logline": "A disgraced ex-quarterback organizes a prison football game against the guards.",
+    "locationIds": [
+      "river-street-savannah"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide",
+      "https://news.yahoo.com/filmed-georgia-savannah-setting-ludicrous-105232825.html"
+    ],
+    "verified": false
+  },
+  {
+    "id": "smokey-and-the-bandit",
+    "title": "Smokey and the Bandit",
+    "year": 1977,
+    "type": "feature film",
+    "distributor": "Universal Pictures",
+    "logline": "A bootlegger runs interference for a beer truck across the South.",
+    "locationIds": [
+      "downtown-jonesboro"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "dukes-of-hazzard",
+    "title": "The Dukes of Hazzard",
+    "year": 1979,
+    "type": "TV series",
+    "distributor": "CBS",
+    "logline": "Two cousins outrun a corrupt county boss in their orange Charger.",
+    "locationIds": [
+      "downtown-conyers",
+      "covington-square",
+      "oxford-college"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/covington/",
+      "https://www.narcity.com/travel/us/ga/the-vampire-diaries-filming-locations-are-actually-here-in-georgia"
+    ],
+    "verified": false
+  },
+  {
+    "id": "breaking-away",
+    "title": "Breaking Away (TV)",
+    "year": 1980,
+    "type": "TV series",
+    "distributor": "ABC",
+    "logline": "Series adaptation of the coming-of-age cycling story.",
+    "locationIds": [
+      "downtown-athens"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-four-seasons",
+    "title": "The Four Seasons",
+    "year": 1981,
+    "type": "feature film",
+    "distributor": "Universal Pictures",
+    "logline": "Three couples' friendship is tested over a year of vacations.",
+    "locationIds": [
+      "agnes-scott"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "six-pack",
+    "title": "Six Pack",
+    "year": 1982,
+    "type": "feature film",
+    "distributor": "20th Century Fox",
+    "logline": "A down-on-his-luck racer teams up with six orphan mechanics.",
+    "locationIds": [
+      "echopark-speedway",
+      "dixie-speedway",
+      "high-falls-sp"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "in-the-heat-of-the-night",
+    "title": "In the Heat of the Night",
+    "year": 1988,
+    "type": "TV series",
+    "distributor": "NBC / CBS",
+    "logline": "Series continuation of the Southern police drama.",
+    "locationIds": [
+      "downtown-conyers",
+      "covington-square"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/covington/",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.narcity.com/travel/us/ga/the-vampire-diaries-filming-locations-are-actually-here-in-georgia"
+    ],
+    "verified": false
+  },
+  {
+    "id": "school-daze",
+    "title": "School Daze",
+    "year": 1988,
+    "type": "feature film",
+    "distributor": "Columbia Pictures",
+    "logline": "Spike Lee's musical drama about class and color tensions at an HBCU.",
+    "locationIds": [
+      "atlanta-university-center"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "driving-miss-daisy",
+    "title": "Driving Miss Daisy",
+    "year": 1989,
+    "type": "feature film",
+    "distributor": "Warner Bros.",
+    "logline": "A decades-long friendship grows between an Atlanta widow and her chauffeur.",
+    "locationIds": [
+      "castleberry-hill",
+      "the-temple"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "glory",
+    "title": "Glory",
+    "year": 1989,
+    "type": "feature film",
+    "distributor": "TriStar Pictures",
+    "logline": "The first Black regiment in the Union Army goes to war.",
+    "locationIds": [
+      "mercer-williams-house",
+      "ga-state-railroad-museum"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "fried-green-tomatoes",
+    "title": "Fried Green Tomatoes",
+    "year": 1991,
+    "type": "feature film",
+    "distributor": "Universal Pictures",
+    "logline": "An elderly woman's stories of a 1930s café inspire a lonely housewife.",
+    "locationIds": [
+      "downtown-senoia",
+      "whistle-stop-cafe"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/list/see-where-the-walking-dead-was-filmed-in-georgia",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://savingplaces.org/stories/behind-the-scenes-of-the-historic-town-where-the-walking-dead-is-filmed",
+      "https://www.skybound.com/shows/the-walking-dead/locations-from-the-walking-dead"
+    ],
+    "verified": false
+  },
+  {
+    "id": "ill-fly-away",
+    "title": "I'll Fly Away",
+    "year": 1991,
+    "type": "TV series",
+    "distributor": "NBC",
+    "logline": "A Southern family and their housekeeper in the early civil rights era.",
+    "locationIds": [
+      "downtown-madison"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/article/georgia-film-locations-perfect-for-summer-family-fun"
+    ],
+    "verified": false
+  },
+  {
+    "id": "freejack",
+    "title": "Freejack",
+    "year": 1992,
+    "type": "feature film",
+    "distributor": "Warner Bros.",
+    "logline": "A race driver is yanked into the future moments before death to serve as a body donor.",
+    "locationIds": [
+      "castleberry-hill"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "my-cousin-vinny",
+    "title": "My Cousin Vinny",
+    "year": 1992,
+    "type": "feature film",
+    "distributor": "20th Century Fox",
+    "logline": "A brash New York lawyer defends his cousin in a rural Southern court.",
+    "locationIds": [
+      "covington-square",
+      "downtown-madison",
+      "jasper-county-courthouse"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/covington/",
+      "https://www.narcity.com/travel/us/ga/the-vampire-diaries-filming-locations-are-actually-here-in-georgia",
+      "https://exploregeorgia.org/things-to-do/article/georgia-film-locations-perfect-for-summer-family-fun"
+    ],
+    "verified": false
+  },
+  {
+    "id": "kalifornia",
+    "title": "Kalifornia",
+    "year": 1993,
+    "type": "feature film",
+    "distributor": "Gramercy Pictures",
+    "logline": "A writer researching serial killers shares a road trip with one.",
+    "locationIds": [
+      "castleberry-hill"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "cobb",
+    "title": "Cobb",
+    "year": 1994,
+    "type": "feature film",
+    "distributor": "Warner Bros.",
+    "logline": "A sportswriter ghostwrites Ty Cobb's autobiography.",
+    "locationIds": [
+      "downtown-athens"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "forrest-gump",
+    "title": "Forrest Gump",
+    "year": 1994,
+    "type": "feature film",
+    "distributor": "Paramount Pictures",
+    "logline": "A kind-hearted man recounts his improbable life from a bus-stop bench.",
+    "locationIds": [
+      "chippewa-square",
+      "loves-seafood",
+      "savannah-history-museum",
+      "wright-square",
+      "madison-square"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://gosouthsavannah.com/history/film/forrest-gump.html",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide",
+      "https://en.wikipedia.org/wiki/Chippewa_Square_(Savannah,_Georgia)"
+    ],
+    "verified": false
+  },
+  {
+    "id": "something-to-talk-about",
+    "title": "Something to Talk About",
+    "year": 1995,
+    "type": "feature film",
+    "distributor": "Warner Bros.",
+    "logline": "A Southern woman's marriage unravels in public.",
+    "locationIds": [
+      "six-pence-pub"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-neon-bible",
+    "title": "The Neon Bible",
+    "year": 1995,
+    "type": "feature film",
+    "distributor": null,
+    "logline": "A boy grows up in a troubled 1940s Southern town.",
+    "locationIds": [
+      "downtown-crawfordville"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "fled",
+    "title": "Fled",
+    "year": 1996,
+    "type": "feature film",
+    "distributor": "MGM",
+    "logline": "Two escaped convicts chained together go on the run.",
+    "locationIds": [
+      "stone-mountain-park"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://www.afar.com/magazine/stranger-things-filming-locations-in-georgia",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "midnight-in-the-garden",
+    "title": "Midnight in the Garden of Good and Evil",
+    "year": 1997,
+    "type": "feature film",
+    "distributor": "Warner Bros.",
+    "logline": "A writer covers a Savannah murder trial and the city's eccentrics.",
+    "locationIds": [
+      "bonaventure-cemetery",
+      "mercer-williams-house",
+      "forsyth-park"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://visitsavannah.com/node/1450",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://en.wikipedia.org/wiki/Bonaventure_Cemetery",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide",
+      "https://www.filmsavannah.org/locations/location-highlights/forsyth-park/",
+      "https://visitsavannah.com/list/7-ways-to-experience-midnight-the-garden-good-and-evil-savannah"
+    ],
+    "verified": false
+  },
+  {
+    "id": "scream-2",
+    "title": "Scream 2",
+    "year": 1997,
+    "type": "feature film",
+    "distributor": "Dimension Films",
+    "logline": "A new Ghostface stalks survivors at college.",
+    "locationIds": [
+      "agnes-scott"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-gingerbread-man",
+    "title": "The Gingerbread Man",
+    "year": 1998,
+    "type": "feature film",
+    "distributor": "Gramercy Pictures",
+    "logline": "A Savannah lawyer's rescue of a stranger spirals into a stormy legal thriller.",
+    "locationIds": [
+      "river-street-savannah"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://news.yahoo.com/filmed-georgia-savannah-setting-ludicrous-105232825.html",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-generals-daughter",
+    "title": "The General's Daughter",
+    "year": 1999,
+    "type": "feature film",
+    "distributor": "Paramount Pictures",
+    "logline": "An Army investigator probes the murder of a general's daughter.",
+    "locationIds": [
+      "wormsloe",
+      "tybee-pier",
+      "forsyth-park"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.filmsavannah.org/locations/location-highlights/tybee-pier-and-pavillion/",
+      "https://exploregeorgia.org/things-to-do/list/the-last-song-film-tour",
+      "https://www.thisismysouth.com/film-friday-baywatch",
+      "https://www.filmsavannah.org/locations/location-highlights/forsyth-park/",
+      "https://visitsavannah.com/list/7-ways-to-experience-midnight-the-garden-good-and-evil-savannah"
+    ],
+    "verified": false
+  },
+  {
+    "id": "remember-the-titans",
+    "title": "Remember the Titans",
+    "year": 2000,
+    "type": "feature film",
+    "distributor": "Buena Vista Pictures",
+    "logline": "A newly integrated high school football team learns to play as one.",
+    "locationIds": [
+      "silver-skillet",
+      "the-varsity",
+      "decatur-cemetery",
+      "berry-college"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "road-trip",
+    "title": "Road Trip",
+    "year": 2000,
+    "type": "feature film",
+    "distributor": "DreamWorks Pictures",
+    "logline": "College friends drive cross-country to intercept a mistaken tape.",
+    "locationIds": [
+      "downtown-athens",
+      "downtown-madison"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/article/georgia-film-locations-perfect-for-summer-family-fun"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-legend-of-bagger-vance",
+    "title": "The Legend of Bagger Vance",
+    "year": 2000,
+    "type": "feature film",
+    "distributor": "DreamWorks Pictures",
+    "logline": "A mysterious caddie helps a war-weary golfer find his swing.",
+    "locationIds": [
+      "jekyll-island-club"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://www.jekyllisland.com/filming-locations/",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://www.jekyllisland.com/magazine/ready-for-its-closeup/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "drumline",
+    "title": "Drumline",
+    "year": 2002,
+    "type": "feature film",
+    "distributor": "20th Century Fox",
+    "logline": "A gifted Harlem drummer clashes with tradition in a Southern college marching band.",
+    "locationIds": [
+      "atlanta-university-center"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "sweet-home-alabama",
+    "title": "Sweet Home Alabama",
+    "year": 2002,
+    "type": "feature film",
+    "distributor": "Touchstone Pictures",
+    "logline": "A New York designer returns home to finalize a divorce she kept secret.",
+    "locationIds": [
+      "berry-college",
+      "oak-hill-rome",
+      "ga-intl-horse-park",
+      "downtown-crawfordville"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-fighting-temptations",
+    "title": "The Fighting Temptations",
+    "year": 2003,
+    "type": "feature film",
+    "distributor": "Paramount Pictures",
+    "logline": "A New York ad man assembles a small-town gospel choir to claim an inheritance.",
+    "locationIds": [
+      "castleberry-hill"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "bobby-jones",
+    "title": "Bobby Jones: Stroke of Genius",
+    "year": 2004,
+    "type": "feature film",
+    "distributor": "Film Foundry Releasing",
+    "logline": "Biopic of the Atlanta-born amateur golf legend.",
+    "locationIds": [
+      "agnes-scott"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "constantine",
+    "title": "Constantine",
+    "year": 2005,
+    "type": "feature film",
+    "distributor": "Warner Bros.",
+    "logline": "An exorcist battles demons to save his own soul.",
+    "locationIds": [
+      "berry-college"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "warm-springs",
+    "title": "Warm Springs",
+    "year": 2005,
+    "type": "TV movie",
+    "distributor": "HBO",
+    "logline": "FDR finds renewal at a Georgia polio treatment center.",
+    "locationIds": [
+      "downtown-madison",
+      "warm-springs-historic-district"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://www.georgiaencyclopedia.org/articles/arts-culture/warm-springs-film/",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/article/georgia-film-locations-perfect-for-summer-family-fun"
+    ],
+    "verified": false
+  },
+  {
+    "id": "we-are-marshall",
+    "title": "We Are Marshall",
+    "year": 2006,
+    "type": "feature film",
+    "distributor": "Warner Bros.",
+    "logline": "A university rebuilds its football program after a devastating plane crash.",
+    "locationIds": [
+      "atlanta-university-center"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "stomp-the-yard",
+    "title": "Stomp the Yard",
+    "year": 2007,
+    "type": "feature film",
+    "distributor": "Screen Gems",
+    "logline": "A street dancer joins an HBCU fraternity's step team.",
+    "locationIds": [
+      "atlanta-university-center",
+      "stone-mountain-park"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://www.afar.com/magazine/stranger-things-filming-locations-in-georgia",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-signal",
+    "title": "The Signal",
+    "year": 2007,
+    "type": "feature film",
+    "distributor": "Magnolia Pictures",
+    "logline": "A mysterious broadcast turns a city's residents violent.",
+    "locationIds": [
+      "castleberry-hill"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "get-low",
+    "title": "Get Low",
+    "year": 2009,
+    "type": "feature film",
+    "distributor": "Sony Pictures Classics",
+    "logline": "A hermit plans his own funeral party while still alive.",
+    "locationIds": [
+      "downtown-crawfordville"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-vampire-diaries",
+    "title": "The Vampire Diaries",
+    "year": 2009,
+    "type": "TV series",
+    "distributor": "The CW",
+    "logline": "A teen in a small Virginia town falls for a vampire.",
+    "locationIds": [
+      "stone-mountain-park",
+      "downtown-conyers",
+      "covington-square",
+      "newton-county-courthouse",
+      "mystic-grill",
+      "twelve-oaks-bnb",
+      "madison-welcome-center"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://www.narcity.com/travel/us/ga/the-vampire-diaries-filming-locations-are-actually-here-in-georgia",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://www.afar.com/magazine/stranger-things-filming-locations-in-georgia",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/covington/",
+      "https://visitmadisonga.com/film-tour-movie-locations/",
+      "https://visitmadisonga.com/mystic-falls-and-top-5-spooky-films/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "zombieland",
+    "title": "Zombieland",
+    "year": 2009,
+    "type": "feature film",
+    "distributor": "Columbia Pictures",
+    "logline": "A rule-following survivor teams up with misfits in a zombie-overrun America.",
+    "locationIds": [
+      "downtown-newnan",
+      "wild-adventures"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://www.thisismysouth.com/small-town-saturday-newnan-ga",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-crazies",
+    "title": "The Crazies",
+    "year": 2010,
+    "type": "feature film",
+    "distributor": "Overture Films",
+    "logline": "A toxin in the water turns a farm town violent.",
+    "locationIds": [
+      "downtown-perry"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-last-song",
+    "title": "The Last Song",
+    "year": 2010,
+    "type": "feature film",
+    "distributor": "Touchstone Pictures",
+    "logline": "A rebellious teen spends a beach summer reconnecting with her father.",
+    "locationIds": [
+      "georgia-aquarium",
+      "wormsloe",
+      "north-beach-grill",
+      "tybee-pier",
+      "chapel-by-the-sea"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://discoveratlanta.com/stories/top-filming-locations-in-atlanta/",
+      "https://exploregeorgia.org/things-to-do/list/the-last-song-film-tour",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://www.georgiaaquarium.org/resource-center/stories/big-window-to-big-screen/",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.filmsavannah.org/locations/location-highlights/tybee-pier-and-pavillion/",
+      "https://www.thisismysouth.com/film-friday-baywatch"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-walking-dead",
+    "title": "The Walking Dead",
+    "year": 2010,
+    "type": "TV series",
+    "distributor": "AMC",
+    "logline": "Survivors of a zombie apocalypse search for safety and community.",
+    "locationIds": [
+      "jackson-street-bridge",
+      "cobb-energy-centre",
+      "downtown-senoia",
+      "driftwood-beach"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://savingplaces.org/stories/behind-the-scenes-of-the-historic-town-where-the-walking-dead-is-filmed",
+      "https://www.skybound.com/shows/the-walking-dead/locations-from-the-walking-dead",
+      "https://www.jekyllisland.com/filming-locations/",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://exploregeorgia.org/things-to-do/list/see-where-the-walking-dead-was-filmed-in-georgia",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "x-men-first-class",
+    "title": "X-Men: First Class",
+    "year": 2011,
+    "type": "feature film",
+    "distributor": "20th Century Fox",
+    "logline": "Young Charles Xavier and Erik Lehnsherr form the first X-Men.",
+    "locationIds": [
+      "jekyll-island-beach"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/list/marvelous-film-locations-for-superheroes"
+    ],
+    "verified": false
+  },
+  {
+    "id": "american-reunion",
+    "title": "American Reunion",
+    "year": 2012,
+    "type": "feature film",
+    "distributor": "Universal Pictures",
+    "logline": "Old friends return home for their high school reunion.",
+    "locationIds": [
+      "downtown-conyers"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "joyful-noise",
+    "title": "Joyful Noise",
+    "year": 2012,
+    "type": "feature film",
+    "distributor": "Warner Bros.",
+    "logline": "A small-town church choir chases a national gospel title.",
+    "locationIds": [
+      "downtown-newnan"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://www.thisismysouth.com/small-town-saturday-newnan-ga",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "parental-guidance",
+    "title": "Parental Guidance",
+    "year": 2012,
+    "type": "feature film",
+    "distributor": "20th Century Fox",
+    "logline": "Old-school grandparents babysit their modern grandkids.",
+    "locationIds": [
+      "ocee-park"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "revolution",
+    "title": "Revolution",
+    "year": 2012,
+    "type": "TV series",
+    "distributor": "NBC",
+    "logline": "Survivors navigate a world after a global blackout.",
+    "locationIds": [
+      "stone-mountain-park"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://www.afar.com/magazine/stranger-things-filming-locations-in-georgia",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "trouble-with-the-curve",
+    "title": "Trouble with the Curve",
+    "year": 2012,
+    "type": "feature film",
+    "distributor": "Warner Bros.",
+    "logline": "An aging baseball scout takes his daughter along on one last recruiting trip.",
+    "locationIds": [
+      "georgia-state-stadium",
+      "home-grown",
+      "amicalola-lodge",
+      "young-harris-college",
+      "downtown-athens"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "what-to-expect",
+    "title": "What to Expect When You're Expecting",
+    "year": 2012,
+    "type": "feature film",
+    "distributor": "Lionsgate",
+    "logline": "Five couples face the chaos of impending parenthood.",
+    "locationIds": [
+      "georgia-aquarium",
+      "high-museum"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://discoveratlanta.com/stories/top-filming-locations-in-atlanta/",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://www.georgiaaquarium.org/resource-center/stories/big-window-to-big-screen/",
+      "https://exploregeorgia.org/things-to-do/article/where-to-find-wakanda-in-georgia",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "42",
+    "title": "42",
+    "year": 2013,
+    "type": "feature film",
+    "distributor": "Warner Bros.",
+    "logline": "Jackie Robinson breaks baseball's color barrier.",
+    "locationIds": [
+      "luther-williams-field"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://visitmacon.org/things-to-do/arts-and-culture/macon-film-and-tv"
+    ],
+    "verified": false
+  },
+  {
+    "id": "anchorman-2",
+    "title": "Anchorman 2: The Legend Continues",
+    "year": 2013,
+    "type": "feature film",
+    "distributor": "Paramount Pictures",
+    "logline": "Ron Burgundy joins the first 24-hour news network.",
+    "locationIds": [
+      "silver-skillet",
+      "pier-village-st-simons-island"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://www.timesfreepress.com/news/local/story/2013/apr/01/anchorman-sequel-set-film-st-simons-island/104003/",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.news4jax.com/community/2025/11/19/did-you-know-from-glory-to-wakanda-forever-areas-of-golden-isles-have-been-featured-in-dozens-of-film-tv-scenes"
+    ],
+    "verified": false
+  },
+  {
+    "id": "identity-thief",
+    "title": "Identity Thief",
+    "year": 2013,
+    "type": "feature film",
+    "distributor": "Universal Pictures",
+    "logline": "A man road-trips with the woman who stole his identity.",
+    "locationIds": [
+      "the-colonnade",
+      "georgian-terrace",
+      "perimeter-mall",
+      "echopark-speedway",
+      "downtown-conyers",
+      "ga-intl-horse-park",
+      "lumber-city-bridge"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "killing-season",
+    "title": "Killing Season",
+    "year": 2013,
+    "type": "feature film",
+    "distributor": "Millennium Entertainment",
+    "logline": "A veteran is hunted in the mountains by a former enemy.",
+    "locationIds": [
+      "stone-mountain-park"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://www.afar.com/magazine/stranger-things-filming-locations-in-georgia",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-hunger-games-catching-fire",
+    "title": "The Hunger Games: Catching Fire",
+    "year": 2013,
+    "type": "feature film",
+    "distributor": "Lionsgate",
+    "logline": "A reluctant victor is pulled back into the arena as rebellion stirs across the districts.",
+    "locationIds": [
+      "swan-house",
+      "international-park-beach"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/article/iconic-filming-locations-in-georgia",
+      "https://filmoblivion.com/tag/swan-house/",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/list/hunger-games-film-tour"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-spectacular-now",
+    "title": "The Spectacular Now",
+    "year": 2013,
+    "type": "feature film",
+    "distributor": "A24",
+    "logline": "A charming high school senior's life shifts when he meets a quiet classmate.",
+    "locationIds": [
+      "downtown-athens"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "mockingjay-part-1",
+    "title": "The Hunger Games: Mockingjay – Part 1",
+    "year": 2014,
+    "type": "feature film",
+    "distributor": "Lionsgate",
+    "logline": "Katniss becomes the face of an uprising while the Capitol fights back.",
+    "locationIds": [
+      "swan-house",
+      "marriott-marquis",
+      "sweetwater-creek",
+      "chestatee-wildlife-preserve"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/list/hunger-games-film-tour",
+      "https://exploregeorgia.org/article/iconic-filming-locations-in-georgia",
+      "https://filmoblivion.com/tag/swan-house/",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "single-moms-club",
+    "title": "The Single Moms Club",
+    "year": 2014,
+    "type": "feature film",
+    "distributor": "Lionsgate",
+    "logline": "Five single mothers form a support group after a school incident.",
+    "locationIds": [
+      "agnes-scott"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "a-walk-in-the-woods",
+    "title": "A Walk in the Woods",
+    "year": 2015,
+    "type": "feature film",
+    "distributor": "Broad Green Pictures",
+    "logline": "Two aging friends set out to hike the Appalachian Trail from its southern end.",
+    "locationIds": [
+      "amicalola-falls-state-park"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://en.wikipedia.org/wiki/A_Walk_in_the_Woods_(film)",
+      "https://dawsonnews.com/local/movie-scenes-filmed-at-amicalola-park",
+      "https://www.gainesvilletimes.com/news/movie-filming-scenes-at-amicalola-park"
+    ],
+    "verified": false
+  },
+  {
+    "id": "ant-man",
+    "title": "Ant-Man",
+    "year": 2015,
+    "type": "feature film",
+    "distributor": "Marvel Studios / Disney",
+    "logline": "A thief inherits a shrinking suit and becomes an unlikely hero.",
+    "locationIds": [
+      "trilith-studios-fayetteville"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://www.georgiaencyclopedia.org/articles/arts-culture/film-industry-in-georgia/",
+      "https://exploregeorgia.org/things-to-do/blog/geek-out-over-these-7-super-movies-made-in-georgia"
+    ],
+    "verified": false
+  },
+  {
+    "id": "bessie",
+    "title": "Bessie",
+    "year": 2015,
+    "type": "TV movie",
+    "distributor": "HBO",
+    "logline": "Queen Latifah plays blues legend Bessie Smith.",
+    "locationIds": [
+      "fox-theatre",
+      "tabernacle"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "goosebumps",
+    "title": "Goosebumps",
+    "year": 2015,
+    "type": "feature film",
+    "distributor": "Columbia Pictures",
+    "logline": "R.L. Stine's monsters escape their books and overrun a small town.",
+    "locationIds": [
+      "downtown-madison",
+      "madison-morgan-cultural-center",
+      "madison-welcome-center"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://visitmadisonga.com/film-tour-movie-locations/",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/article/georgia-film-locations-perfect-for-summer-family-fun",
+      "https://visitmadisonga.com/mystic-falls-and-top-5-spooky-films/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "spongebob-sponge-out-of-water",
+    "title": "The SpongeBob Movie: Sponge Out of Water",
+    "year": 2015,
+    "type": "feature film",
+    "distributor": "Paramount Pictures",
+    "logline": "SpongeBob and friends come ashore in search of a stolen recipe.",
+    "locationIds": [
+      "broughton-street"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "captain-america-civil-war",
+    "title": "Captain America: Civil War",
+    "year": 2016,
+    "type": "feature film",
+    "distributor": "Walt Disney Studios",
+    "logline": "The Avengers split over government oversight of superheroes.",
+    "locationIds": [
+      "fado-irish-pub",
+      "porsche-experience-center",
+      "state-farm-arena-gulch",
+      "peachtree-christian-church"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/list/captain-america-civil-war-film-tour",
+      "https://wabe.org/?p=67018",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/list/marvelous-film-locations-for-superheroes",
+      "https://www.ajc.com/blog/buzz/scarlett-johansson-chris-evans-anthony-mackie-the-set-marvel-captain-america-civil-war/IubAjHvLBme5HYyBzHJT3J"
+    ],
+    "verified": false
+  },
+  {
+    "id": "confirmation",
+    "title": "Confirmation",
+    "year": 2016,
+    "type": "TV movie",
+    "distributor": "HBO",
+    "logline": "Dramatization of the Clarence Thomas confirmation hearings.",
+    "locationIds": [
+      "agnes-scott"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "live-by-night",
+    "title": "Live by Night",
+    "year": 2016,
+    "type": "feature film",
+    "distributor": "Warner Bros.",
+    "logline": "A Boston gangster moves south to run rum-smuggling operations in Prohibition-era Tampa.",
+    "locationIds": [
+      "newcastle-street-brunswick"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://vanishinggeorgia.com/2015/10/30/live-by-night-historic-downtown-brunswick-being-transforms-into-prohibition-era-ybor-city/",
+      "https://www.goldenisles.com/blog/post/whats-filming-golden-isles/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "stranger-things",
+    "title": "Stranger Things",
+    "year": 2016,
+    "type": "TV series",
+    "distributor": "Netflix",
+    "logline": "Kids in 1980s Indiana face secret experiments and creatures from another dimension.",
+    "locationIds": [
+      "emory-briarcliff",
+      "south-bend-pool",
+      "tiffanys-kitchen",
+      "douglasville-old-city-hall",
+      "sleepy-hollow-farm",
+      "dominicks-norcross",
+      "palmetto-piggly-wiggly",
+      "stone-mountain-park",
+      "stone-mountain-cemetery",
+      "downtown-conyers",
+      "downtown-jackson"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://www.atlantamagazine.com/news-culture-articles/a-map-of-all-the-places-stranger-things-has-filmed-near-metro-atlanta/",
+      "https://www.afar.com/magazine/stranger-things-filming-locations-in-georgia",
+      "https://www.narcity.com/atlanta/9-stranger-things-filming-locations-in-georgia-you-can-visit-right-now",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "baby-driver",
+    "title": "Baby Driver",
+    "year": 2017,
+    "type": "feature film",
+    "distributor": "Sony Pictures",
+    "logline": "A music-obsessed getaway driver tries to get out of the heist game.",
+    "locationIds": [
+      "candler-building",
+      "odd-fellows-building",
+      "goodfellas-pizza",
+      "georgia-world-congress-center",
+      "healey-building",
+      "peachtree-center-mall"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://www.atlantamagazine.com/news-culture-articles/baby-driver-filming-locations-map/",
+      "https://movie-locations.com/movies/b/Baby-Driver.php",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "baywatch",
+    "title": "Baywatch",
+    "year": 2017,
+    "type": "feature film",
+    "distributor": "Paramount Pictures",
+    "logline": "Lifeguards uncover a criminal plot threatening their beach.",
+    "locationIds": [
+      "tybee-pier"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://www.thisismysouth.com/film-friday-baywatch",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.filmsavannah.org/locations/location-highlights/tybee-pier-and-pavillion/",
+      "https://exploregeorgia.org/things-to-do/list/the-last-song-film-tour"
+    ],
+    "verified": false
+  },
+  {
+    "id": "brockmire",
+    "title": "Brockmire",
+    "year": 2017,
+    "type": "TV series",
+    "distributor": "IFC",
+    "logline": "A disgraced baseball announcer attempts a comeback in a minor-league town.",
+    "locationIds": [
+      "luther-williams-field"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://visitmacon.org/things-to-do/arts-and-culture/macon-film-and-tv",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "guardians-vol-2",
+    "title": "Guardians of the Galaxy Vol. 2",
+    "year": 2017,
+    "type": "feature film",
+    "distributor": "Walt Disney Studios",
+    "logline": "The Guardians uncover the truth about Peter Quill's father.",
+    "locationIds": [
+      "downtown-cartersville"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://www.movie-locations.com/movies/g/Guardians-Of-The-Galaxy-2.php",
+      "https://exploregeorgia.org/things-to-do/list/marvelous-film-locations-for-superheroes",
+      "https://www.philasun.com/travel/smooth-traveler-made-georgia-hollywood-south/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "ozark",
+    "title": "Ozark",
+    "year": 2017,
+    "type": "TV series",
+    "distributor": "Netflix",
+    "logline": "A financial planner relocates his family to launder cartel money.",
+    "locationIds": [
+      "silver-skillet",
+      "westview-cemetery",
+      "starlight-drive-in",
+      "stone-mountain-park",
+      "chateau-elan",
+      "lake-lanier"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://www.narcity.com/atlanta/netflixs-ozark-filmed-in-georgia-you-can-visit-these-iconic-spots",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.afar.com/magazine/stranger-things-filming-locations-in-georgia",
+      "https://www.exploregainesville.org/plan-your-visit/filmed-in-gainesville/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "spider-man-homecoming",
+    "title": "Spider-Man: Homecoming",
+    "year": 2017,
+    "type": "feature film",
+    "distributor": "Sony Pictures",
+    "logline": "A teenage Peter Parker tries to prove himself to Tony Stark.",
+    "locationIds": [
+      "waldorf-astoria-buckhead",
+      "embassy-suites-perimeter",
+      "downtown-cartersville"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/list/marvelous-film-locations-for-superheroes",
+      "https://www.movie-locations.com/movies/g/Guardians-Of-The-Galaxy-2.php",
+      "https://www.philasun.com/travel/smooth-traveler-made-georgia-hollywood-south/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "avengers-infinity-war",
+    "title": "Avengers: Infinity War",
+    "year": 2018,
+    "type": "feature film",
+    "distributor": "Marvel Studios / Disney",
+    "logline": "The Avengers and their allies fight Thanos across the galaxy and in a forested Wakanda.",
+    "locationIds": [
+      "tallulah-gorge-state-park",
+      "woodruff-park"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://mculocationscout.com/2020/09/16/forest-waterfall-wakanda-mcu-location-scout",
+      "https://www.atlantamagazine.com/news-culture-articles/whats-filming-in-atlanta-now-avengers-infinity-war-ant-man-wasp-valor-uncle-drew-plus-marvel-film-got-away/",
+      "https://thecinemaholic.com/where-was-deliverance-filmed",
+      "https://roughdraftatlanta.com/2024/06/07/nature-in-cinema-a-movie-tour-through-georgias-parks/",
+      "https://mculocationscout.com/tag/atlanta/page/17/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "black-panther",
+    "title": "Black Panther",
+    "year": 2018,
+    "type": "feature film",
+    "distributor": "Walt Disney Studios",
+    "logline": "T'Challa takes the throne of Wakanda and faces a challenger.",
+    "locationIds": [
+      "high-museum",
+      "met-atlanta",
+      "atlanta-city-hall",
+      "friedmans-shoes"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/article/where-to-find-wakanda-in-georgia",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "cobra-kai",
+    "title": "Cobra Kai",
+    "year": 2018,
+    "type": "TV series",
+    "distributor": "Netflix",
+    "logline": "Decades after the Karate Kid tournament, old rivals reopen their dojos.",
+    "locationIds": [
+      "underground-atlanta",
+      "cascade-fun-center",
+      "fernbank-science-center",
+      "tybee-pier"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide",
+      "https://www.filmsavannah.org/locations/location-highlights/tybee-pier-and-pavillion/",
+      "https://exploregeorgia.org/things-to-do/list/the-last-song-film-tour",
+      "https://www.thisismysouth.com/film-friday-baywatch"
+    ],
+    "verified": false
+  },
+  {
+    "id": "queer-eye",
+    "title": "Queer Eye",
+    "year": 2018,
+    "type": "TV series",
+    "distributor": "Netflix",
+    "logline": "Five experts help people transform their lives.",
+    "locationIds": [
+      "municipal-market",
+      "ponce-city-market"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "ready-to-love",
+    "title": "Ready to Love",
+    "year": 2018,
+    "type": "TV series",
+    "distributor": "OWN",
+    "logline": "Reality dating series for singles in their 30s and 40s.",
+    "locationIds": [
+      "piedmont-park",
+      "centennial-olympic-park"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "avengers-endgame",
+    "title": "Avengers: Endgame",
+    "year": 2019,
+    "type": "feature film",
+    "distributor": "Marvel Studios / Disney",
+    "logline": "Earth's heroes try to undo a cosmic catastrophe.",
+    "locationIds": [
+      "trilith-studios-fayetteville"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://www.georgiaencyclopedia.org/articles/arts-culture/film-industry-in-georgia/",
+      "https://exploregeorgia.org/things-to-do/blog/geek-out-over-these-7-super-movies-made-in-georgia"
+    ],
+    "verified": false
+  },
+  {
+    "id": "ford-v-ferrari",
+    "title": "Ford v Ferrari",
+    "year": 2019,
+    "type": "feature film",
+    "distributor": "20th Century Fox",
+    "logline": "A car designer and a driver build a Ford to beat Ferrari at Le Mans.",
+    "locationIds": [
+      "hutchinson-island"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "gemini-man",
+    "title": "Gemini Man",
+    "year": 2019,
+    "type": "feature film",
+    "distributor": "Paramount Pictures",
+    "logline": "An aging assassin is hunted by a younger clone of himself.",
+    "locationIds": [
+      "darien-waterfront-docks"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://mcintoshcountyga.com/180/Filming-In-McIntosh"
+    ],
+    "verified": false
+  },
+  {
+    "id": "lady-and-the-tramp-2019",
+    "title": "Lady and the Tramp",
+    "year": 2019,
+    "type": "feature film",
+    "distributor": "Disney+",
+    "logline": "Live-action remake of the canine romance.",
+    "locationIds": [
+      "cathedral-st-john"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "watchmen",
+    "title": "Watchmen",
+    "year": 2019,
+    "type": "limited series",
+    "distributor": "HBO",
+    "logline": "Masked vigilantes and police in a Tulsa haunted by racial violence.",
+    "locationIds": [
+      "oakland-cemetery",
+      "decatur-cemetery",
+      "decatur-square",
+      "downtown-newnan",
+      "downtown-cedartown",
+      "capitol-theatre-macon"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://www.thisismysouth.com/small-town-saturday-newnan-ga"
+    ],
+    "verified": false
+  },
+  {
+    "id": "sweet-magnolias",
+    "title": "Sweet Magnolias",
+    "year": 2020,
+    "type": "TV series",
+    "distributor": "Netflix",
+    "logline": "Three lifelong friends navigate life in a South Carolina town.",
+    "locationIds": [
+      "covington-square",
+      "newton-county-courthouse",
+      "mystic-grill",
+      "southview-cemetery"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/covington/",
+      "https://www.narcity.com/travel/us/ga/the-vampire-diaries-filming-locations-are-actually-here-in-georgia"
+    ],
+    "verified": false
+  },
+  {
+    "id": "falcon-winter-soldier",
+    "title": "The Falcon and the Winter Soldier",
+    "year": 2021,
+    "type": "limited series",
+    "distributor": "Disney+",
+    "logline": "Sam Wilson and Bucky Barnes grapple with the legacy of Captain America.",
+    "locationIds": [
+      "high-museum",
+      "georgia-state-capitol",
+      "krog-street-tunnel",
+      "decatur-square",
+      "sweetwater-creek",
+      "downtown-barnesville",
+      "skidaway-island-sp"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/article/where-to-find-wakanda-in-georgia",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/list/hunger-games-film-tour"
+    ],
+    "verified": false
+  },
+  {
+    "id": "underground-railroad",
+    "title": "The Underground Railroad",
+    "year": 2021,
+    "type": "limited series",
+    "distributor": "Amazon Prime Video",
+    "logline": "An enslaved woman escapes on a literal underground railroad.",
+    "locationIds": [
+      "lumpkin-campground",
+      "covington-square",
+      "macon-terminal-station",
+      "savannah-city-hall"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/covington/",
+      "https://www.narcity.com/travel/us/ga/the-vampire-diaries-filming-locations-are-actually-here-in-georgia",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "wandavision",
+    "title": "WandaVision",
+    "year": 2021,
+    "type": "limited series",
+    "distributor": "Disney+",
+    "logline": "Wanda and Vision live in a sitcom reality that hides something darker.",
+    "locationIds": [
+      "georgia-world-congress-center"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.atlantamagazine.com/news-culture-articles/baby-driver-filming-locations-map/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "juror-2",
+    "title": "Juror #2",
+    "year": 2024,
+    "type": "feature film",
+    "distributor": "Warner Bros.",
+    "logline": "A juror realizes he may be responsible for the death in the case he's hearing.",
+    "locationIds": [
+      "monterey-square",
+      "savannah-city-hall"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "bride-hard",
+    "title": "Bride Hard",
+    "year": 2025,
+    "type": "feature film",
+    "distributor": null,
+    "logline": "A secret agent bridesmaid defends a wedding from mercenaries.",
+    "locationIds": [
+      "ga-state-railroad-museum",
+      "factors-walk"
+    ],
+    "gaFilmOfficeRef": null,
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  }
+]

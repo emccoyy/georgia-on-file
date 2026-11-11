@@ -1,0 +1,2703 @@
+[
+  {
+    "id": "agnes-scott",
+    "name": "Agnes Scott College",
+    "type": "campus",
+    "city": "Decatur",
+    "county": "DeKalb",
+    "lat": 33.7685,
+    "lng": -84.2943,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Picturesque campus used for Scream 2's college, a prep school, and HBO's Confirmation.",
+    "productionIds": [
+      "the-four-seasons",
+      "bobby-jones",
+      "scream-2",
+      "single-moms-club",
+      "confirmation"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "amicalola-falls-state-park",
+    "name": "Amicalola Falls State Park",
+    "type": "park",
+    "city": "Dawsonville",
+    "county": "Dawson",
+    "lat": 34.562,
+    "lng": -84.249,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Exterior scenes for A Walk in the Woods were shot here, including at the park lodge, and the park stood in as the start of the Appalachian Trail approach.",
+    "productionIds": [
+      "a-walk-in-the-woods"
+    ],
+    "sources": [
+      "https://dawsonnews.com/local/movie-scenes-filmed-at-amicalola-park",
+      "https://www.gainesvilletimes.com/news/movie-filming-scenes-at-amicalola-park",
+      "https://en.wikipedia.org/wiki/A_Walk_in_the_Woods_(film)"
+    ],
+    "verified": false
+  },
+  {
+    "id": "amicalola-lodge",
+    "name": "Amicalola Lodge (roadside motel)",
+    "type": "hotel",
+    "city": "Dawsonville",
+    "county": "Dawson",
+    "lat": 34.4209,
+    "lng": -84.1196,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Clint Eastwood's overnight stop on the scouting trip.",
+    "productionIds": [
+      "trouble-with-the-curve"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false,
+    "note": "Coordinates are a guess; confirm the exact motel."
+  },
+  {
+    "id": "atlanta-city-hall",
+    "name": "Atlanta City Hall",
+    "type": "landmark",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.748,
+    "lng": -84.391,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Interior stood in for the United Nations in Black Panther's post-credits scene.",
+    "productionIds": [
+      "black-panther"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/article/where-to-find-wakanda-in-georgia"
+    ],
+    "verified": false,
+    "note": "Interior tours by advance appointment only."
+  },
+  {
+    "id": "atlanta-university-center",
+    "name": "Atlanta University Center",
+    "type": "campus",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.750569,
+    "lng": -84.411793,
+    "approximateCoords": false,
+    "public": true,
+    "description": "The connected HBCU campuses of Clark Atlanta, Morehouse, Spelman and Morris Brown appear prominently in several college films.",
+    "productionIds": [
+      "drumline",
+      "stomp-the-yard",
+      "we-are-marshall",
+      "school-daze"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "berry-college",
+    "name": "Berry College",
+    "type": "campus",
+    "city": "Rome",
+    "county": "Floyd",
+    "lat": 34.290361,
+    "lng": -85.189199,
+    "approximateCoords": false,
+    "public": true,
+    "description": "The Old Mill, Swan Lake and Ford dining hall appear in several films.",
+    "productionIds": [
+      "sweet-home-alabama",
+      "constantine",
+      "remember-the-titans"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "bonaventure-cemetery",
+    "name": "Bonaventure Cemetery",
+    "type": "cemetery",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.045206,
+    "lng": -81.049713,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Made famous by Midnight in the Garden of Good and Evil.",
+    "productionIds": [
+      "midnight-in-the-garden"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://visitsavannah.com/node/1450",
+      "https://en.wikipedia.org/wiki/Bonaventure_Cemetery"
+    ],
+    "verified": false
+  },
+  {
+    "id": "broughton-street",
+    "name": "Broughton Street",
+    "type": "street",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.079,
+    "lng": -81.0915,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Transformed into a seaside town for SpongeBob's live-action scenes.",
+    "productionIds": [
+      "spongebob-sponge-out-of-water"
+    ],
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "candler-building",
+    "name": "Candler Building",
+    "type": "landmark",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7592,
+    "lng": -84.3874,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Beaux-Arts tower used as the bank in Baby Driver's opening heist.",
+    "productionIds": [
+      "baby-driver"
+    ],
+    "sources": [
+      "https://www.atlantamagazine.com/news-culture-articles/baby-driver-filming-locations-map/",
+      "https://movie-locations.com/movies/b/Baby-Driver.php"
+    ],
+    "verified": false
+  },
+  {
+    "id": "capitol-theatre-macon",
+    "name": "Capitol Theatre",
+    "type": "theater",
+    "city": "Macon",
+    "county": "Bibb",
+    "lat": 32.837,
+    "lng": -83.6283,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Historic theater featured in Watchmen.",
+    "productionIds": [
+      "watchmen"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "cascade-fun-center",
+    "name": "Cascade Family Skating",
+    "type": "attraction",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.724,
+    "lng": -84.48,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Atlanta's famous roller rink hosts Cobra Kai's '80s skate scene.",
+    "productionIds": [
+      "cobra-kai"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "castleberry-hill",
+    "name": "Castleberry Hill Historic District",
+    "type": "street",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.748,
+    "lng": -84.4005,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Warehouse and loft district used for gritty urban scenes, including the office of Daisy's son and a loft in The Fighting Temptations.",
+    "productionIds": [
+      "freejack",
+      "the-fighting-temptations",
+      "driving-miss-daisy",
+      "kalifornia",
+      "the-signal"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "cathedral-st-john",
+    "name": "Cathedral Basilica of St. John the Baptist",
+    "type": "landmark",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.0727,
+    "lng": -81.0897,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Backdrop for the opening of Disney's 2019 Lady and the Tramp.",
+    "productionIds": [
+      "lady-and-the-tramp-2019"
+    ],
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "centennial-olympic-park",
+    "name": "Centennial Olympic Park",
+    "type": "park",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7605,
+    "lng": -84.393,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Date spot in Ready to Love; nearby streets used in Baby Driver chases.",
+    "productionIds": [
+      "ready-to-love"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "chapel-by-the-sea",
+    "name": "The Chapel by the Sea",
+    "type": "landmark",
+    "city": "Tybee Island",
+    "county": "Chatham",
+    "lat": 32.011,
+    "lng": -80.8445,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Built for The Last Song and later gifted to the Tybee Island Historical Society.",
+    "productionIds": [
+      "the-last-song"
+    ],
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "chateau-elan",
+    "name": "Chateau Elan Winery & Resort",
+    "type": "hotel",
+    "city": "Braselton",
+    "county": "Barrow",
+    "lat": 34.106,
+    "lng": -83.815,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The winery where Marty meets his cartel boss in Ozark season one.",
+    "productionIds": [
+      "ozark"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "chattooga-river",
+    "name": "Chattooga Wild & Scenic River",
+    "type": "natural area",
+    "city": "Clayton",
+    "county": "Rabun",
+    "lat": 34.862893,
+    "lng": -83.393713,
+    "approximateCoords": false,
+    "public": true,
+    "description": "The whitewater of Deliverance.",
+    "productionIds": [
+      "deliverance"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://www.slashfilm.com/1804885/deliverance-filming-locations-explained",
+      "https://movie-locations.com/movies/d/Deliverance.php",
+      "https://en.wikipedia.org/wiki/Chatooga_River"
+    ],
+    "verified": false
+  },
+  {
+    "id": "chestatee-wildlife-preserve",
+    "name": "Chestatee Wildlife Preserve",
+    "type": "attraction",
+    "city": "Dahlonega",
+    "county": "Lumpkin",
+    "lat": 34.50758,
+    "lng": -83.910329,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Where Katniss and Gale encounter the elk while hunting.",
+    "productionIds": [
+      "mockingjay-part-1"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/list/hunger-games-film-tour"
+    ],
+    "verified": false
+  },
+  {
+    "id": "chippewa-square",
+    "name": "Chippewa Square",
+    "type": "park",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.0763,
+    "lng": -81.0913,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Where Forrest waits for the bus and tells his story.",
+    "productionIds": [
+      "forrest-gump"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide",
+      "https://gosouthsavannah.com/history/film/forrest-gump.html",
+      "https://en.wikipedia.org/wiki/Chippewa_Square_(Savannah,_Georgia)"
+    ],
+    "verified": false
+  },
+  {
+    "id": "cobb-energy-centre",
+    "name": "Cobb Energy Performing Arts Centre",
+    "type": "venue",
+    "city": "Atlanta",
+    "county": "Cobb",
+    "lat": 33.8833,
+    "lng": -84.4672,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Played the CDC in The Walking Dead's first season finale.",
+    "productionIds": [
+      "the-walking-dead"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/list/see-where-the-walking-dead-was-filmed-in-georgia",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "covington-square",
+    "name": "Covington Square",
+    "type": "street",
+    "city": "Covington",
+    "county": "Newton",
+    "lat": 33.596867,
+    "lng": -83.859977,
+    "approximateCoords": false,
+    "public": true,
+    "description": "The heart of Mystic Falls and Serenity; also seen in My Cousin Vinny.",
+    "productionIds": [
+      "the-vampire-diaries",
+      "sweet-magnolias",
+      "in-the-heat-of-the-night",
+      "dukes-of-hazzard",
+      "my-cousin-vinny",
+      "underground-railroad"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/covington/",
+      "https://www.narcity.com/travel/us/ga/the-vampire-diaries-filming-locations-are-actually-here-in-georgia"
+    ],
+    "verified": false
+  },
+  {
+    "id": "darien-waterfront-docks",
+    "name": "Darien waterfront docks",
+    "type": "waterfront",
+    "city": "Darien",
+    "county": "McIntosh",
+    "lat": 31.37,
+    "lng": -81.434,
+    "approximateCoords": true,
+    "public": true,
+    "description": "McIntosh County lists a dock shoot for Gemini Man among its filming highlights; the exact dock was not specified, so the coordinates are town-level.",
+    "productionIds": [
+      "gemini-man"
+    ],
+    "sources": [
+      "https://mcintoshcountyga.com/180/Filming-In-McIntosh"
+    ],
+    "verified": false
+  },
+  {
+    "id": "decatur-cemetery",
+    "name": "Decatur Cemetery",
+    "type": "cemetery",
+    "city": "Decatur",
+    "county": "DeKalb",
+    "lat": 33.781366,
+    "lng": -84.291946,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Setting for the opening and closing scenes of Remember the Titans; also seen in Watchmen.",
+    "productionIds": [
+      "remember-the-titans",
+      "watchmen"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "decatur-square",
+    "name": "Decatur Square & Old Courthouse",
+    "type": "street",
+    "city": "Decatur",
+    "county": "DeKalb",
+    "lat": 33.7746,
+    "lng": -84.2963,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Featured in Watchmen; the DeKalb History Center also appears in The Falcon and the Winter Soldier.",
+    "productionIds": [
+      "watchmen",
+      "falcon-winter-soldier"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "dixie-speedway",
+    "name": "Dixie Speedway",
+    "type": "venue",
+    "city": "Woodstock",
+    "county": "Cherokee",
+    "lat": 34.089597,
+    "lng": -84.561298,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Kenny Rogers races here in Six Pack.",
+    "productionIds": [
+      "six-pack"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "dominicks-norcross",
+    "name": "Dominick's",
+    "type": "restaurant",
+    "city": "Norcross",
+    "county": "Gwinnett",
+    "lat": 33.941,
+    "lng": -84.2135,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Plays Enzo's, where Hopper is stood up on a date.",
+    "productionIds": [
+      "stranger-things"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "douglasville-old-city-hall",
+    "name": "Former Douglasville City Hall",
+    "type": "landmark",
+    "city": "Douglasville",
+    "county": "Douglas",
+    "lat": 33.7515,
+    "lng": -84.7477,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Plays the Hawkins Police Department.",
+    "productionIds": [
+      "stranger-things"
+    ],
+    "sources": [
+      "https://www.afar.com/magazine/stranger-things-filming-locations-in-georgia"
+    ],
+    "verified": false
+  },
+  {
+    "id": "downtown-athens",
+    "name": "Downtown Athens & UGA",
+    "type": "street",
+    "city": "Athens",
+    "county": "Clarke",
+    "lat": 33.945932,
+    "lng": -83.374932,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Setting for The Spectacular Now and scenes in several other productions.",
+    "productionIds": [
+      "the-spectacular-now",
+      "breaking-away",
+      "road-trip",
+      "cobb",
+      "trouble-with-the-curve"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "downtown-barnesville",
+    "name": "Downtown Barnesville",
+    "type": "street",
+    "city": "Barnesville",
+    "county": "Lamar",
+    "lat": 33.0546,
+    "lng": -84.1558,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Sam and Sarah's bank visit.",
+    "productionIds": [
+      "falcon-winter-soldier"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "downtown-cartersville",
+    "name": "Downtown Cartersville & Depot",
+    "type": "street",
+    "city": "Cartersville",
+    "county": "Bartow",
+    "lat": 34.1651,
+    "lng": -84.7999,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Wall Street and the historic depot appear in two Marvel films.",
+    "productionIds": [
+      "spider-man-homecoming",
+      "guardians-vol-2"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/list/marvelous-film-locations-for-superheroes",
+      "https://www.movie-locations.com/movies/g/Guardians-Of-The-Galaxy-2.php",
+      "https://www.philasun.com/travel/smooth-traveler-made-georgia-hollywood-south/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "downtown-cedartown",
+    "name": "Downtown Cedartown",
+    "type": "street",
+    "city": "Cedartown",
+    "county": "Polk",
+    "lat": 34.0116,
+    "lng": -85.2553,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Where Watchmen's opening Tulsa Race Massacre scene was filmed.",
+    "productionIds": [
+      "watchmen"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "downtown-clayton",
+    "name": "Downtown Clayton",
+    "type": "street",
+    "city": "Clayton",
+    "county": "Rabun",
+    "lat": 34.8781,
+    "lng": -83.401,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Deliverance was shot on location in and around Clayton, and the town served as a base for the production, including a hospital exterior on South Main Street.",
+    "productionIds": [
+      "deliverance"
+    ],
+    "sources": [
+      "https://thecinemaholic.com/where-was-deliverance-filmed",
+      "https://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/rabun-county/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "downtown-conyers",
+    "name": "Downtown Conyers",
+    "type": "street",
+    "city": "Conyers",
+    "county": "Rockdale",
+    "lat": 33.6676,
+    "lng": -84.0177,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Main Street backdrop for decades of TV and film.",
+    "productionIds": [
+      "dukes-of-hazzard",
+      "in-the-heat-of-the-night",
+      "american-reunion",
+      "identity-thief",
+      "the-vampire-diaries",
+      "stranger-things"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "downtown-crawfordville",
+    "name": "Downtown Crawfordville",
+    "type": "street",
+    "city": "Crawfordville",
+    "county": "Taliaferro",
+    "lat": 33.554,
+    "lng": -82.896,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Early-1900s main street used in 13+ films, including Sweet Home Alabama's street festival.",
+    "productionIds": [
+      "sweet-home-alabama",
+      "get-low",
+      "the-neon-bible"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "downtown-jackson",
+    "name": "Downtown Jackson (Hawkins)",
+    "type": "street",
+    "city": "Jackson",
+    "county": "Butts",
+    "lat": 33.2946,
+    "lng": -83.966,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Downtown Hawkins, including Melvald's General Store and the courthouse used as Hawkins Library.",
+    "productionIds": [
+      "stranger-things"
+    ],
+    "sources": [
+      "https://www.afar.com/magazine/stranger-things-filming-locations-in-georgia",
+      "https://www.narcity.com/atlanta/9-stranger-things-filming-locations-in-georgia-you-can-visit-right-now"
+    ],
+    "verified": false
+  },
+  {
+    "id": "downtown-jonesboro",
+    "name": "Downtown Jonesboro",
+    "type": "street",
+    "city": "Jonesboro",
+    "county": "Clayton",
+    "lat": 33.5215,
+    "lng": -84.3538,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Doubled as Texarkana in Smokey and the Bandit.",
+    "productionIds": [
+      "smokey-and-the-bandit"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "downtown-madison",
+    "name": "Downtown Madison",
+    "type": "street",
+    "city": "Madison",
+    "county": "Morgan",
+    "lat": 33.5957,
+    "lng": -83.468,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Antebellum town used in Goosebumps, My Cousin Vinny, Road Trip and I'll Fly Away.",
+    "productionIds": [
+      "goosebumps",
+      "my-cousin-vinny",
+      "road-trip",
+      "ill-fly-away",
+      "warm-springs"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/article/georgia-film-locations-perfect-for-summer-family-fun"
+    ],
+    "verified": false
+  },
+  {
+    "id": "downtown-newnan",
+    "name": "Downtown Newnan",
+    "type": "street",
+    "city": "Newnan",
+    "county": "Coweta",
+    "lat": 33.3807,
+    "lng": -84.7997,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Site of Watchmen's street fair. The 1904 courthouse and surrounding square have turned up in zombie comedy and gospel-choir film productions. The square is open public downtown space.",
+    "productionIds": [
+      "watchmen",
+      "zombieland",
+      "joyful-noise"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.thisismysouth.com/small-town-saturday-newnan-ga"
+    ],
+    "verified": false
+  },
+  {
+    "id": "downtown-perry",
+    "name": "Downtown Perry",
+    "type": "street",
+    "city": "Perry",
+    "county": "Houston",
+    "lat": 32.4582,
+    "lng": -83.7316,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Where The Crazies was largely shot.",
+    "productionIds": [
+      "the-crazies"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "downtown-senoia",
+    "name": "Downtown Senoia",
+    "type": "street",
+    "city": "Senoia",
+    "county": "Coweta",
+    "lat": 33.3029,
+    "lng": -84.5541,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The real town behind Woodbury; Main Street stars mark productions shot here.",
+    "productionIds": [
+      "the-walking-dead",
+      "fried-green-tomatoes"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/list/see-where-the-walking-dead-was-filmed-in-georgia",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://savingplaces.org/stories/behind-the-scenes-of-the-historic-town-where-the-walking-dead-is-filmed",
+      "https://www.skybound.com/shows/the-walking-dead/locations-from-the-walking-dead"
+    ],
+    "verified": false
+  },
+  {
+    "id": "driftwood-beach",
+    "name": "Driftwood Beach",
+    "type": "beach",
+    "city": "Jekyll Island",
+    "county": "Glynn",
+    "lat": 31.0876,
+    "lng": -81.4031,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Used in later seasons of The Walking Dead.",
+    "productionIds": [
+      "the-walking-dead"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.jekyllisland.com/filming-locations/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "echopark-speedway",
+    "name": "EchoPark Speedway area",
+    "type": "venue",
+    "city": "Hampton",
+    "county": "Henry",
+    "lat": 33.384517,
+    "lng": -84.313377,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Rural driving scenes in Identity Thief were shot along Highway 20 near the track.",
+    "productionIds": [
+      "identity-thief",
+      "six-pack"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "embassy-suites-perimeter",
+    "name": "Embassy Suites Atlanta Perimeter Center",
+    "type": "hotel",
+    "city": "Dunwoody",
+    "county": "DeKalb",
+    "lat": 33.925,
+    "lng": -84.341,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Hotel scene in Spider-Man: Homecoming.",
+    "productionIds": [
+      "spider-man-homecoming"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/list/marvelous-film-locations-for-superheroes"
+    ],
+    "verified": false
+  },
+  {
+    "id": "emory-briarcliff",
+    "name": "Emory Briarcliff Campus (exterior)",
+    "type": "campus",
+    "city": "Atlanta",
+    "county": "DeKalb",
+    "lat": 33.807,
+    "lng": -84.32,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Brutalist former hospital building that plays Hawkins Lab's exterior.",
+    "productionIds": [
+      "stranger-things"
+    ],
+    "sources": [
+      "https://www.afar.com/magazine/stranger-things-filming-locations-in-georgia",
+      "https://www.atlantamagazine.com/news-culture-articles/a-map-of-all-the-places-stranger-things-has-filmed-near-metro-atlanta/"
+    ],
+    "verified": false,
+    "note": "Exterior only; building is closed to visitors. Pin a public vantage point."
+  },
+  {
+    "id": "factors-walk",
+    "name": "Factors Walk",
+    "type": "street",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.0808,
+    "lng": -81.0903,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Featured in Bride Hard.",
+    "productionIds": [
+      "bride-hard"
+    ],
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "fado-irish-pub",
+    "name": "Fado Irish Pub",
+    "type": "restaurant",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.8389,
+    "lng": -84.3791,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Buckhead Irish pub used as a location in Captain America: Civil War.",
+    "productionIds": [
+      "captain-america-civil-war"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "fernbank-science-center",
+    "name": "Fernbank Science Center",
+    "type": "museum",
+    "city": "Atlanta",
+    "county": "DeKalb",
+    "lat": 33.774,
+    "lng": -84.315,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Served as the Ventura Zoo in Cobra Kai season three.",
+    "productionIds": [
+      "cobra-kai"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "forsyth-park",
+    "name": "Forsyth Park",
+    "type": "park",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.067,
+    "lng": -81.0959,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The park and fountain appear in The General's Daughter. Savannah's best-known park, with its fountain, is a go-to backdrop for productions and is listed among the Midnight in the Garden of Good and Evil sites.",
+    "productionIds": [
+      "the-generals-daughter",
+      "midnight-in-the-garden"
+    ],
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide",
+      "https://www.filmsavannah.org/locations/location-highlights/forsyth-park/",
+      "https://visitsavannah.com/list/7-ways-to-experience-midnight-the-garden-good-and-evil-savannah"
+    ],
+    "verified": false
+  },
+  {
+    "id": "fox-theatre",
+    "name": "Fox Theatre",
+    "type": "theater",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7726,
+    "lng": -84.3856,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The 1929 movie palace stood in as a period theater for Bessie.",
+    "productionIds": [
+      "bessie"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false,
+    "note": "Explore Georgia pin may be offset; Fox is at roughly 33.7726,-84.3856."
+  },
+  {
+    "id": "friedmans-shoes",
+    "name": "Friedman's Shoes",
+    "type": "shopping",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7499,
+    "lng": -84.3935,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Family shoe store whose storefront became a CIA black site in Black Panther.",
+    "productionIds": [
+      "black-panther"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/article/where-to-find-wakanda-in-georgia"
+    ],
+    "verified": false,
+    "note": "Type is really 'business/shop'; adjust if your schema has it."
+  },
+  {
+    "id": "ga-intl-horse-park",
+    "name": "Georgia International Horse Park",
+    "type": "venue",
+    "city": "Conyers",
+    "county": "Rockdale",
+    "lat": 33.670996,
+    "lng": -83.940333,
+    "approximateCoords": false,
+    "public": true,
+    "description": "1996 Olympic equestrian venue used in Sweet Home Alabama and Identity Thief.",
+    "productionIds": [
+      "sweet-home-alabama",
+      "identity-thief"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "ga-state-railroad-museum",
+    "name": "Georgia State Railroad Museum",
+    "type": "museum",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.0742,
+    "lng": -81.1003,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The Roundhouse Complex appears in Glory and Bride Hard.",
+    "productionIds": [
+      "glory",
+      "bride-hard"
+    ],
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "georgia-aquarium",
+    "name": "Georgia Aquarium",
+    "type": "attraction",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.762498,
+    "lng": -84.394568,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Will takes Ronnie here to see her favorite animals up close in The Last Song. The aquarium's galleries and giant window appeared in several studio comedies and dramas.",
+    "productionIds": [
+      "the-last-song",
+      "what-to-expect"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://discoveratlanta.com/stories/top-filming-locations-in-atlanta/",
+      "https://www.georgiaaquarium.org/resource-center/stories/big-window-to-big-screen/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "georgia-state-capitol",
+    "name": "Georgia State Capitol",
+    "type": "landmark",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.749,
+    "lng": -84.388,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Site of the new-Captain-America press conference, with its gold dome digitally removed.",
+    "productionIds": [
+      "falcon-winter-soldier"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "georgia-state-stadium",
+    "name": "Center Parc Stadium (former Turner Field)",
+    "type": "venue",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7349,
+    "lng": -84.3894,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The former Braves ballpark hosts key scenes in Trouble with the Curve.",
+    "productionIds": [
+      "trouble-with-the-curve"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "georgia-world-congress-center",
+    "name": "Georgia World Congress Center",
+    "type": "venue",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.759,
+    "lng": -84.397,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Stood in as SWORD headquarters in WandaVision. The convention center's garages hosted the film's closing showdown.",
+    "productionIds": [
+      "wandavision",
+      "baby-driver"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.atlantamagazine.com/news-culture-articles/baby-driver-filming-locations-map/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "georgian-terrace",
+    "name": "The Georgian Terrace Hotel",
+    "type": "hotel",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.77266,
+    "lng": -84.384302,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Historic 1911 hotel where Sandy and Diana stay in Identity Thief.",
+    "productionIds": [
+      "identity-thief"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "goodfellas-pizza",
+    "name": "Goodfellas Pizza & Wings",
+    "type": "restaurant",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.772,
+    "lng": -84.3897,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Where Baby takes a straight job delivering pizza.",
+    "productionIds": [
+      "baby-driver"
+    ],
+    "sources": [
+      "https://www.atlantamagazine.com/news-culture-articles/baby-driver-filming-locations-map/",
+      "https://movie-locations.com/movies/b/Baby-Driver.php"
+    ],
+    "verified": false
+  },
+  {
+    "id": "healey-building",
+    "name": "Healey Building",
+    "type": "landmark",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7557,
+    "lng": -84.391,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The protagonist walks out of this downtown building during the stylized opening-title sequence.",
+    "productionIds": [
+      "baby-driver"
+    ],
+    "sources": [
+      "https://www.atlantamagazine.com/news-culture-articles/baby-driver-filming-locations-map/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "high-falls-sp",
+    "name": "High Falls State Park",
+    "type": "park",
+    "city": "Jackson",
+    "county": "Butts",
+    "lat": 33.17749,
+    "lng": -84.020096,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Location in Six Pack.",
+    "productionIds": [
+      "six-pack"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "high-museum",
+    "name": "High Museum of Art",
+    "type": "museum",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7901,
+    "lng": -84.3856,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Stood in for the fictional Museum of Great Britain in Black Panther and the Smithsonian in The Falcon and the Winter Soldier.",
+    "productionIds": [
+      "black-panther",
+      "falcon-winter-soldier",
+      "what-to-expect"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/article/where-to-find-wakanda-in-georgia",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "home-grown",
+    "name": "Home Grown Restaurant",
+    "type": "restaurant",
+    "city": "Atlanta",
+    "county": "DeKalb",
+    "lat": 33.7398,
+    "lng": -84.3477,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Retro diner counter that fit the old-school feel of Trouble with the Curve.",
+    "productionIds": [
+      "trouble-with-the-curve"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "hutchinson-island",
+    "name": "Hutchinson Island",
+    "type": "street",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.088,
+    "lng": -81.088,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Transformed into Le Mans for Ford v Ferrari's race.",
+    "productionIds": [
+      "ford-v-ferrari"
+    ],
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "international-park-beach",
+    "name": "The Beach at Clayton County International Park",
+    "type": "beach",
+    "city": "Jonesboro",
+    "county": "Clayton",
+    "lat": 33.527252,
+    "lng": -84.313378,
+    "approximateCoords": false,
+    "public": true,
+    "description": "The Quarter Quell arena and cornucopia were filmed on this beach.",
+    "productionIds": [
+      "the-hunger-games-catching-fire"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/list/hunger-games-film-tour"
+    ],
+    "verified": false
+  },
+  {
+    "id": "jackson-street-bridge",
+    "name": "Jackson Street Bridge",
+    "type": "street",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7617,
+    "lng": -84.3721,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The skyline view behind Rick's horseback ride into Atlanta.",
+    "productionIds": [
+      "the-walking-dead"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "jasper-county-courthouse",
+    "name": "Jasper County Courthouse",
+    "type": "landmark",
+    "city": "Monticello",
+    "county": "Jasper",
+    "lat": 33.3047,
+    "lng": -83.6835,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Where Vinny delivers the famous 'two yutes' line.",
+    "productionIds": [
+      "my-cousin-vinny"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "jekyll-island-beach",
+    "name": "Jekyll Island Beach",
+    "type": "beach",
+    "city": "Jekyll Island",
+    "county": "Glynn",
+    "lat": 31.045,
+    "lng": -81.4,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Beach scenes in X-Men: First Class.",
+    "productionIds": [
+      "x-men-first-class"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/list/marvelous-film-locations-for-superheroes"
+    ],
+    "verified": false,
+    "note": "Source doesn't specify which beach; pin is generic."
+  },
+  {
+    "id": "jekyll-island-club",
+    "name": "Jekyll Island Club Resort",
+    "type": "hotel",
+    "city": "Jekyll Island",
+    "county": "Glynn",
+    "lat": 31.060471,
+    "lng": -81.422575,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Bagger Vance's lobby bar was so popular the hotel recreated it.",
+    "productionIds": [
+      "the-legend-of-bagger-vance"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://www.jekyllisland.com/filming-locations/",
+      "https://www.jekyllisland.com/magazine/ready-for-its-closeup/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "krog-street-tunnel",
+    "name": "Krog Street Tunnel",
+    "type": "street",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7533,
+    "lng": -84.3646,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Graffiti-covered tunnel seen in The Falcon and the Winter Soldier.",
+    "productionIds": [
+      "falcon-winter-soldier"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "lake-lanier",
+    "name": "Lake Lanier",
+    "type": "natural area",
+    "city": "Gainesville",
+    "county": "Hall",
+    "lat": 34.22,
+    "lng": -83.94,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The Netflix crime drama used the shoreline and waters around Lake Lanier near Gainesville as part of its Ozarks setting.",
+    "productionIds": [
+      "ozark"
+    ],
+    "sources": [
+      "https://www.narcity.com/atlanta/netflixs-ozark-filmed-in-georgia-you-can-visit-these-iconic-spots",
+      "https://www.exploregainesville.org/plan-your-visit/filmed-in-gainesville/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "loves-seafood",
+    "name": "Love's Seafood & Steaks",
+    "type": "restaurant",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 31.979382,
+    "lng": -81.288947,
+    "approximateCoords": false,
+    "public": true,
+    "description": "The truck stop where Jenny performs.",
+    "productionIds": [
+      "forrest-gump"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "lumber-city-bridge",
+    "name": "Ocmulgee River Bridge",
+    "type": "landmark",
+    "city": "Lumber City",
+    "county": "Telfair",
+    "lat": 31.923,
+    "lng": -82.68,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Historic swing bridge seen in Identity Thief.",
+    "productionIds": [
+      "identity-thief"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "lumpkin-campground",
+    "name": "Lumpkin Campground",
+    "type": "historic site",
+    "city": "Dawsonville",
+    "county": "Dawson",
+    "lat": 34.42,
+    "lng": -84.13,
+    "approximateCoords": true,
+    "public": true,
+    "description": "1830 Methodist camp-meeting grounds used in The Underground Railroad.",
+    "productionIds": [
+      "underground-railroad"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false,
+    "note": "Coordinates are a guess."
+  },
+  {
+    "id": "luther-williams-field",
+    "name": "Luther Williams Field",
+    "type": "venue",
+    "city": "Macon",
+    "county": "Bibb",
+    "lat": 32.8486,
+    "lng": -83.6203,
+    "approximateCoords": true,
+    "public": true,
+    "description": "1929 ballpark featured in the Jackie Robinson biopic. The historic ballpark was relabeled as a fictional minor-league field for the baseball comedy series. It is listed on Macon's film trail.",
+    "productionIds": [
+      "42",
+      "brockmire"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://visitmacon.org/things-to-do/arts-and-culture/macon-film-and-tv"
+    ],
+    "verified": false
+  },
+  {
+    "id": "macon-terminal-station",
+    "name": "Terminal Station",
+    "type": "historic site",
+    "city": "Macon",
+    "county": "Bibb",
+    "lat": 32.8341,
+    "lng": -83.6261,
+    "approximateCoords": true,
+    "public": true,
+    "description": "1916 rail station used in The Underground Railroad.",
+    "productionIds": [
+      "underground-railroad"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "madison-morgan-cultural-center",
+    "name": "Madison-Morgan Cultural Center",
+    "type": "museum",
+    "city": "Madison",
+    "county": "Morgan",
+    "lat": 33.5936,
+    "lng": -83.4695,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Filming location for Goosebumps.",
+    "productionIds": [
+      "goosebumps"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/article/georgia-film-locations-perfect-for-summer-family-fun"
+    ],
+    "verified": false
+  },
+  {
+    "id": "madison-square",
+    "name": "Madison Square",
+    "type": "park",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.0745,
+    "lng": -81.0927,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Seen in Forrest Gump's opening shot.",
+    "productionIds": [
+      "forrest-gump"
+    ],
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "madison-welcome-center",
+    "name": "Madison Welcome Center (historic firehouse)",
+    "type": "landmark",
+    "city": "Madison",
+    "county": "Morgan",
+    "lat": 33.5949,
+    "lng": -83.466,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The visitor center building appeared in a monster movie shoot and, on the vampire series, served as a police station. It also anchors the town's self-guided film tour.",
+    "productionIds": [
+      "goosebumps",
+      "the-vampire-diaries"
+    ],
+    "sources": [
+      "https://visitmadisonga.com/film-tour-movie-locations/",
+      "https://visitmadisonga.com/mystic-falls-and-top-5-spooky-films/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "marriott-marquis",
+    "name": "Atlanta Marriott Marquis",
+    "type": "hotel",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.761585,
+    "lng": -84.385614,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Its futuristic atrium and elevators became the tributes' quarters.",
+    "productionIds": [
+      "mockingjay-part-1"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/list/hunger-games-film-tour"
+    ],
+    "verified": false,
+    "note": "Sources say 'Mockingjay' without naming the part; Part 1 assumed."
+  },
+  {
+    "id": "mercer-williams-house",
+    "name": "Mercer Williams House Museum",
+    "type": "museum",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.071502,
+    "lng": -81.094953,
+    "approximateCoords": false,
+    "public": true,
+    "description": "The house at the center of Midnight in the Garden; also in Glory.",
+    "productionIds": [
+      "midnight-in-the-garden",
+      "glory"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "met-atlanta",
+    "name": "MET Atlanta",
+    "type": "street",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7114,
+    "lng": -84.4129,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Warehouse arts district transformed into South Korea for Black Panther's market and casino exteriors.",
+    "productionIds": [
+      "black-panther"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/article/where-to-find-wakanda-in-georgia"
+    ],
+    "verified": false
+  },
+  {
+    "id": "monterey-square",
+    "name": "Monterey Square",
+    "type": "park",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.0703,
+    "lng": -81.0952,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Featured in Juror #2.",
+    "productionIds": [
+      "juror-2"
+    ],
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "municipal-market",
+    "name": "The Municipal Market (Sweet Auburn Curb Market)",
+    "type": "shopping",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7545,
+    "lng": -84.3797,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Antoni teaches a date-night dinner here in Queer Eye.",
+    "productionIds": [
+      "queer-eye"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "mystic-grill",
+    "name": "Mystic Grill",
+    "type": "restaurant",
+    "city": "Covington",
+    "county": "Newton",
+    "lat": 33.597,
+    "lng": -83.8603,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Opened after The Vampire Diaries' success; its alley became Sullivan's in Sweet Magnolias.",
+    "productionIds": [
+      "the-vampire-diaries",
+      "sweet-magnolias"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.narcity.com/travel/us/ga/the-vampire-diaries-filming-locations-are-actually-here-in-georgia"
+    ],
+    "verified": false
+  },
+  {
+    "id": "newcastle-street-brunswick",
+    "name": "Newcastle Street, Downtown Brunswick",
+    "type": "street",
+    "city": "Brunswick",
+    "county": "Glynn",
+    "lat": 31.15,
+    "lng": -81.4915,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Several blocks of the historic downtown street were dressed as Prohibition-era Ybor City, Tampa, for exterior shooting on Live by Night.",
+    "productionIds": [
+      "live-by-night"
+    ],
+    "sources": [
+      "https://vanishinggeorgia.com/2015/10/30/live-by-night-historic-downtown-brunswick-being-transforms-into-prohibition-era-ybor-city/",
+      "https://www.goldenisles.com/blog/post/whats-filming-golden-isles/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "newton-county-courthouse",
+    "name": "Newton County Courthouse",
+    "type": "landmark",
+    "city": "Covington",
+    "county": "Newton",
+    "lat": 33.5966,
+    "lng": -83.8599,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The 1884 courthouse featured in both Sweet Magnolias and The Vampire Diaries.",
+    "productionIds": [
+      "sweet-magnolias",
+      "the-vampire-diaries"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "north-beach-grill",
+    "name": "North Beach Bar & Grill",
+    "type": "restaurant",
+    "city": "Tybee Island",
+    "county": "Chatham",
+    "lat": 32.021806,
+    "lng": -80.84383,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Will and Ronnie run into each other here.",
+    "productionIds": [
+      "the-last-song"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "oak-hill-rome",
+    "name": "Oak Hill (Martha Berry Museum)",
+    "type": "museum",
+    "city": "Rome",
+    "county": "Floyd",
+    "lat": 34.279973,
+    "lng": -85.180945,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Plays Melanie's pretend Alabama family home.",
+    "productionIds": [
+      "sweet-home-alabama"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "oakland-cemetery",
+    "name": "Historic Oakland Cemetery",
+    "type": "cemetery",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7486,
+    "lng": -84.3717,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Featured in Watchmen.",
+    "productionIds": [
+      "watchmen"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "ocee-park",
+    "name": "Ocee Park",
+    "type": "park",
+    "city": "Johns Creek",
+    "county": "Fulton",
+    "lat": 34.0567,
+    "lng": -84.1995,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Little League fields where Billy Crystal's grandson plays.",
+    "productionIds": [
+      "parental-guidance"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "odd-fellows-building",
+    "name": "Odd Fellows Building",
+    "type": "landmark",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7553,
+    "lng": -84.3778,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Sweet Auburn landmark used for the exterior of Baby's apartment building.",
+    "productionIds": [
+      "baby-driver"
+    ],
+    "sources": [
+      "https://movie-locations.com/movies/b/Baby-Driver.php"
+    ],
+    "verified": false,
+    "note": "Historic office building; pin the street-facing exterior."
+  },
+  {
+    "id": "oxford-college",
+    "name": "Oxford College of Emory University",
+    "type": "campus",
+    "city": "Oxford",
+    "county": "Newton",
+    "lat": 33.619249,
+    "lng": -83.871168,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Site of the General Lee's famous jump in The Dukes of Hazzard opening credits.",
+    "productionIds": [
+      "dukes-of-hazzard"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "palmetto-piggly-wiggly",
+    "name": "Bradley's Big Buy (Piggly Wiggly)",
+    "type": "shopping",
+    "city": "Palmetto",
+    "county": "Fulton",
+    "lat": 33.518,
+    "lng": -84.669,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The grocery store where Eleven steals Eggos.",
+    "productionIds": [
+      "stranger-things"
+    ],
+    "sources": [
+      "https://www.afar.com/magazine/stranger-things-filming-locations-in-georgia"
+    ],
+    "verified": false,
+    "note": "Grocery store; schema type 'business' would fit better."
+  },
+  {
+    "id": "peachtree-center-mall",
+    "name": "The Mall at Peachtree Center",
+    "type": "shopping",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7597,
+    "lng": -84.387,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The lead character runs through the food court here while fleeing after a botched heist.",
+    "productionIds": [
+      "baby-driver"
+    ],
+    "sources": [
+      "https://www.atlantamagazine.com/news-culture-articles/baby-driver-filming-locations-map/",
+      "https://movie-locations.com/movies/b/Baby-Driver.php"
+    ],
+    "verified": false
+  },
+  {
+    "id": "peachtree-christian-church",
+    "name": "Peachtree Christian Church",
+    "type": "historic site",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7924,
+    "lng": -84.3841,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The Midtown church hosted a Civil War shoot, documented in local news photos.",
+    "productionIds": [
+      "captain-america-civil-war"
+    ],
+    "sources": [
+      "https://www.ajc.com/blog/buzz/scarlett-johansson-chris-evans-anthony-mackie-the-set-marvel-captain-america-civil-war/IubAjHvLBme5HYyBzHJT3J"
+    ],
+    "verified": false
+  },
+  {
+    "id": "perimeter-mall",
+    "name": "Perimeter Mall",
+    "type": "shopping",
+    "city": "Dunwoody",
+    "county": "DeKalb",
+    "lat": 33.923257,
+    "lng": -84.340029,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Home of the hair salon in Identity Thief.",
+    "productionIds": [
+      "identity-thief"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "piedmont-park",
+    "name": "Piedmont Park",
+    "type": "park",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7851,
+    "lng": -84.3738,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Date spot in Ready to Love's Atlanta seasons.",
+    "productionIds": [
+      "ready-to-love"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "pier-village-st-simons-island",
+    "name": "St. Simons Island Pier and Pier Village",
+    "type": "landmark",
+    "city": "St. Simons Island",
+    "county": "Glynn",
+    "lat": 31.1342,
+    "lng": -81.3925,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Part of the public pier was used for a shark scene in Anchorman 2, shot with effects rather than a real shark.",
+    "productionIds": [
+      "anchorman-2"
+    ],
+    "sources": [
+      "https://www.news4jax.com/community/2025/11/19/did-you-know-from-glory-to-wakanda-forever-areas-of-golden-isles-have-been-featured-in-dozens-of-film-tv-scenes",
+      "https://www.timesfreepress.com/news/local/story/2013/apr/01/anchorman-sequel-set-film-st-simons-island/104003/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "ponce-city-market",
+    "name": "Ponce City Market",
+    "type": "shopping",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7726,
+    "lng": -84.3656,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Featured shopping stop in Queer Eye's Atlanta seasons.",
+    "productionIds": [
+      "queer-eye"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "porsche-experience-center",
+    "name": "Porsche Experience Center",
+    "type": "attraction",
+    "city": "Hapeville",
+    "county": "Fulton",
+    "lat": 33.651826,
+    "lng": -84.399236,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Porsche's North American HQ and test track appears in Captain America: Civil War.",
+    "productionIds": [
+      "captain-america-civil-war"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/list/marvelous-film-locations-for-superheroes",
+      "https://exploregeorgia.org/things-to-do/list/captain-america-civil-war-film-tour"
+    ],
+    "verified": false
+  },
+  {
+    "id": "river-street-savannah",
+    "name": "River Street",
+    "type": "street",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.0802,
+    "lng": -81.087,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The cobblestone riverfront strip is cited by Savannah guides as a setting for the 1974 chase in The Longest Yard and for The Gingerbread Man.",
+    "productionIds": [
+      "the-longest-yard",
+      "the-gingerbread-man"
+    ],
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide",
+      "https://news.yahoo.com/filmed-georgia-savannah-setting-ludicrous-105232825.html"
+    ],
+    "verified": false
+  },
+  {
+    "id": "savannah-city-hall",
+    "name": "Savannah City Hall",
+    "type": "landmark",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.0811,
+    "lng": -81.0912,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Its gold dome appears in The Underground Railroad and Juror #2.",
+    "productionIds": [
+      "underground-railroad",
+      "juror-2"
+    ],
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "savannah-history-museum",
+    "name": "Savannah History Museum",
+    "type": "museum",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.075672,
+    "lng": -81.099118,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Home of the original Forrest Gump bench.",
+    "productionIds": [
+      "forrest-gump"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "silver-skillet",
+    "name": "The Silver Skillet",
+    "type": "restaurant",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.786354,
+    "lng": -84.394479,
+    "approximateCoords": false,
+    "public": true,
+    "description": "1956 diner seen in Remember the Titans, Anchorman 2 and an Ozark diner scene.",
+    "productionIds": [
+      "remember-the-titans",
+      "anchorman-2",
+      "ozark"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "six-pence-pub",
+    "name": "Six Pence Pub",
+    "type": "restaurant",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.077,
+    "lng": -81.0912,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Julia Roberts' memorable scene in Something to Talk About.",
+    "productionIds": [
+      "something-to-talk-about"
+    ],
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "skidaway-island-sp",
+    "name": "Skidaway Island State Park",
+    "type": "park",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 31.948,
+    "lng": -81.053,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Wilson Family Seafood dock scenes.",
+    "productionIds": [
+      "falcon-winter-soldier"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false,
+    "note": "Source says Skidaway Island; the state park is a guess at the exact spot."
+  },
+  {
+    "id": "sleepy-hollow-farm",
+    "name": "Sleepy Hollow Farm",
+    "type": "attraction",
+    "city": "Powder Springs",
+    "county": "Cobb",
+    "lat": 33.86,
+    "lng": -84.7,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Pumpkin patch scenes and Hopper's cabin exterior, now an escape room.",
+    "productionIds": [
+      "stranger-things"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false,
+    "note": "Working farm/attraction; check hours before visiting."
+  },
+  {
+    "id": "south-bend-pool",
+    "name": "South Bend Pool",
+    "type": "park",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.708,
+    "lng": -84.392,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Public pool that became the Hawkins Community Pool in season three.",
+    "productionIds": [
+      "stranger-things"
+    ],
+    "sources": [
+      "https://www.afar.com/magazine/stranger-things-filming-locations-in-georgia"
+    ],
+    "verified": false
+  },
+  {
+    "id": "southview-cemetery",
+    "name": "Southview Cemetery",
+    "type": "cemetery",
+    "city": "Covington",
+    "county": "Newton",
+    "lat": 33.5895,
+    "lng": -83.859,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Kids walk through it in Sweet Magnolias' first episode.",
+    "productionIds": [
+      "sweet-magnolias"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "starlight-drive-in",
+    "name": "Starlight Drive-In",
+    "type": "theater",
+    "city": "Atlanta",
+    "county": "DeKalb",
+    "lat": 33.709,
+    "lng": -84.354,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Ruth drops off cash at the drive-in in Ozark.",
+    "productionIds": [
+      "ozark"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "state-farm-arena-gulch",
+    "name": "The Gulch near State Farm Arena",
+    "type": "street",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7573,
+    "lng": -84.3963,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Downtown rail gulch used in Captain America: Civil War.",
+    "productionIds": [
+      "captain-america-civil-war"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/list/marvelous-film-locations-for-superheroes"
+    ],
+    "verified": false
+  },
+  {
+    "id": "stone-mountain-cemetery",
+    "name": "Stone Mountain City Cemetery",
+    "type": "cemetery",
+    "city": "Stone Mountain",
+    "county": "DeKalb",
+    "lat": 33.808,
+    "lng": -84.17,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Setting for Max's season four confrontation with Vecna.",
+    "productionIds": [
+      "stranger-things"
+    ],
+    "sources": [
+      "https://www.afar.com/magazine/stranger-things-filming-locations-in-georgia"
+    ],
+    "verified": false
+  },
+  {
+    "id": "stone-mountain-park",
+    "name": "Stone Mountain Park",
+    "type": "park",
+    "city": "Stone Mountain",
+    "county": "DeKalb",
+    "lat": 33.799509,
+    "lng": -84.150474,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Woods and railroad scenes in Stranger Things, the Missouri Belle riverboat in Ozark, Stomp the Yard's training run, and more.",
+    "productionIds": [
+      "stomp-the-yard",
+      "fled",
+      "revolution",
+      "the-vampire-diaries",
+      "killing-season",
+      "stranger-things",
+      "ozark"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://www.afar.com/magazine/stranger-things-filming-locations-in-georgia",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "swan-house",
+    "name": "Swan House, Atlanta History Center",
+    "type": "museum",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.84131,
+    "lng": -84.385793,
+    "approximateCoords": false,
+    "public": true,
+    "description": "President Snow's mansion, inside and out, in Catching Fire and Mockingjay – Part 1.",
+    "productionIds": [
+      "the-hunger-games-catching-fire",
+      "mockingjay-part-1"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/list/hunger-games-film-tour",
+      "https://exploregeorgia.org/article/iconic-filming-locations-in-georgia",
+      "https://filmoblivion.com/tag/swan-house/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "sweetwater-creek",
+    "name": "Sweetwater Creek State Park",
+    "type": "park",
+    "city": "Lithia Springs",
+    "county": "Douglas",
+    "lat": 33.757205,
+    "lng": -84.638586,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Katniss and Gale's river scene; also the Flag Smashers' gathering spot among the mill ruins.",
+    "productionIds": [
+      "mockingjay-part-1",
+      "falcon-winter-soldier"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://exploregeorgia.org/things-to-do/list/hunger-games-film-tour",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "tabernacle",
+    "name": "The Tabernacle",
+    "type": "venue",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.758937,
+    "lng": -84.39144,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Former church turned concert hall used as a location in Bessie.",
+    "productionIds": [
+      "bessie"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "tallulah-gorge-state-park",
+    "name": "Tallulah Gorge State Park",
+    "type": "park",
+    "city": "Tallulah Falls",
+    "county": "Rabun",
+    "lat": 34.7406,
+    "lng": -83.3925,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The gorge doubled as the fictional Cahulawassee River country in Deliverance, and the area near Hurricane Falls served as the forest-and-waterfall setting for the Wakanda battle in Avengers: Infinity War.",
+    "productionIds": [
+      "deliverance",
+      "avengers-infinity-war"
+    ],
+    "sources": [
+      "https://mculocationscout.com/2020/09/16/forest-waterfall-wakanda-mcu-location-scout",
+      "https://thecinemaholic.com/where-was-deliverance-filmed",
+      "https://roughdraftatlanta.com/2024/06/07/nature-in-cinema-a-movie-tour-through-georgias-parks/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-colonnade",
+    "name": "The Colonnade",
+    "type": "restaurant",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.809979,
+    "lng": -84.360988,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Classic Southern restaurant used for the per-diem scene in Identity Thief.",
+    "productionIds": [
+      "identity-thief"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-temple",
+    "name": "The Temple",
+    "type": "landmark",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7985,
+    "lng": -84.3901,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Historic synagogue shown as Miss Daisy's place of worship.",
+    "productionIds": [
+      "driving-miss-daisy"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "the-varsity",
+    "name": "The Varsity",
+    "type": "restaurant",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7716,
+    "lng": -84.3895,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The giant drive-in appears in its circa-1971 look in Remember the Titans.",
+    "productionIds": [
+      "remember-the-titans"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "tiffanys-kitchen",
+    "name": "Tiffany's Kitchen",
+    "type": "restaurant",
+    "city": "Lithia Springs",
+    "county": "Douglas",
+    "lat": 33.779,
+    "lng": -84.625,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Benny's Burgers, where Eleven gets her first meal after escaping.",
+    "productionIds": [
+      "stranger-things"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "trilith-studios-fayetteville",
+    "name": "Trilith Studios (formerly Pinewood Atlanta Studios)",
+    "type": "studio exterior",
+    "city": "Fayetteville",
+    "county": "Fayette",
+    "lat": 33.428,
+    "lng": -84.517,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The large studio campus south of Atlanta hosted several Marvel productions, including the first film made there. The studio exterior and surrounding town are the public-facing side.",
+    "productionIds": [
+      "ant-man",
+      "avengers-endgame"
+    ],
+    "sources": [
+      "https://www.georgiaencyclopedia.org/articles/arts-culture/film-industry-in-georgia/",
+      "https://exploregeorgia.org/things-to-do/blog/geek-out-over-these-7-super-movies-made-in-georgia"
+    ],
+    "verified": false
+  },
+  {
+    "id": "twelve-oaks-bnb",
+    "name": "The Twelve Oaks Bed & Breakfast",
+    "type": "hotel",
+    "city": "Covington",
+    "county": "Newton",
+    "lat": 33.6015,
+    "lng": -83.8536,
+    "approximateCoords": true,
+    "public": true,
+    "description": "1836 mansion used in Vampire Diaries flashbacks; guests can stay overnight.",
+    "productionIds": [
+      "the-vampire-diaries"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "tybee-pier",
+    "name": "Tybee Island Pier & Pavilion",
+    "type": "landmark",
+    "city": "Tybee Island",
+    "county": "Chatham",
+    "lat": 31.991788,
+    "lng": -80.847216,
+    "approximateCoords": false,
+    "public": true,
+    "description": "Backdrop for The Last Song, Baywatch, and a Cobra Kai season two scene.",
+    "productionIds": [
+      "the-last-song",
+      "baywatch",
+      "cobra-kai",
+      "the-generals-daughter"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide",
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life",
+      "https://www.filmsavannah.org/locations/location-highlights/tybee-pier-and-pavillion/",
+      "https://exploregeorgia.org/things-to-do/list/the-last-song-film-tour",
+      "https://www.thisismysouth.com/film-friday-baywatch"
+    ],
+    "verified": false
+  },
+  {
+    "id": "underground-atlanta",
+    "name": "Underground Atlanta",
+    "type": "landmark",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7514,
+    "lng": -84.3897,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Stood in for a Japanese shopping center in Cobra Kai season three.",
+    "productionIds": [
+      "cobra-kai"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "waldorf-astoria-buckhead",
+    "name": "Waldorf Astoria Atlanta Buckhead",
+    "type": "hotel",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.843,
+    "lng": -84.369,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Hotel used in Spider-Man: Homecoming.",
+    "productionIds": [
+      "spider-man-homecoming"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/things-to-do/list/marvelous-film-locations-for-superheroes"
+    ],
+    "verified": false
+  },
+  {
+    "id": "warm-springs-historic-district",
+    "name": "Warm Springs Historic District",
+    "type": "historic site",
+    "city": "Warm Springs",
+    "county": "Meriwether",
+    "lat": 32.8806,
+    "lng": -84.6806,
+    "approximateCoords": true,
+    "public": true,
+    "description": "The HBO drama about Roosevelt's polio recovery was shot on location in the town where he sought treatment. The setting is tied to the area's mineral springs.",
+    "productionIds": [
+      "warm-springs"
+    ],
+    "sources": [
+      "https://www.georgiaencyclopedia.org/articles/arts-culture/warm-springs-film/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "westview-cemetery",
+    "name": "Westview Cemetery",
+    "type": "cemetery",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.74,
+    "lng": -84.45,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Its mausoleum became the cartel boss's Mexican home in Ozark.",
+    "productionIds": [
+      "ozark"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/now-streaming-where-to-see-georgia-filmed-shows-in-real-life"
+    ],
+    "verified": false
+  },
+  {
+    "id": "whistle-stop-cafe",
+    "name": "The Whistle Stop Cafe",
+    "type": "restaurant",
+    "city": "Juliette",
+    "county": "Monroe",
+    "lat": 33.105723,
+    "lng": -83.798121,
+    "approximateCoords": false,
+    "public": true,
+    "description": "The café at the center of Fried Green Tomatoes, still serving today.",
+    "productionIds": [
+      "fried-green-tomatoes"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "wild-adventures",
+    "name": "Wild Adventures Theme Park",
+    "type": "attraction",
+    "city": "Valdosta",
+    "county": "Lowndes",
+    "lat": 30.7222,
+    "lng": -83.3234,
+    "approximateCoords": false,
+    "public": true,
+    "description": "The theme park finale in Zombieland.",
+    "productionIds": [
+      "zombieland"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  },
+  {
+    "id": "woodruff-park",
+    "name": "Woodruff Park",
+    "type": "park",
+    "city": "Atlanta",
+    "county": "Fulton",
+    "lat": 33.7547,
+    "lng": -84.388,
+    "approximateCoords": false,
+    "public": true,
+    "description": "This downtown plaza doubled as a New York park in an Infinity War sequence, with crews shooting nearby streets.",
+    "productionIds": [
+      "avengers-infinity-war"
+    ],
+    "sources": [
+      "https://www.atlantamagazine.com/news-culture-articles/whats-filming-in-atlanta-now-avengers-infinity-war-ant-man-wasp-valor-uncle-drew-plus-marvel-film-got-away/",
+      "https://mculocationscout.com/tag/atlanta/page/17/"
+    ],
+    "verified": false
+  },
+  {
+    "id": "wormsloe",
+    "name": "Wormsloe State Historic Site",
+    "type": "historic site",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 31.98,
+    "lng": -81.07,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Will's family home in The Last Song; Fort McCallum in The General's Daughter.",
+    "productionIds": [
+      "the-last-song",
+      "the-generals-daughter"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations",
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "wright-square",
+    "name": "Wright Square",
+    "type": "park",
+    "city": "Savannah",
+    "county": "Chatham",
+    "lat": 32.0784,
+    "lng": -81.092,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Outside the diner where Jenny works in Forrest Gump.",
+    "productionIds": [
+      "forrest-gump"
+    ],
+    "sources": [
+      "https://visitsavannah.com/list/tour-savannah-ga-movie-locations-filming-sites-guide"
+    ],
+    "verified": false
+  },
+  {
+    "id": "young-harris-college",
+    "name": "Young Harris College ballfield",
+    "type": "campus",
+    "city": "Young Harris",
+    "county": "Towns",
+    "lat": 34.9334,
+    "lng": -83.8471,
+    "approximateCoords": true,
+    "public": true,
+    "description": "Setting for the championship game in Trouble with the Curve.",
+    "productionIds": [
+      "trouble-with-the-curve"
+    ],
+    "sources": [
+      "https://exploregeorgia.org/list/guide-to-georgia-film-locations"
+    ],
+    "verified": false
+  }
+]
