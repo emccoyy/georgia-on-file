@@ -10,11 +10,11 @@ export const GEORGIA_BOUNDS: [[number, number], [number, number]] = [
 
 /** Pin colors by production type (all pass 3:1 non-text contrast on the navy sheet). */
 export const TYPE_COLORS: Record<ProductionType, string> = {
-  "feature film": "#5CE1FF", // cyan light-pen
-  "TV series": "#FFC857", // drafting amber
-  "limited series": "#FF7AA8", // redline pink
-  "TV movie": "#9CF6B0", // mint
-  documentary: "#C4B5FD", // lavender
+  "feature film": "#FF1A3C", // deep neon red
+  "TV series": "#00F060", // deep neon green
+  "limited series": "#FFE500", // deep neon yellow
+  "TV movie": "#B026FF", // deep neon purple
+  documentary: "#C4B5FD", // lavender (no documentaries in the data yet)
 };
 
 export const ACCENT = "#5CE1FF";

@@ -208,7 +208,7 @@ export function addOverlays(map: MLMap) {
         "fill-extrusion-color": hovered(BP.ink, typeColor),
         "fill-extrusion-height": beamHeight,
         "fill-extrusion-base": 0,
-        "fill-extrusion-opacity": fade(range === "far" ? 0.7 : 0.5),
+        "fill-extrusion-opacity": fade(range === "far" ? 0.95 : 0.85),
         "fill-extrusion-vertical-gradient": false,
       },
     });
