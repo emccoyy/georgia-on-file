@@ -26,10 +26,79 @@ function Placeholder({ l }: { l: FilmLocation }) {
   );
 }
 
-function PanelBody({ l, onClose, headingRef }: { l: FilmLocation; onClose: () => void; headingRef: React.RefObject<HTMLHeadingElement | null> }) {
+export type TourControls = {
+  inTour: boolean;
+  full: boolean;
+  onToggle: () => void;
+};
+
+export type Playback = {
+  index: number;
+  total: number;
+  paused: boolean;
+  /** False with reduced motion: stepping is manual. */
+  auto: boolean;
+  onPrev: () => void;
+  onNext: () => void;
+  onTogglePause: () => void;
+  onExit: () => void;
+};
+
+const ctrl =
+  "grid size-8 place-items-center border border-line/40 text-line hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-accent disabled:opacity-30";
+
+/** Tour playback strip: stop counter, progress bar, prev / pause / next / exit. */
+function PlaybackBar({ p }: { p: Playback }) {
+  return (
+    <div className="flex flex-col gap-2 border border-accent/50 bg-accent/5 p-2.5" role="group" aria-label="Tour playback">
+      <div className="flex items-center justify-between">
+        <p className="font-mono text-[10px] tracking-[0.25em] text-accent uppercase" aria-live="polite">
+          Tour · stop {p.index + 1} / {p.total}
+          {p.paused && p.auto && " · paused"}
+        </p>
+        <div className="flex gap-1.5">
+          <button type="button" className={ctrl} onClick={p.onPrev} disabled={p.index === 0} aria-label="Previous stop">
+            ◀
+          </button>
+          {p.auto && (
+            <button type="button" className={ctrl} onClick={p.onTogglePause} aria-label={p.paused ? "Resume tour" : "Pause tour"}>
+              {p.paused ? "▶" : "❚❚"}
+            </button>
+          )}
+          <button type="button" className={ctrl} onClick={p.onNext} disabled={p.index === p.total - 1} aria-label="Next stop">
+            ▶▶
+          </button>
+          <button type="button" className={ctrl} onClick={p.onExit} aria-label="Exit tour">
+            ✕
+          </button>
+        </div>
+      </div>
+      <div className="flex gap-1" aria-hidden>
+        {Array.from({ length: p.total }, (_, i) => (
+          <span key={i} className={`h-0.5 flex-1 ${i <= p.index ? "bg-accent" : "bg-line/25"}`} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PanelBody({
+  l,
+  onClose,
+  headingRef,
+  tour,
+  playback,
+}: {
+  l: FilmLocation;
+  onClose: () => void;
+  headingRef: React.RefObject<HTMLHeadingElement | null>;
+  tour?: TourControls;
+  playback?: Playback | null;
+}) {
   const prods = productionsForLocation(l);
   return (
     <div className="flex flex-col gap-5 p-5">
+      {playback && <PlaybackBar p={playback} />}
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="font-mono text-[10px] tracking-[0.25em] text-accent uppercase">
@@ -95,14 +164,29 @@ function PanelBody({ l, onClose, headingRef }: { l: FilmLocation; onClose: () =>
         </ul>
       </section>
 
-      <a
-        href={directionsUrl(l)}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2 border border-accent/60 bg-accent/10 py-2.5 font-mono text-[11px] tracking-[0.2em] text-accent uppercase hover:bg-accent/20 focus-visible:outline-2 focus-visible:outline-accent"
-      >
-        Get directions ↗
-      </a>
+      <div className="grid grid-cols-2 gap-2">
+        {tour && (
+          <button
+            type="button"
+            onClick={tour.onToggle}
+            disabled={!tour.inTour && tour.full}
+            aria-pressed={tour.inTour}
+            className={`flex items-center justify-center gap-2 border py-2.5 font-mono text-[11px] tracking-[0.2em] uppercase focus-visible:outline-2 focus-visible:outline-accent disabled:opacity-40 ${
+              tour.inTour ? "border-paper/60 bg-paper/10 text-paper hover:bg-paper/15" : "border-line/50 text-line hover:border-accent hover:text-accent"
+            }`}
+          >
+            {tour.inTour ? "✓ In tour" : tour.full ? "Tour full" : "+ Add to tour"}
+          </button>
+        )}
+        <a
+          href={directionsUrl(l)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`flex items-center justify-center gap-2 border border-accent/60 bg-accent/10 py-2.5 font-mono text-[11px] tracking-[0.2em] text-accent uppercase hover:bg-accent/20 focus-visible:outline-2 focus-visible:outline-accent ${tour ? "" : "col-span-2"}`}
+        >
+          Directions ↗
+        </a>
+      </div>
 
       <section aria-labelledby="sources">
         <h3 id="sources" className="mb-1.5 font-mono text-[10px] tracking-[0.25em] text-line uppercase">
@@ -126,7 +210,17 @@ function PanelBody({ l, onClose, headingRef }: { l: FilmLocation; onClose: () =>
  * Location details. Desktop: slides in from the right. Mobile: bottom sheet
  * that can be dragged down to dismiss. Escape closes; focus moves to the title.
  */
-export function LocationPanel({ id, onClose }: { id: string | null; onClose: () => void }) {
+export function LocationPanel({
+  id,
+  onClose,
+  tour,
+  playback,
+}: {
+  id: string | null;
+  onClose: () => void;
+  tour?: TourControls;
+  playback?: Playback | null;
+}) {
   const l = id ? locationById.get(id) : undefined;
   const desktop = useMediaQuery("(min-width: 768px)");
   const reduce = useReducedMotion();
@@ -156,7 +250,7 @@ export function LocationPanel({ id, onClose }: { id: string | null; onClose: () 
             transition={t}
             className="absolute top-0 right-0 bottom-0 z-30 w-[420px] max-w-[40vw] overflow-y-auto border-l border-line/40 bg-ink/92 backdrop-blur-md"
           >
-            <PanelBody key={l.id} l={l} onClose={onClose} headingRef={headingRef} />
+            <PanelBody key={l.id} l={l} onClose={onClose} headingRef={headingRef} tour={tour} playback={playback} />
           </motion.aside>
         ) : (
           <motion.aside
@@ -178,7 +272,7 @@ export function LocationPanel({ id, onClose }: { id: string | null; onClose: () 
               <span className="h-1 w-10 rounded-full bg-line/50" />
             </div>
             <div className="overflow-y-auto overscroll-contain">
-              <PanelBody key={l.id} l={l} onClose={onClose} headingRef={headingRef} />
+              <PanelBody key={l.id} l={l} onClose={onClose} headingRef={headingRef} tour={tour} playback={playback} />
             </div>
           </motion.aside>
         ))}

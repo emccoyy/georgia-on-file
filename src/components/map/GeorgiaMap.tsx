@@ -5,7 +5,8 @@ import * as maplibregl from "maplibre-gl";
 import type { Map as MLMap, MapGeoJSONFeature, GeoJSONSource } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { buildBaseStyle } from "@/lib/map/style";
-import { addOverlays, CLUSTER_LAYER, INTERACTIVE_LAYERS, overlaySources, PIN_SOURCES } from "@/lib/map/layers";
+import { addOverlays, CLUSTER_LAYER, INTERACTIVE_LAYERS, overlaySources, PIN_SOURCES, routeGradient } from "@/lib/map/layers";
+import { cumulativeMiles, resolveStops, routeGeoJSON, stopsGeoJSON } from "@/lib/tour";
 import { registerClippedDem } from "@/lib/map/clippedDem";
 import { PinFader } from "@/lib/map/pinFader";
 import { clearSelectionPadding, flyToLocation } from "@/lib/map/camera";
@@ -29,12 +30,25 @@ type Props = {
   visibleIds?: Set<string>;
   selectedId?: string | null;
   onSelect?: (id: string) => void;
+  /** Film tour stops in order; drawn as a route with numbered stops. */
+  tourIds?: string[];
+  /** Index of the current stop while a tour plays (route is brighter up to here). */
+  tourStep?: number | null;
   onReady?: () => void;
 };
 
 const resolve = (ids: string[]) => ids.map((id) => locationById.get(id)).filter((l): l is FilmLocation => !!l);
 
-export default function GeorgiaMap({ mode = "explore", locationIds, visibleIds, selectedId = null, onSelect, onReady }: Props) {
+export default function GeorgiaMap({
+  mode = "explore",
+  locationIds,
+  visibleIds,
+  selectedId = null,
+  onSelect,
+  onReady,
+  tourIds,
+  tourStep = null,
+}: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MLMap | null>(null);
   const faderRef = useRef<PinFader | null>(null);
@@ -254,6 +268,40 @@ export default function GeorgiaMap({ mode = "explore", locationIds, visibleIds, 
     if (loc) flyToLocation(map, loc, { quality: qualityRef.current, reduce: prefersReducedMotion() });
     else if (prev) clearSelectionPadding(map, prefersReducedMotion());
   }, [loaded, selectedId]);
+
+  // --- Film tour route: redraw with a draw-on animation when stops change ------
+  const tourKey = tourIds?.join(",") ?? "";
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!loaded || !map) return;
+    const stops = resolveStops(tourKey ? tourKey.split(",") : []);
+    (map.getSource("tour-route") as GeoJSONSource | undefined)?.setData(routeGeoJSON(stops));
+    (map.getSource("tour-stops") as GeoJSONSource | undefined)?.setData(stopsGeoJSON(stops));
+    if (stops.length < 2 || prefersReducedMotion()) {
+      map.setPaintProperty("tour-route-line", "line-gradient", routeGradient(1));
+      return;
+    }
+    let raf = 0;
+    const start = performance.now();
+    const step = (now: number) => {
+      const t = Math.min(1, (now - start) / 1200);
+      map.setPaintProperty("tour-route-line", "line-gradient", routeGradient(1 - Math.pow(1 - t, 3)));
+      if (t < 1) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [loaded, tourKey]);
+
+  // While playing, the route is brighter up to the current stop.
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!loaded || !map || !tourKey) return;
+    const stops = resolveStops(tourKey.split(","));
+    const cum = cumulativeMiles(stops);
+    const total = cum.at(-1) || 1;
+    const travelled = tourStep === null ? 0 : cum[Math.min(tourStep, cum.length - 1)] / total;
+    map.setPaintProperty("tour-route-line", "line-gradient", routeGradient(1, travelled));
+  }, [loaded, tourKey, tourStep]);
 
   // --- Control handlers ------------------------------------------------------
   const duration = () => (prefersReducedMotion() ? 0 : 1600);

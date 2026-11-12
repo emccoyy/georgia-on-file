@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { locationById, productionById, productions } from "@/data";
 import type { FilmLocation } from "@/data/schema";
 import { TYPE_COLORS } from "@/lib/map/config";
+import { orderByNearest } from "@/lib/tour";
 import { ProductionMap } from "@/components/production/ProductionMap";
 import { TypeIcon } from "@/components/ui/TypeIcon";
 
@@ -72,12 +73,23 @@ export default async function ProductionPage({ params }: PageProps<"/production/
             <h2 id="locations-heading" className="font-mono text-[10px] tracking-[0.25em] text-line uppercase">
               Filming locations · {locs.length}
             </h2>
-            <Link
-              href={`/?production=${p.id}`}
-              className="border border-accent/60 bg-accent/10 px-3 py-1.5 font-mono text-[10px] tracking-[0.2em] text-accent uppercase hover:bg-accent/20"
-            >
-              View on map
-            </Link>
+            <div className="flex gap-2">
+              <Link
+                href={`/?production=${p.id}`}
+                className="border border-line/40 px-3 py-1.5 font-mono text-[10px] tracking-[0.2em] text-line uppercase hover:text-paper"
+              >
+                View on map
+              </Link>
+              {locs.length > 1 && (
+                // Stops ordered nearest-neighbour so the fly-through follows a sensible route.
+                <Link
+                  href={`/?tour=${orderByNearest(p.locationIds, { fromOutlier: true }).join(",")}&play=1`}
+                  className="border border-accent/60 bg-accent/10 px-3 py-1.5 font-mono text-[10px] tracking-[0.2em] text-accent uppercase hover:bg-accent/20"
+                >
+                  ▶ Tour this production
+                </Link>
+              )}
+            </div>
           </div>
           <ol className="flex flex-col divide-y divide-line/20 border-y border-line/20">
             {locs.map((l, i) => (

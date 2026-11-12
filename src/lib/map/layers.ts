@@ -56,7 +56,32 @@ export function overlaySources(initial: FilmLocation[]): StyleSpecification["sou
     // Beams use two footprints: fat at mid zoom so they read, thin up close so they don't block the view.
     "beams-far": { type: "geojson", data: locationsToBeams(BEAM_RADII["beams-far"], initial), promoteId: "id" },
     "beams-near": { type: "geojson", data: locationsToBeams(BEAM_RADII["beams-near"], initial), promoteId: "id" },
+    // Film tour route + numbered stops (filled in by GeorgiaMap). lineMetrics enables line-progress gradients.
+    "tour-route": { type: "geojson", data: EMPTY_FC, lineMetrics: true },
+    "tour-stops": { type: "geojson", data: EMPTY_FC },
   };
+}
+
+const EMPTY_FC: FeatureCollection = { type: "FeatureCollection", features: [] };
+
+/**
+ * Route color along its length: [0, travelled] bright (already visited during
+ * Play tour), (travelled, drawn] cyan, beyond `drawn` transparent (used for the
+ * draw-on animation). Both are 0–1 fractions of the route length.
+ */
+export function routeGradient(drawn: number, travelled = 0): ExpressionSpecification {
+  const e = 1e-4;
+  const d = Math.min(Math.max(drawn, 0.01), 1);
+  const t = Math.min(Math.max(travelled, 0), d);
+  const pairs: [number, string][] = [[0, t > 0 ? BP.ink : ACCENT]];
+  if (t > 0) pairs.push([t, BP.ink], [t + e, ACCENT]);
+  pairs.push([d, ACCENT]);
+  if (d < 1) pairs.push([d + e, "rgba(92,225,255,0)"], [1, "rgba(92,225,255,0)"]);
+  else pairs.push([1, t >= 1 - e ? BP.ink : ACCENT]);
+  // interpolate needs strictly ascending inputs in [0, 1]: drop any pair that isn't.
+  const clean: [number, string][] = [];
+  for (const [x, c] of pairs) if (x <= 1 && (!clean.length || x > clean[clean.length - 1][0])) clean.push([x, c]);
+  return ["interpolate", ["linear"], ["line-progress"], ...clean.flat()] as unknown as ExpressionSpecification;
 }
 
 /** Adds overlay layers (their sources come from overlaySources in the style). */
@@ -136,6 +161,30 @@ export function addOverlays(map: MLMap) {
     source: "ga",
     layout: { "line-join": "round" },
     paint: { "line-color": BP.ink, "line-width": 1.1, "line-opacity": 0.95 },
+  });
+
+  // --- Film tour route (under the pins) -----------------------------------------
+  map.addLayer({
+    id: "tour-route-glow",
+    type: "line",
+    source: "tour-route",
+    layout: { "line-join": "round", "line-cap": "round" },
+    paint: {
+      "line-color": ACCENT,
+      "line-width": ["interpolate", ["linear"], ["zoom"], 6, 8, 14, 18],
+      "line-blur": ["interpolate", ["linear"], ["zoom"], 6, 6, 14, 12],
+      "line-opacity": 0.35,
+    },
+  });
+  map.addLayer({
+    id: "tour-route-line",
+    type: "line",
+    source: "tour-route",
+    layout: { "line-join": "round", "line-cap": "round" },
+    paint: {
+      "line-width": ["interpolate", ["linear"], ["zoom"], 6, 2, 14, 4],
+      "line-gradient": routeGradient(1),
+    },
   });
 
   // --- Pins -------------------------------------------------------------------
@@ -253,5 +302,35 @@ export function addOverlays(map: MLMap) {
       "circle-stroke-opacity": fade,
       "circle-pitch-alignment": "map",
     },
+  });
+
+  // Numbered tour stops, drawn above everything else.
+  map.addLayer({
+    id: "tour-stop-dot",
+    type: "circle",
+    source: "tour-stops",
+    paint: {
+      "circle-radius": 10,
+      "circle-color": BP.floor,
+      "circle-stroke-color": ACCENT,
+      "circle-stroke-width": 1.5,
+      "circle-translate": [0, -16],
+      "circle-translate-anchor": "viewport",
+      "circle-pitch-alignment": "viewport",
+    },
+  });
+  map.addLayer({
+    id: "tour-stop-num",
+    type: "symbol",
+    source: "tour-stops",
+    layout: {
+      "text-field": ["to-string", ["get", "n"]],
+      "text-font": ["Noto Sans Regular"],
+      "text-size": 11,
+      "text-offset": [0, -1.45],
+      "text-allow-overlap": true,
+      "text-ignore-placement": true,
+    },
+    paint: { "text-color": BP.ink },
   });
 }
