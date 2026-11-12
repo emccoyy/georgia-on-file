@@ -14,6 +14,7 @@ import { FilterPanel } from "./FilterPanel";
 import { LocationPanel, type Playback } from "./LocationPanel";
 import { TourPanel } from "./TourPanel";
 import { LoadingScreen } from "./LoadingScreen";
+import { IntroSequence } from "./IntroSequence";
 
 const GeorgiaMap = dynamic(() => import("@/components/map/GeorgiaMap"), { ssr: false });
 
@@ -21,6 +22,8 @@ const GeorgiaMap = dynamic(() => import("@/components/map/GeorgiaMap"), { ssr: f
 const FLIGHT_MS = 3600;
 const DWELL_MS = 5500;
 const TOUR_STORAGE_KEY = "gof:tour";
+const INTRO_SEEN_KEY = "gof:intro-seen";
+const DEEP_LINK_PARAMS = ["loc", "tour", "q", "production", "type", "decade", "county", "city"];
 
 /** Initial state comes from the URL so filtered/selected/tour views are shareable. */
 function readUrl() {
@@ -35,7 +38,16 @@ function readUrl() {
       /* storage unavailable */
     }
   }
+  // Title card + fly-in: once per session, only on a plain visit (a deep link should
+  // land straight on its content), never with reduced motion.
+  let intro = !DEEP_LINK_PARAMS.some((k) => p.has(k)) && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  try {
+    if (window.sessionStorage.getItem(INTRO_SEEN_KEY)) intro = false;
+  } catch {
+    /* storage unavailable: still play */
+  }
   return {
+    intro,
     selectedId: loc && locationById.has(loc) ? loc : null,
     filters: filtersFromParams(p, PRODUCTION_TYPES),
     query: p.get("q") ?? "",
@@ -60,6 +72,15 @@ export default function Explorer() {
   const [open, setOpen] = useState<"filters" | "tour" | null>(initial.tourOpen ? "tour" : null);
   const [play, setPlay] = useState<Play | null>(null);
   const [ready, setReady] = useState(false);
+  const [introDone, setIntroDone] = useState(!initial.intro);
+  const finishIntro = useCallback(() => {
+    setIntroDone(true);
+    try {
+      window.sessionStorage.setItem(INTRO_SEEN_KEY, "1");
+    } catch {
+      /* storage unavailable */
+    }
+  }, []);
   const reduce = useReducedMotion() ?? false;
   const desktop = useMediaQuery("(min-width: 768px)");
 
@@ -187,6 +208,7 @@ export default function Explorer() {
         onReady={onReady}
         tourIds={tour}
         tourStep={play ? play.index : null}
+        intro={!initial.intro ? "done" : introDone ? "play" : "pending"}
       />
 
       {/* Search, filters and tour, top-left inside the drafting frame. */}
@@ -275,7 +297,9 @@ export default function Explorer() {
         }
         playback={playback}
       />
-      <LoadingScreen show={!ready} />
+      <IntroSequence show={!introDone} onDone={finishIntro} />
+      {/* After the title card, keep showing the loader if the map still isn't ready. */}
+      <LoadingScreen show={!ready && introDone} />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import { TYPE_COLORS } from "@/lib/map/config";
 import { orderByNearest } from "@/lib/tour";
 import { ProductionMap } from "@/components/production/ProductionMap";
 import { TypeIcon } from "@/components/ui/TypeIcon";
+import { PageShell } from "@/components/ui/PageShell";
 
 export function generateStaticParams() {
   return productions.map((p) => ({ id: p.id }));
@@ -32,12 +33,12 @@ export default async function ProductionPage({ params }: PageProps<"/production/
   const color = TYPE_COLORS[p.type];
 
   return (
-    <main className="min-h-dvh bg-ink px-5 py-8 text-paper sm:px-10 sm:py-10">
-      <nav className="mb-8">
+    <PageShell>
+      <p className="mb-6">
         <Link href="/" className="font-mono text-[11px] tracking-[0.2em] text-line uppercase hover:text-accent">
           ← Back to the map
         </Link>
-      </nav>
+      </p>
 
       <header className="max-w-4xl">
         <p className="flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase" style={{ color }}>
@@ -126,10 +127,6 @@ export default async function ProductionPage({ params }: PageProps<"/production/
         </ul>
       </section>
 
-      <footer className="mt-12 border-t border-line/20 pt-4 font-mono text-[10px] leading-relaxed tracking-wide text-paper/50">
-        Unofficial fan project. Not affiliated with any studio, network or the Georgia Film Office. Public places only. Designed and
-        built by Ethan McCoy.
-      </footer>
-    </main>
+    </PageShell>
   );
 }

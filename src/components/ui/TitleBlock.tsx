@@ -1,10 +1,11 @@
+import { SITE } from "@/lib/site";
+
 /**
  * Architectural-drawing title block. On small screens it collapses to just the
  * disclaimer line.
  */
 export function TitleBlock({ locations, productions }: { locations: number; productions: number }) {
-  const disclaimer =
-    "Unofficial fan project. Not affiliated with any studio, network or the Georgia Film Office. Public places only. Designed and built by Ethan McCoy.";
+  const disclaimer = `${SITE.disclaimer} Designed and built by ${SITE.author}.`;
   const cell = "border-line/30 px-2.5 py-1.5";
   const label = "block text-[8px] tracking-[0.25em] text-line/60";
   return (

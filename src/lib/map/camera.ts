@@ -60,3 +60,36 @@ let flightToken = 0;
 export function clearSelectionPadding(map: MLMap, reduce: boolean) {
   map.easeTo({ padding: NO_PADDING, duration: reduce ? 0 : 700 });
 }
+
+/**
+ * Establishing-shot drift on the landing view: a slow back-and-forth pan of the
+ * bearing. Ends for good on the first user input or when cancel() is called
+ * (e.g. a location is selected).
+ */
+export function startIdleDrift(map: MLMap): () => void {
+  let stopped = false;
+  let dir = 1;
+  const canvas = map.getCanvasContainer();
+  const stop = () => {
+    if (stopped) return;
+    stopped = true;
+    map.off("moveend", next);
+    for (const ev of ["pointerdown", "wheel", "keydown", "touchstart"]) canvas.removeEventListener(ev, onUser);
+  };
+  const onUser = () => {
+    stop();
+    map.stop();
+  };
+  function next() {
+    if (stopped) return;
+    dir = -dir;
+    map.easeTo({ bearing: map.getBearing() + dir * 24, duration: 40000, easing: (t) => 0.5 - Math.cos(Math.PI * t) / 2 });
+  }
+  for (const ev of ["pointerdown", "wheel", "keydown", "touchstart"]) canvas.addEventListener(ev, onUser, { passive: true });
+  map.on("moveend", next);
+  map.easeTo({ bearing: map.getBearing() + 12, duration: 20000, easing: (t) => 0.5 - Math.cos(Math.PI * t) / 2 });
+  return stop;
+}
+
+/** Camera for the start of the fly-in: high above the Southeast, looking straight down. */
+export const FLY_IN_START = { center: [-84.2, 31.4] as [number, number], zoom: 4.6, pitch: 0, bearing: -40 };

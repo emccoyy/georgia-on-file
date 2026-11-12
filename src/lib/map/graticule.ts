@@ -5,7 +5,7 @@ import type { FeatureCollection, LineString } from "geojson";
  * Draped on the terrain, it reads as a perspective grid on the drafting table
  * and across the state. `major` marks every whole degree.
  */
-export function graticule(step = 0.25, bounds = [-89.5, 27.5, -77.5, 37.5]): FeatureCollection<LineString, { major: boolean }> {
+export function graticule(step = 0.25, bounds = [-97, 23, -69, 41]): FeatureCollection<LineString, { major: boolean }> {
   const [w, s, e, n] = bounds;
   const features: FeatureCollection<LineString, { major: boolean }>["features"] = [];
   const isMajor = (v: number) => Math.abs(v - Math.round(v)) < 1e-6;

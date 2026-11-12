@@ -9,7 +9,7 @@ import { addOverlays, CLUSTER_LAYER, INTERACTIVE_LAYERS, overlaySources, PIN_SOU
 import { cumulativeMiles, resolveStops, routeGeoJSON, stopsGeoJSON } from "@/lib/tour";
 import { registerClippedDem } from "@/lib/map/clippedDem";
 import { PinFader } from "@/lib/map/pinFader";
-import { clearSelectionPadding, flyToLocation } from "@/lib/map/camera";
+import { clearSelectionPadding, FLY_IN_START, flyToLocation, startIdleDrift } from "@/lib/map/camera";
 import { exaggerationAt, GEORGIA_BOUNDS, HOME_BEARING, QUALITY_SETTINGS } from "@/lib/map/config";
 import { detectQuality, prefersReducedMotion, type Quality } from "@/lib/device";
 import { locationById, locations as allLocations, type PinProperties } from "@/data";
@@ -35,6 +35,11 @@ type Props = {
   /** Index of the current stop while a tour plays (route is brighter up to here). */
   tourStep?: number | null;
   onReady?: () => void;
+  /**
+   * Landing choreography: "pending" holds the camera high above the Southeast
+   * (title card showing), "play" runs the fly-in, "done" starts at the home view.
+   */
+  intro?: "pending" | "play" | "done";
 };
 
 const resolve = (ids: string[]) => ids.map((id) => locationById.get(id)).filter((l): l is FilmLocation => !!l);
@@ -48,6 +53,7 @@ export default function GeorgiaMap({
   onReady,
   tourIds,
   tourStep = null,
+  intro = "done",
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MLMap | null>(null);
@@ -60,6 +66,9 @@ export default function GeorgiaMap({
   const onSelectRef = useRef(onSelect);
   const onReadyRef = useRef(onReady);
   const scopeRef = useRef(locationIds);
+  const introRef = useRef(intro);
+  const flownRef = useRef(false);
+  const stopDriftRef = useRef<(() => void) | null>(null);
   useEffect(() => {
     onSelectRef.current = onSelect;
     onReadyRef.current = onReady;
@@ -121,9 +130,10 @@ export default function GeorgiaMap({
         maxPitch: q.maxPitch,
         pixelRatio: Math.min(window.devicePixelRatio || 1, q.pixelRatioCap),
         attributionControl: false,
+        // Wide enough for the fly-in to start high above the Southeast.
         maxBounds: [
-          [-92, 26],
-          [-74, 39],
+          [-99, 21],
+          [-67, 43],
         ],
         minZoom: 4.5,
         fadeDuration: 200,
@@ -140,7 +150,7 @@ export default function GeorgiaMap({
     if (!mini) map.addControl(new maplibregl.ScaleControl({ maxWidth: 110, unit: "imperial" }), "bottom-left");
     // Handy for tuning the look from devtools: open with ?debug to get window.__map.
     if (new URLSearchParams(window.location.search).has("debug")) (window as unknown as { __map: MLMap }).__map = map;
-    map.jumpTo(homeCamera(map, q.homePitch));
+    map.jumpTo(introRef.current === "done" ? homeCamera(map, q.homePitch) : FLY_IN_START);
 
     // HUD readout: cursor position + camera state, throttled to one update per frame.
     let hudRaf = 0;
@@ -252,6 +262,11 @@ export default function GeorgiaMap({
       if (selectedId) map.setFeatureState({ source, id: selectedId }, { selected: true });
     }
     selectedRef.current = selectedId;
+    // Selecting anything ends the landing drift for good (before the fly-to starts).
+    if (selectedId) {
+      stopDriftRef.current?.();
+      stopDriftRef.current = null;
+    }
     const loc = selectedId ? locationById.get(selectedId) : undefined;
     // Selection reticle: an HTML marker lying flat on the terrain, pulsing via CSS.
     // (A circle layer for this occluded other pins on terrain.)
@@ -302,6 +317,37 @@ export default function GeorgiaMap({
     const travelled = tourStep === null ? 0 : cum[Math.min(tourStep, cum.length - 1)] / total;
     map.setPaintProperty("tour-route-line", "line-gradient", routeGradient(1, travelled));
   }, [loaded, tourKey, tourStep]);
+
+  // --- Landing: fly-in, then idle drift ---------------------------------------
+  // Drift only on capable devices, without reduced motion, with nothing selected.
+  const beginDrift = useCallback((map: MLMap) => {
+    if (mini || qualityRef.current === "low" || prefersReducedMotion() || selectedRef.current) return;
+    stopDriftRef.current?.();
+    stopDriftRef.current = startIdleDrift(map);
+  }, [mini]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!loaded || !map || flownRef.current) return;
+    if (intro === "done") {
+      flownRef.current = true;
+      if (introRef.current === "done") beginDrift(map);
+      else map.jumpTo(homeCamera(map, QUALITY_SETTINGS[qualityRef.current].homePitch)); // intro skipped (reduced motion)
+      return;
+    }
+    if (intro !== "play") return;
+    flownRef.current = true;
+    const home = homeCamera(map, QUALITY_SETTINGS[qualityRef.current].homePitch);
+    if (prefersReducedMotion()) {
+      map.jumpTo(home);
+      return;
+    }
+    // Swoop down from high above the Southeast and tilt into the establishing shot.
+    map.flyTo({ ...home, duration: 5200, curve: 1.25, essential: false, easing: (t) => 1 - Math.pow(1 - t, 3) });
+    map.once("moveend", () => beginDrift(map));
+  }, [loaded, intro, homeCamera, beginDrift]);
+
+  useEffect(() => () => stopDriftRef.current?.(), []);
 
   // --- Control handlers ------------------------------------------------------
   const duration = () => (prefersReducedMotion() ? 0 : 1600);
