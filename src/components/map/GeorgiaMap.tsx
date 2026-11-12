@@ -5,11 +5,14 @@ import * as maplibregl from "maplibre-gl";
 import type { Map as MLMap, MapGeoJSONFeature, GeoJSONSource } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { buildBaseStyle } from "@/lib/map/style";
-import { addOverlays, CLUSTER_LAYER, INTERACTIVE_LAYERS } from "@/lib/map/layers";
+import { addOverlays, CLUSTER_LAYER, INTERACTIVE_LAYERS, overlaySources, PIN_SOURCES } from "@/lib/map/layers";
 import { registerClippedDem } from "@/lib/map/clippedDem";
+import { PinFader } from "@/lib/map/pinFader";
+import { clearSelectionPadding, flyToLocation } from "@/lib/map/camera";
 import { exaggerationAt, GEORGIA_BOUNDS, HOME_BEARING, QUALITY_SETTINGS } from "@/lib/map/config";
 import { detectQuality, prefersReducedMotion, type Quality } from "@/lib/device";
-import { locationById, type PinProperties } from "@/data";
+import { locationById, locations as allLocations, type PinProperties } from "@/data";
+import type { FilmLocation } from "@/data/schema";
 import { MapControls } from "./MapControls";
 import { PinTooltip, type TooltipState } from "./PinTooltip";
 import { MapReadout, type Readout } from "./MapReadout";
@@ -17,46 +20,88 @@ import { MapReadout, type Readout } from "./MapReadout";
 maplibregl.setWorkerUrl("/vendor/maplibre-gl-worker.mjs");
 registerClippedDem();
 
-const HOVER_SOURCES = ["pins", "beams-far", "beams-near"];
+type Props = {
+  /** "explore" = full-screen home map; "mini" = embedded map on production pages. */
+  mode?: "explore" | "mini";
+  /** Locations this map may ever show (mini maps pass a production's locations). */
+  locationIds?: string[];
+  /** Currently visible subset (filters/search). Changes animate. */
+  visibleIds?: Set<string>;
+  selectedId?: string | null;
+  onSelect?: (id: string) => void;
+  onReady?: () => void;
+};
 
-export default function GeorgiaMap({ onReady }: { onReady?: () => void }) {
+const resolve = (ids: string[]) => ids.map((id) => locationById.get(id)).filter((l): l is FilmLocation => !!l);
+
+export default function GeorgiaMap({ mode = "explore", locationIds, visibleIds, selectedId = null, onSelect, onReady }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MLMap | null>(null);
+  const faderRef = useRef<PinFader | null>(null);
   const qualityRef = useRef<Quality>("high");
   const hoverId = useRef<string | null>(null);
+  const selectedRef = useRef<string | null>(null);
+  const reticleRef = useRef<maplibregl.Marker | null>(null);
+  // Latest callbacks/props for map handlers that are registered once.
+  const onSelectRef = useRef(onSelect);
+  const onReadyRef = useRef(onReady);
+  const scopeRef = useRef(locationIds);
+  useEffect(() => {
+    onSelectRef.current = onSelect;
+    onReadyRef.current = onReady;
+  });
+
+  const [loaded, setLoaded] = useState(false);
   const [tooltip, setTooltip] = useState<TooltipState | null>(null);
   const [is3D, setIs3D] = useState(true);
   const [bearing, setBearing] = useState(HOME_BEARING);
   const [error, setError] = useState<string | null>(null);
   const [readout, setReadout] = useState<Readout>({ lng: null, lat: null, zoom: 6, pitch: 0, bearing: HOME_BEARING });
+  const mini = mode === "mini";
 
-  /** Camera that frames the whole state at the device's home pitch. */
-  const homeCamera = useCallback((map: MLMap, pitch: number) => {
-    const narrow = map.getContainer().clientWidth < 640;
-    const cam = map.cameraForBounds(GEORGIA_BOUNDS, {
-      padding: narrow ? { top: 90, bottom: 120, left: 16, right: 16 } : { top: 110, bottom: 90, left: 80, right: 80 },
-      bearing: HOME_BEARING,
-    });
-    return {
-      center: cam?.center ?? [-83.4, 32.7],
-      // cameraForBounds assumes a flat, top-down view; pitched views fit tighter, so nudge in.
-      zoom: (cam?.zoom ?? 6.3) + (pitch > 0 ? 0.35 : 0),
-      bearing: HOME_BEARING,
-      pitch,
-    } as const;
-  }, []);
+  /** Home camera: the whole state (explore) or this production's locations (mini). */
+  const homeCamera = useCallback(
+    (map: MLMap, pitch: number) => {
+      const scope = scopeRef.current ? resolve(scopeRef.current) : [];
+      if (mini && scope.length) {
+        if (scope.length === 1) return { center: [scope[0].lng, scope[0].lat] as [number, number], zoom: 12.5, pitch, bearing: HOME_BEARING };
+        const b = new maplibregl.LngLatBounds();
+        scope.forEach((l) => b.extend([l.lng, l.lat]));
+        const cam = map.cameraForBounds(b, { padding: 70, bearing: HOME_BEARING, maxZoom: 13 });
+        return { center: cam?.center ?? b.getCenter(), zoom: (cam?.zoom ?? 8) - (pitch > 0 ? 0.3 : 0), pitch, bearing: HOME_BEARING };
+      }
+      const narrow = map.getContainer().clientWidth < 640;
+      const cam = map.cameraForBounds(GEORGIA_BOUNDS, {
+        padding: narrow ? { top: 110, bottom: 120, left: 16, right: 16 } : { top: 110, bottom: 90, left: 80, right: 80 },
+        bearing: HOME_BEARING,
+      });
+      return {
+        center: cam?.center ?? ([-83.4, 32.7] as [number, number]),
+        // cameraForBounds assumes a flat, top-down view; pitched views fit tighter, so nudge in.
+        zoom: (cam?.zoom ?? 6.3) + (pitch > 0 ? 0.35 : 0),
+        bearing: HOME_BEARING,
+        pitch,
+      };
+    },
+    [mini],
+  );
 
   useEffect(() => {
     if (!containerRef.current) return;
     const quality = detectQuality();
     qualityRef.current = quality;
     const q = QUALITY_SETTINGS[quality];
+    const scope = scopeRef.current ? resolve(scopeRef.current) : allLocations;
+
+    // Overlay sources first so they're tiled before the base map.
+    const base = buildBaseStyle(quality);
+    const style = { ...base, sources: { ...overlaySources(scope), ...base.sources } };
 
     let map: MLMap;
     try {
       map = new maplibregl.Map({
         container: containerRef.current,
-        style: buildBaseStyle(quality),
+        style,
         center: [-83.4, 32.7],
         zoom: 6,
         maxPitch: q.maxPitch,
@@ -68,6 +113,8 @@ export default function GeorgiaMap({ onReady }: { onReady?: () => void }) {
         ],
         minZoom: 4.5,
         fadeDuration: 200,
+        // An embedded map shouldn't hijack page scrolling.
+        cooperativeGestures: mini,
       });
     } catch (e) {
       const msg = e instanceof Error ? e.message : "WebGL is unavailable on this device.";
@@ -75,33 +122,23 @@ export default function GeorgiaMap({ onReady }: { onReady?: () => void }) {
       return;
     }
     mapRef.current = map;
-    // Top-right keeps attribution clear of the footer disclaimer and legend.
     map.addControl(new maplibregl.AttributionControl({ compact: true }), "top-right");
-    map.addControl(new maplibregl.ScaleControl({ maxWidth: 110, unit: "imperial" }), "bottom-left");
+    if (!mini) map.addControl(new maplibregl.ScaleControl({ maxWidth: 110, unit: "imperial" }), "bottom-left");
+    // Handy for tuning the look from devtools: open with ?debug to get window.__map.
+    if (new URLSearchParams(window.location.search).has("debug")) (window as unknown as { __map: MLMap }).__map = map;
+    map.jumpTo(homeCamera(map, q.homePitch));
 
     // HUD readout: cursor position + camera state, throttled to one update per frame.
     let hudRaf = 0;
     let cursor: { lng: number; lat: number } | null = null;
     const pushReadout = () => {
+      if (mini) return;
       cancelAnimationFrame(hudRaf);
       hudRaf = requestAnimationFrame(() =>
-        setReadout({
-          lng: cursor?.lng ?? null,
-          lat: cursor?.lat ?? null,
-          zoom: map.getZoom(),
-          pitch: map.getPitch(),
-          bearing: map.getBearing(),
-        }),
+        setReadout({ lng: cursor?.lng ?? null, lat: cursor?.lat ?? null, zoom: map.getZoom(), pitch: map.getPitch(), bearing: map.getBearing() }),
       );
     };
     map.on("move", pushReadout);
-    map.on("mousemove", (e) => {
-      cursor = e.lngLat;
-      pushReadout();
-    });
-    // Handy for tuning the look from devtools: open with ?debug to get window.__map.
-    if (new URLSearchParams(window.location.search).has("debug")) (window as unknown as { __map: MLMap }).__map = map;
-    map.jumpTo(homeCamera(map, q.homePitch));
 
     // Keep exaggeration tied to zoom so mountains read at statewide scale.
     let raf = 0;
@@ -118,7 +155,10 @@ export default function GeorgiaMap({ onReady }: { onReady?: () => void }) {
       map.getContainer().querySelector(".maplibregl-ctrl-attrib")?.classList.remove("maplibregl-compact-show");
       map.setTerrain({ source: "dem", exaggeration: exaggerationAt(map.getZoom(), quality) });
       addOverlays(map);
-      onReady?.();
+      faderRef.current = new PinFader(map, scope.map((l) => l.id));
+      pushReadout();
+      setLoaded(true);
+      onReadyRef.current?.();
     });
     map.on("zoom", syncTerrain);
     map.on("rotate", () => setBearing(map.getBearing()));
@@ -126,16 +166,20 @@ export default function GeorgiaMap({ onReady }: { onReady?: () => void }) {
     // --- Hover tooltip + highlight ------------------------------------------
     const setHover = (id: string | null) => {
       if (hoverId.current === id) return;
-      for (const source of HOVER_SOURCES) {
+      for (const source of PIN_SOURCES) {
         if (hoverId.current) map.setFeatureState({ source, id: hoverId.current }, { hover: false });
         if (id) map.setFeatureState({ source, id }, { hover: true });
       }
       hoverId.current = id;
     };
     const interactive = [...INTERACTIVE_LAYERS, CLUSTER_LAYER];
+    const hit = (point: maplibregl.PointLike) =>
+      map.queryRenderedFeatures(point, { layers: interactive.filter((l) => map.getLayer(l)) })[0] as MapGeoJSONFeature | undefined;
+
     map.on("mousemove", (e) => {
-      const layers = interactive.filter((l) => map.getLayer(l));
-      const f = map.queryRenderedFeatures(e.point, { layers })[0] as MapGeoJSONFeature | undefined;
+      cursor = e.lngLat;
+      pushReadout();
+      const f = hit(e.point);
       map.getCanvas().style.cursor = f ? "pointer" : "";
       if (!f || f.layer.id === CLUSTER_LAYER) {
         setHover(null);
@@ -151,34 +195,65 @@ export default function GeorgiaMap({ onReady }: { onReady?: () => void }) {
       setTooltip(null);
     });
 
-    // --- Click: expand clusters, fly to pins ---------------------------------
+    // --- Click: expand clusters, select pins ---------------------------------
     map.on("click", async (e) => {
-      const layers = interactive.filter((l) => map.getLayer(l));
-      const f = map.queryRenderedFeatures(e.point, { layers })[0] as MapGeoJSONFeature | undefined;
+      const f = hit(e.point);
       if (!f) return;
-      const reduce = prefersReducedMotion();
-      const center = (f.geometry.type === "Point" ? f.geometry.coordinates : [e.lngLat.lng, e.lngLat.lat]) as [number, number];
       if (f.layer.id === CLUSTER_LAYER) {
+        const center = (f.geometry as GeoJSON.Point).coordinates as [number, number];
         const zoom = await (map.getSource("pins") as GeoJSONSource).getClusterExpansionZoom(f.properties.cluster_id as number);
-        map.easeTo({ center, zoom: zoom + 0.5, duration: reduce ? 0 : 1200 });
+        map.easeTo({ center, zoom: zoom + 0.5, duration: prefersReducedMotion() ? 0 : 1200 });
         return;
       }
-      // Beams are polygons, so use the pin's own coordinates rather than the click point.
-      const loc = locationById.get((f.properties as PinProperties).id);
-      const pinCenter: [number, number] = loc ? [loc.lng, loc.lat] : center;
-      // Phase 2 replaces this with the full cinematic move + location panel.
-      const cam = { center: pinCenter, zoom: 14.5, pitch: Math.min(68, map.getMaxPitch()), bearing: map.getBearing() + 25 };
-      if (reduce) map.jumpTo(cam);
-      else map.flyTo({ ...cam, duration: 3200, curve: 1.6, essential: false });
+      setTooltip(null);
+      onSelectRef.current?.((f.properties as PinProperties).id);
     });
 
     return () => {
       cancelAnimationFrame(raf);
       cancelAnimationFrame(hudRaf);
+      faderRef.current?.destroy();
+      faderRef.current = null;
+      reticleRef.current?.remove();
+      reticleRef.current = null;
       map.remove();
       mapRef.current = null;
     };
-  }, [homeCamera, onReady]);
+  }, [homeCamera, mini]);
+
+  // --- Filtering: animate pins in/out ----------------------------------------
+  useEffect(() => {
+    if (!loaded || !visibleIds || !faderRef.current) return;
+    faderRef.current.setVisible(visibleIds, !prefersReducedMotion());
+  }, [loaded, visibleIds]);
+
+  // --- Selection: highlight + cinematic camera move ---------------------------
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!loaded || !map) return;
+    const prev = selectedRef.current;
+    if (prev === selectedId) return;
+    for (const source of PIN_SOURCES) {
+      if (prev) map.setFeatureState({ source, id: prev }, { selected: false });
+      if (selectedId) map.setFeatureState({ source, id: selectedId }, { selected: true });
+    }
+    selectedRef.current = selectedId;
+    const loc = selectedId ? locationById.get(selectedId) : undefined;
+    // Selection reticle: an HTML marker lying flat on the terrain, pulsing via CSS.
+    // (A circle layer for this occluded other pins on terrain.)
+    reticleRef.current?.remove();
+    reticleRef.current = null;
+    if (loc) {
+      const el = document.createElement("div");
+      el.className = "reticle";
+      el.setAttribute("aria-hidden", "true");
+      reticleRef.current = new maplibregl.Marker({ element: el, pitchAlignment: "map", rotationAlignment: "map" })
+        .setLngLat([loc.lng, loc.lat])
+        .addTo(map);
+    }
+    if (loc) flyToLocation(map, loc, { quality: qualityRef.current, reduce: prefersReducedMotion() });
+    else if (prev) clearSelectionPadding(map, prefersReducedMotion());
+  }, [loaded, selectedId]);
 
   // --- Control handlers ------------------------------------------------------
   const duration = () => (prefersReducedMotion() ? 0 : 1600);
@@ -228,8 +303,9 @@ export default function GeorgiaMap({ onReady }: { onReady?: () => void }) {
         aria-label="3D map of filming locations in Georgia. Use arrow keys to pan, plus and minus to zoom, shift plus arrows to rotate and tilt."
       />
       <PinTooltip state={tooltip} />
-      <MapReadout r={readout} />
+      {!mini && <MapReadout r={readout} />}
       <MapControls
+        compact={mini}
         is3D={is3D}
         bearing={bearing}
         onZoomIn={() => mapRef.current?.zoomIn({ duration: duration() / 3 })}

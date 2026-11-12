@@ -3,6 +3,8 @@
 import type { ReactNode } from "react";
 
 type Props = {
+  /** Smaller placement for embedded maps. */
+  compact?: boolean;
   is3D: boolean;
   bearing: number;
   onZoomIn: () => void;
@@ -33,9 +35,16 @@ const Group = ({ children }: { children: ReactNode }) => (
   </div>
 );
 
-export function MapControls({ is3D, bearing, onZoomIn, onZoomOut, onResetNorth, onReset, onToggle3D }: Props) {
+export function MapControls({ compact, is3D, bearing, onZoomIn, onZoomOut, onResetNorth, onReset, onToggle3D }: Props) {
   return (
-    <div className="absolute right-5 bottom-24 z-10 flex flex-col gap-3 sm:right-10 sm:bottom-48">
+    <div
+      className={
+        compact
+          ? "absolute right-3 bottom-3 z-10 flex flex-col gap-2"
+          : // Slides left of the location panel while it's open (desktop).
+            "absolute right-5 bottom-28 z-10 flex flex-col gap-3 transition-[right] duration-300 sm:right-10 sm:bottom-48 md:group-data-[panel=open]:right-[452px]"
+      }
+    >
       <Group>
         <Btn label="Zoom in" onClick={onZoomIn}>
           <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>

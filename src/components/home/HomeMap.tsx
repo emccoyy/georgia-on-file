@@ -1,30 +1,15 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useCallback, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { LoadingScreen } from "@/components/explore/LoadingScreen";
 
-// MapLibre touches window/WebGL, so it only ever renders on the client.
-const GeorgiaMap = dynamic(() => import("@/components/map/GeorgiaMap"), { ssr: false });
+// The explorer reads the URL and uses WebGL, so it renders on the client only.
+// The loading screen doubles as the fallback so first paint is never blank.
+const Explorer = dynamic(() => import("@/components/explore/Explorer"), {
+  ssr: false,
+  loading: () => <LoadingScreen show />,
+});
 
 export function HomeMap() {
-  const [ready, setReady] = useState(false);
-  const onReady = useCallback(() => setReady(true), []);
-  return (
-    <div className="absolute inset-0">
-      <GeorgiaMap onReady={onReady} />
-      <AnimatePresence>
-        {!ready && (
-          <motion.div
-            className="absolute inset-0 grid place-items-center bg-ink"
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-            aria-live="polite"
-          >
-            <p className="cursor-blink font-mono text-xs tracking-[0.3em] text-accent uppercase">Initializing terrain model</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
+  return <Explorer />;
 }

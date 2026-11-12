@@ -1,8 +1,9 @@
-import type { Map as MLMap, ExpressionSpecification } from "maplibre-gl";
+import type { Map as MLMap, ExpressionSpecification, StyleSpecification } from "maplibre-gl";
 import type { FeatureCollection, MultiPolygon, Polygon } from "geojson";
 import georgiaClip from "@/data/geo/georgia-clip.json";
 import georgiaMask from "@/data/geo/georgia-mask.json";
 import { locationsToBeams, locationsToPoints } from "@/data";
+import type { FilmLocation } from "@/data/schema";
 import { ACCENT, BASE_ELEVATION_M, BEAM_MIN_ZOOM, CLUSTER_MAX_ZOOM, TYPE_COLORS } from "./config";
 import { graticule } from "./graticule";
 import { BP } from "./theme";
@@ -18,15 +19,49 @@ const typeColor: ExpressionSpecification = [
   ACCENT,
 ] as unknown as ExpressionSpecification;
 
+/** Hovered or selected pins get the "on" value. */
 const hovered = (on: unknown, off: unknown) =>
-  ["case", ["boolean", ["feature-state", "hover"], false], on, off] as ExpressionSpecification;
+  [
+    "case",
+    ["any", ["boolean", ["feature-state", "hover"], false], ["boolean", ["feature-state", "selected"], false]],
+    on,
+    off,
+  ] as ExpressionSpecification;
+/** 0→1 per pin, driven by PinFader so filtering animates instead of snapping. */
+const fade = ["coalesce", ["feature-state", "fade"], 1] as ExpressionSpecification;
+const faded = (v: unknown) => ["*", fade, v] as ExpressionSpecification;
 
+/** Source ids that hold one feature per location (feature id = location id). */
+export const PIN_SOURCES = ["pins", "beams-far", "beams-near"] as const;
+export const BEAM_RADII = { "beams-far": 110, "beams-near": 5 } as const;
+
+/**
+ * Overlay GeoJSON sources. These go into the initial style, ahead of the base
+ * map, so the slab mask, rim and pins are tiled first instead of queueing
+ * behind hundreds of base-map tiles.
+ */
+export function overlaySources(initial: FilmLocation[]): StyleSpecification["sources"] {
+  return {
+    "ga-mask": { type: "geojson", data: georgiaMask as unknown as FeatureCollection<Polygon> },
+    // The glow traces the clip edge, i.e. the rim of the raised slab.
+    ga: { type: "geojson", data: georgiaClip as unknown as FeatureCollection<MultiPolygon> },
+    pins: {
+      type: "geojson",
+      data: locationsToPoints(initial),
+      cluster: true,
+      clusterMaxZoom: CLUSTER_MAX_ZOOM,
+      clusterRadius: 46,
+      promoteId: "id",
+    },
+    // Beams use two footprints: fat at mid zoom so they read, thin up close so they don't block the view.
+    "beams-far": { type: "geojson", data: locationsToBeams(BEAM_RADII["beams-far"], initial), promoteId: "id" },
+    "beams-near": { type: "geojson", data: locationsToBeams(BEAM_RADII["beams-near"], initial), promoteId: "id" },
+  };
+}
+
+/** Adds overlay layers (their sources come from overlaySources in the style). */
 export function addOverlays(map: MLMap) {
   // --- Georgia only: hide everything outside, glow along the rim -----------
-  map.addSource("ga-mask", { type: "geojson", data: georgiaMask as unknown as FeatureCollection<Polygon> });
-  // The glow traces the clip edge, i.e. the rim of the raised slab.
-  map.addSource("ga", { type: "geojson", data: georgiaClip as unknown as FeatureCollection<MultiPolygon> });
-
   map.addLayer({
     id: "ga-mask",
     type: "fill",
@@ -104,17 +139,6 @@ export function addOverlays(map: MLMap) {
   });
 
   // --- Pins -------------------------------------------------------------------
-  map.addSource("pins", {
-    type: "geojson",
-    data: locationsToPoints(),
-    cluster: true,
-    clusterMaxZoom: CLUSTER_MAX_ZOOM,
-    clusterRadius: 46,
-    promoteId: "id",
-  });
-  // Beams use two footprints: fat at mid zoom so they read, thin up close so they don't block the view.
-  map.addSource("beams-far", { type: "geojson", data: locationsToBeams(110), promoteId: "id" });
-  map.addSource("beams-near", { type: "geojson", data: locationsToBeams(5), promoteId: "id" });
 
   // Clusters
   map.addLayer({
@@ -168,30 +192,31 @@ export function addOverlays(map: MLMap) {
     paint: {
       // Hollow survey-marker ring around each location.
       "circle-color": typeColor,
-      "circle-opacity": hovered(0.18, 0.06),
-      "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, hovered(12, 8), 14, hovered(20, 14)],
+      "circle-opacity": faded(hovered(0.18, 0.06)),
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, faded(hovered(12, 8)), 14, faded(hovered(20, 14))],
       "circle-stroke-color": typeColor,
       "circle-stroke-width": hovered(1.6, 1),
-      "circle-stroke-opacity": 0.85,
+      "circle-stroke-opacity": faded(0.85),
       "circle-pitch-alignment": "map",
     },
   });
 
+  // Beams rise out of the ground as `fade` goes 0→1 (opacity can't vary per feature on extrusions).
   const beamHeight: ExpressionSpecification = [
     "interpolate",
     ["linear"],
     ["zoom"],
-    BEAM_MIN_ZOOM, 9000,
-    12, 3200,
-    15, 700,
-    18, 220,
+    BEAM_MIN_ZOOM, faded(9000),
+    12, faded(3200),
+    15, faded(700),
+    18, faded(220),
   ];
   for (const [range, src, minzoom, maxzoom] of [
     ["far", "beams-far", BEAM_MIN_ZOOM, 13],
     ["near", "beams-near", 12, 24],
   ] as const) {
     const fadeIn = range === "far" ? [BEAM_MIN_ZOOM, 0, BEAM_MIN_ZOOM + 0.8, 1, 12, 1, 13, 0] : [12, 0, 13, 1];
-    const fade = (max: number) =>
+    const zoomFade = (max: number) =>
       [
         "interpolate",
         ["linear"],
@@ -208,7 +233,7 @@ export function addOverlays(map: MLMap) {
         "fill-extrusion-color": hovered(BP.ink, typeColor),
         "fill-extrusion-height": beamHeight,
         "fill-extrusion-base": 0,
-        "fill-extrusion-opacity": fade(range === "far" ? 0.95 : 0.85),
+        "fill-extrusion-opacity": zoomFade(range === "far" ? 0.95 : 0.85),
         "fill-extrusion-vertical-gradient": false,
       },
     });
@@ -221,9 +246,11 @@ export function addOverlays(map: MLMap) {
     filter: ["!", ["has", "point_count"]],
     paint: {
       "circle-color": typeColor,
-      "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, hovered(3.5, 2), 14, hovered(5, 3.5)],
+      "circle-opacity": fade,
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, faded(hovered(3.5, 2)), 14, faded(hovered(5, 3.5))],
       "circle-stroke-color": BP.ink,
       "circle-stroke-width": hovered(1.2, 0),
+      "circle-stroke-opacity": fade,
       "circle-pitch-alignment": "map",
     },
   });
