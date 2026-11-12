@@ -20,6 +20,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable} h-full antialiased`}>
       <body className="min-h-full bg-ink font-sans text-paper">
+        <a
+          href="#main"
+          className="sr-only z-[60] border border-accent bg-ink px-4 py-2 font-mono text-xs tracking-widest text-accent uppercase focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+        >
+          Skip to content
+        </a>
         {children}
         <div className="film-grain" aria-hidden />
       </body>

@@ -1,12 +1,33 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import type { Map as MLMap } from "maplibre-gl";
+
+/** Compass needle; subscribes to rotation itself so only this icon re-renders. */
+function Compass({ map }: { map: MLMap | null }) {
+  const [bearing, setBearing] = useState(map?.getBearing() ?? 0);
+  useEffect(() => {
+    if (!map) return;
+    const on = () => setBearing(map.getBearing());
+    on();
+    map.on("rotate", on);
+    return () => {
+      map.off("rotate", on);
+    };
+  }, [map]);
+  return (
+    <svg viewBox="0 0 24 24" className="size-5" style={{ transform: `rotate(${-bearing}deg)` }} aria-hidden>
+      <path d="M12 3l3.5 9h-7z" fill="#5CE1FF" />
+      <path d="M12 21l-3.5-9h7z" fill="currentColor" opacity=".45" />
+    </svg>
+  );
+}
 
 type Props = {
   /** Smaller placement for embedded maps. */
   compact?: boolean;
   is3D: boolean;
-  bearing: number;
+  map: MLMap | null;
   onZoomIn: () => void;
   onZoomOut: () => void;
   onResetNorth: () => void;
@@ -35,7 +56,7 @@ const Group = ({ children }: { children: ReactNode }) => (
   </div>
 );
 
-export function MapControls({ compact, is3D, bearing, onZoomIn, onZoomOut, onResetNorth, onReset, onToggle3D }: Props) {
+export function MapControls({ compact, is3D, map, onZoomIn, onZoomOut, onResetNorth, onReset, onToggle3D }: Props) {
   return (
     <div
       className={
@@ -57,15 +78,7 @@ export function MapControls({ compact, is3D, bearing, onZoomIn, onZoomOut, onRes
           </svg>
         </Btn>
         <Btn label="Reset bearing to north" onClick={onResetNorth}>
-          <svg
-            viewBox="0 0 24 24"
-            className="size-5 transition-transform"
-            style={{ transform: `rotate(${-bearing}deg)` }}
-            aria-hidden
-          >
-            <path d="M12 3l3.5 9h-7z" fill="#5CE1FF" />
-            <path d="M12 21l-3.5-9h7z" fill="currentColor" opacity=".45" />
-          </svg>
+          <Compass map={map} />
         </Btn>
       </Group>
       <Group>

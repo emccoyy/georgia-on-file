@@ -18,8 +18,8 @@ function Placeholder({ l }: { l: FilmLocation }) {
     <div className="relative grid h-36 place-items-center overflow-hidden border border-line/30 bg-[linear-gradient(135deg,#0d3156,#061a30)]">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(124,196,242,.12)_1px,transparent_1px),linear-gradient(90deg,rgba(124,196,242,.12)_1px,transparent_1px)] bg-[size:20px_20px]" />
       <TypeIcon type={l.type} className="relative size-14 text-accent/80" />
-      <span className="absolute bottom-2 left-2.5 font-mono text-[9px] tracking-[0.2em] text-line uppercase">{l.type}</span>
-      <span className="absolute right-2.5 bottom-2 font-mono text-[9px] tracking-wider text-line">
+      <span className="absolute bottom-2 left-2.5 font-mono text-[10px] tracking-[0.2em] text-line uppercase">{l.type}</span>
+      <span className="absolute right-2.5 bottom-2 font-mono text-[10px] tracking-wider text-line">
         {l.lat.toFixed(4)}°N {Math.abs(l.lng).toFixed(4)}°W
       </span>
     </div>
@@ -124,7 +124,7 @@ function PanelBody({
         <figure>
           {/* eslint-disable-next-line @next/next/no-img-element -- remote Wikimedia images, attribution shown below */}
           <img src={l.image.src} alt={l.image.alt} className="h-44 w-full border border-line/30 object-cover" loading="lazy" />
-          <figcaption className="mt-1 font-mono text-[9px] text-line/80">
+          <figcaption className="mt-1 font-mono text-[10px] text-line/80">
             <a href={l.image.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline">
               {l.image.credit}
             </a>{" "}
@@ -137,7 +137,7 @@ function PanelBody({
 
       <p className="text-sm leading-relaxed text-paper/85">{l.description}</p>
       {l.approximateCoords && (
-        <p className="-mt-3 font-mono text-[10px] tracking-wide text-line/70">⚠ Pin is approximate (landmark or town center).</p>
+        <p className="-mt-3 font-mono text-[10px] tracking-wide text-line/85">⚠ Pin is approximate (landmark or town center).</p>
       )}
 
       <section aria-labelledby="filmed-here">
@@ -155,7 +155,7 @@ function PanelBody({
                 <p className="mt-1 flex items-center gap-1.5 font-mono text-[10px] tracking-wider uppercase" style={{ color: TYPE_COLORS[p.type] }}>
                   <span className="size-1.5 rounded-full" style={{ background: TYPE_COLORS[p.type] }} aria-hidden />
                   {p.type}
-                  {p.distributor && <span className="text-line/70 normal-case">· {p.distributor}</span>}
+                  {p.distributor && <span className="text-line/85 normal-case">· {p.distributor}</span>}
                 </p>
                 <p className="mt-1.5 text-xs leading-relaxed text-paper/70">{p.logline}</p>
               </Link>

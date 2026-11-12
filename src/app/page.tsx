@@ -1,4 +1,5 @@
 import { HomeMap } from "@/components/home/HomeMap";
+import { MapPreconnect } from "@/components/map/MapPreconnect";
 import { Legend } from "@/components/map/Legend";
 import { TitleBlock } from "@/components/ui/TitleBlock";
 import { SiteNav } from "@/components/ui/SiteNav";
@@ -6,8 +7,9 @@ import { locations, productions } from "@/data";
 
 export default function Home() {
   return (
-    <main className="relative h-dvh w-full overflow-hidden bg-ink">
+    <main id="main" tabIndex={-1} className="relative h-dvh w-full overflow-hidden bg-ink outline-none">
       <h1 className="sr-only">Georgia on Film: an interactive 3D map of filming locations in Georgia</h1>
+      <MapPreconnect />
       <HomeMap />
 
       {/* Site nav: top-right on desktop (beside the attribution button), in the footer on phones. */}

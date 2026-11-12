@@ -60,7 +60,7 @@ export const QUALITY_SETTINGS: Record<
   { maxPitch: number; homePitch: number; demTileSize: number; demMaxZoom: number; buildings: boolean; pixelRatioCap: number }
 > = {
   high: { maxPitch: 80, homePitch: 64, demTileSize: 256, demMaxZoom: 14, buildings: true, pixelRatioCap: 2 },
-  low: { maxPitch: 60, homePitch: 45, demTileSize: 512, demMaxZoom: 12, buildings: false, pixelRatioCap: 1.5 },
+  low: { maxPitch: 60, homePitch: 45, demTileSize: 512, demMaxZoom: 12, buildings: false, pixelRatioCap: 1.25 },
 };
 
 /**

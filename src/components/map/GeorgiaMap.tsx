@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import * as maplibregl from "maplibre-gl";
 import type { Map as MLMap, MapGeoJSONFeature, GeoJSONSource } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { buildBaseStyle } from "@/lib/map/style";
+import { addContours, buildBaseStyle } from "@/lib/map/style";
 import { addOverlays, CLUSTER_LAYER, INTERACTIVE_LAYERS, overlaySources, PIN_SOURCES, routeGradient } from "@/lib/map/layers";
 import { cumulativeMiles, resolveStops, routeGeoJSON, stopsGeoJSON } from "@/lib/tour";
 import { registerClippedDem } from "@/lib/map/clippedDem";
@@ -16,9 +16,10 @@ import { locationById, locations as allLocations, type PinProperties } from "@/d
 import type { FilmLocation } from "@/data/schema";
 import { MapControls } from "./MapControls";
 import { PinTooltip, type TooltipState } from "./PinTooltip";
-import { MapReadout, type Readout } from "./MapReadout";
+import { MapReadout } from "./MapReadout";
 
-maplibregl.setWorkerUrl("/vendor/maplibre-gl-worker.mjs");
+// Versioned so the long-lived cache (see next.config headers) busts on upgrades.
+maplibregl.setWorkerUrl(`/vendor/maplibre-gl-worker.mjs?v=${maplibregl.getVersion()}`);
 registerClippedDem();
 
 type Props = {
@@ -77,9 +78,10 @@ export default function GeorgiaMap({
   const [loaded, setLoaded] = useState(false);
   const [tooltip, setTooltip] = useState<TooltipState | null>(null);
   const [is3D, setIs3D] = useState(true);
-  const [bearing, setBearing] = useState(HOME_BEARING);
   const [error, setError] = useState<string | null>(null);
-  const [readout, setReadout] = useState<Readout>({ lng: null, lat: null, zoom: 6, pitch: 0, bearing: HOME_BEARING });
+  // The map instance as state, for child widgets (readout, compass) that subscribe to
+  // camera events themselves, so camera motion never re-renders this component.
+  const [mapInst, setMapInst] = useState<MLMap | null>(null);
   const mini = mode === "mini";
 
   /** Home camera: the whole state (explore) or this production's locations (mini). */
@@ -152,18 +154,6 @@ export default function GeorgiaMap({
     if (new URLSearchParams(window.location.search).has("debug")) (window as unknown as { __map: MLMap }).__map = map;
     map.jumpTo(introRef.current === "done" ? homeCamera(map, q.homePitch) : FLY_IN_START);
 
-    // HUD readout: cursor position + camera state, throttled to one update per frame.
-    let hudRaf = 0;
-    let cursor: { lng: number; lat: number } | null = null;
-    const pushReadout = () => {
-      if (mini) return;
-      cancelAnimationFrame(hudRaf);
-      hudRaf = requestAnimationFrame(() =>
-        setReadout({ lng: cursor?.lng ?? null, lat: cursor?.lat ?? null, zoom: map.getZoom(), pitch: map.getPitch(), bearing: map.getBearing() }),
-      );
-    };
-    map.on("move", pushReadout);
-
     // Keep exaggeration tied to zoom so mountains read at statewide scale.
     let raf = 0;
     const syncTerrain = () => {
@@ -180,12 +170,13 @@ export default function GeorgiaMap({
       map.setTerrain({ source: "dem", exaggeration: exaggerationAt(map.getZoom(), quality) });
       addOverlays(map);
       faderRef.current = new PinFader(map, scope.map((l) => l.id));
-      pushReadout();
+      // Contours are decoration: add them after the first full render.
+      map.once("idle", () => addContours(map, quality));
+      setMapInst(map);
       setLoaded(true);
       onReadyRef.current?.();
     });
     map.on("zoom", syncTerrain);
-    map.on("rotate", () => setBearing(map.getBearing()));
 
     // --- Hover tooltip + highlight ------------------------------------------
     const setHover = (id: string | null) => {
@@ -201,8 +192,6 @@ export default function GeorgiaMap({
       map.queryRenderedFeatures(point, { layers: interactive.filter((l) => map.getLayer(l)) })[0] as MapGeoJSONFeature | undefined;
 
     map.on("mousemove", (e) => {
-      cursor = e.lngLat;
-      pushReadout();
       const f = hit(e.point);
       map.getCanvas().style.cursor = f ? "pointer" : "";
       if (!f || f.layer.id === CLUSTER_LAYER) {
@@ -235,7 +224,6 @@ export default function GeorgiaMap({
 
     return () => {
       cancelAnimationFrame(raf);
-      cancelAnimationFrame(hudRaf);
       faderRef.current?.destroy();
       faderRef.current = null;
       reticleRef.current?.remove();
@@ -397,11 +385,11 @@ export default function GeorgiaMap({
         aria-label="3D map of filming locations in Georgia. Use arrow keys to pan, plus and minus to zoom, shift plus arrows to rotate and tilt."
       />
       <PinTooltip state={tooltip} />
-      {!mini && <MapReadout r={readout} />}
+      {!mini && <MapReadout map={mapInst} />}
       <MapControls
         compact={mini}
         is3D={is3D}
-        bearing={bearing}
+        map={mapInst}
         onZoomIn={() => mapRef.current?.zoomIn({ duration: duration() / 3 })}
         onZoomOut={() => mapRef.current?.zoomOut({ duration: duration() / 3 })}
         onResetNorth={() => mapRef.current?.easeTo({ bearing: 0, duration: duration() / 2 })}

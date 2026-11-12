@@ -43,7 +43,7 @@ export default function StatsPage() {
       <dl className="mt-8 grid grid-cols-2 border border-line/30 sm:grid-cols-5">
         {kpis.map((k) => (
           <div key={k.label} className="border-line/20 p-4 not-last:border-r max-sm:odd:border-r max-sm:[&:nth-child(n+3)]:border-t">
-            <dt className="font-mono text-[9px] tracking-[0.25em] text-line uppercase">{k.label}</dt>
+            <dt className="font-mono text-[10px] tracking-[0.25em] text-line uppercase">{k.label}</dt>
             <dd className="mt-1 font-display text-4xl leading-none tracking-wide tabular-nums sm:text-5xl">{k.value}</dd>
           </div>
         ))}

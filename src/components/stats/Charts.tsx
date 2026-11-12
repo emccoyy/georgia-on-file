@@ -48,7 +48,7 @@ export function ColumnChart({ data, valueLabel, height = 220 }: { data: Bar[]; v
         {/* Recessive gridlines */}
         {ticks.map((t) => (
           <div key={t} className="absolute inset-x-0 flex items-center gap-2" style={{ bottom: `${(t / max) * 100}%` }} aria-hidden>
-            <span className="w-5 text-right font-mono text-[9px] text-line/80 tabular-nums">{t}</span>
+            <span className="w-5 text-right font-mono text-[10px] text-line/80 tabular-nums">{t}</span>
             <span className="h-px flex-1 bg-line/15" />
           </div>
         ))}
@@ -93,7 +93,7 @@ export function ColumnChart({ data, valueLabel, height = 220 }: { data: Bar[]; v
       </div>
       <div className="mt-2 ml-7 flex gap-[2px]" aria-hidden>
         {data.map((d) => (
-          <span key={d.key} className="flex-1 text-center font-mono text-[9px] tracking-wider text-line">
+          <span key={d.key} className="flex-1 text-center font-mono text-[10px] tracking-wider text-line">
             {d.label}
           </span>
         ))}
@@ -117,7 +117,7 @@ export function MeterList({ data, valueLabel, total }: { data: Bar[]; valueLabel
                 <span className="flex min-w-0 items-center gap-2 text-sm text-paper">
                   {d.color && <span className="size-2 shrink-0 rounded-full" style={{ background: d.color }} aria-hidden />}
                   <span className="truncate group-hover:text-accent">{d.label}</span>
-                  {d.detail && <span className="hidden font-mono text-[9px] tracking-widest text-line uppercase sm:inline">{d.detail}</span>}
+                  {d.detail && <span className="hidden font-mono text-[10px] tracking-widest text-line uppercase sm:inline">{d.detail}</span>}
                 </span>
                 <span className="shrink-0 font-mono text-[11px] text-paper/85 tabular-nums">
                   {d.value}

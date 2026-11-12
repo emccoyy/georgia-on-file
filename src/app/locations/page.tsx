@@ -25,9 +25,9 @@ export default function LocationsIndex() {
         All {locations.length} locations in {counties.length} counties. Select one to fly to it on the map.
       </p>
 
-      <nav aria-label="Jump to county" className="mt-6 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[10px] tracking-wider uppercase">
+      <nav aria-label="Jump to county" className="mt-6 flex flex-wrap gap-x-1 gap-y-1 font-mono text-[10px] tracking-wider uppercase">
         {counties.map((c) => (
-          <a key={c} href={`#county-${c.replace(/\W+/g, "-")}`} className="text-line hover:text-accent">
+          <a key={c} href={`#county-${c.replace(/\W+/g, "-")}`} className="inline-block px-1.5 py-1.5 text-line hover:text-accent">
             {c}
           </a>
         ))}

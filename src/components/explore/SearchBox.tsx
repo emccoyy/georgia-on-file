@@ -66,7 +66,7 @@ export function SearchBox({ query, onQuery, onPick }: Props) {
               setOpen(false);
             }
           }}
-          className="h-10 w-full bg-transparent font-mono text-[12px] tracking-wide text-paper placeholder:text-line/60 focus:outline-none"
+          className="h-10 w-full bg-transparent font-mono text-[12px] tracking-wide text-paper placeholder:text-line/80 focus:outline-none"
         />
         {query && (
           <button
@@ -93,7 +93,7 @@ export function SearchBox({ query, onQuery, onPick }: Props) {
               className={`flex cursor-pointer items-baseline justify-between gap-3 px-3 py-2 ${i === active ? "bg-accent/10" : ""}`}
             >
               <span className="truncate text-sm text-paper">{h.label}</span>
-              <span className="shrink-0 font-mono text-[9px] tracking-widest text-line uppercase">
+              <span className="shrink-0 font-mono text-[10px] tracking-widest text-line uppercase">
                 {h.kind === "production" ? "Title" : "Place"} · {h.detail.split(" · ")[0]}
               </span>
             </li>

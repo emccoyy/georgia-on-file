@@ -8,7 +8,7 @@ import { TYPE_COLORS } from "@/lib/map/config";
 const presentTypes = PRODUCTION_TYPES.filter((t) => productions.some((p) => p.type === t));
 const sortedProductions = [...productions].sort((a, b) => a.title.localeCompare(b.title));
 
-const label = "mb-1.5 block font-mono text-[9px] tracking-[0.25em] text-line uppercase";
+const label = "mb-1.5 block font-mono text-[10px] tracking-[0.25em] text-line uppercase";
 const select =
   "h-9 w-full border border-line/40 bg-ink px-2 font-mono text-[11px] text-paper focus:border-accent focus:outline-none";
 

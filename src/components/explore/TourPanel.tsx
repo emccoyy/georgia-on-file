@@ -37,7 +37,7 @@ function Stop({ id, n, onRemove, onSelect }: { id: string; n: number; onRemove: 
         ref={setActivatorNodeRef}
         type="button"
         aria-label={`Reorder stop ${n}, ${l.name}. Press space to pick up, arrow keys to move, space to drop.`}
-        className="cursor-grab touch-none px-1 text-line/60 hover:text-accent focus-visible:outline-2 focus-visible:outline-accent"
+        className="cursor-grab touch-none px-1 text-line/80 hover:text-accent focus-visible:outline-2 focus-visible:outline-accent"
         {...attributes}
         {...listeners}
       >
@@ -48,13 +48,13 @@ function Stop({ id, n, onRemove, onSelect }: { id: string; n: number; onRemove: 
       <span className="grid size-6 shrink-0 place-items-center rounded-full border border-accent font-mono text-[10px] text-paper">{n}</span>
       <button type="button" onClick={onSelect} className="min-w-0 flex-1 text-left focus-visible:outline-2 focus-visible:outline-accent">
         <span className="block truncate text-sm text-paper hover:text-accent">{l.name}</span>
-        <span className="block font-mono text-[9px] tracking-widest text-line uppercase">{l.city}</span>
+        <span className="block font-mono text-[10px] tracking-widest text-line uppercase">{l.city}</span>
       </button>
       <button
         type="button"
         onClick={onRemove}
         aria-label={`Remove ${l.name} from tour`}
-        className="px-1.5 text-line/60 hover:text-accent focus-visible:outline-2 focus-visible:outline-accent"
+        className="px-1.5 text-line/80 hover:text-accent focus-visible:outline-2 focus-visible:outline-accent"
       >
         <svg viewBox="0 0 24 24" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
           <path d="M6 6l12 12M18 6L6 18" />
@@ -130,7 +130,7 @@ export function TourPanel({ ids, onChange, onSelect, onPlay, onOptimize }: Props
       {stops.length > 0 && (
         <div className="flex flex-col gap-2 border-t border-line/30 p-3">
           {stops.length > 1 && (
-            <p className="font-mono text-[9px] leading-relaxed tracking-wider text-line/70">
+            <p className="font-mono text-[10px] leading-relaxed tracking-wider text-line/85">
               Distances are straight-line between stops, not driving routes.
             </p>
           )}

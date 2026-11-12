@@ -8,6 +8,7 @@ import { orderByNearest } from "@/lib/tour";
 import { ProductionMap } from "@/components/production/ProductionMap";
 import { TypeIcon } from "@/components/ui/TypeIcon";
 import { PageShell } from "@/components/ui/PageShell";
+import { MapPreconnect } from "@/components/map/MapPreconnect";
 
 export function generateStaticParams() {
   return productions.map((p) => ({ id: p.id }));
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: PageProps<"/production/[id]">
   };
 }
 
-const label = "font-mono text-[9px] tracking-[0.25em] text-line/70 uppercase";
+const label = "font-mono text-[10px] tracking-[0.25em] text-line/85 uppercase";
 
 export default async function ProductionPage({ params }: PageProps<"/production/[id]">) {
   const { id } = await params;
@@ -34,6 +35,7 @@ export default async function ProductionPage({ params }: PageProps<"/production/
 
   return (
     <PageShell>
+      <MapPreconnect />
       <p className="mb-6">
         <Link href="/" className="font-mono text-[11px] tracking-[0.2em] text-line uppercase hover:text-accent">
           ← Back to the map
@@ -48,12 +50,12 @@ export default async function ProductionPage({ params }: PageProps<"/production/
         <h1 className="mt-2 font-display text-6xl leading-[0.85] tracking-wide sm:text-8xl">{p.title}</h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-paper/80">{p.logline}</p>
 
-        <dl className="mt-6 grid max-w-xl grid-cols-3 border border-line/40 font-mono text-[12px] tracking-wider uppercase">
+        <dl className="mt-6 grid max-w-xl grid-cols-2 border border-line/40 font-mono text-[12px] tracking-wider uppercase sm:grid-cols-3">
           <div className="border-r border-line/30 px-3 py-2">
             <dt className={label}>Year</dt>
             <dd>{p.year}</dd>
           </div>
-          <div className="border-r border-line/30 px-3 py-2">
+          <div className="col-span-2 border-t border-line/30 px-3 py-2 max-sm:order-last sm:col-span-1 sm:border-t-0 sm:border-r">
             <dt className={label}>Distributor / network</dt>
             <dd className="truncate">{p.distributor ?? "—"}</dd>
           </div>
@@ -66,7 +68,7 @@ export default async function ProductionPage({ params }: PageProps<"/production/
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
         <section aria-label="Map of filming locations" className="relative h-[420px] overflow-hidden border border-line/40 sm:h-[540px]">
-          <ProductionMap locationIds={p.locationIds} />
+          <ProductionMap locationIds={p.locationIds} count={locs.length} />
         </section>
 
         <section aria-labelledby="locations-heading">
@@ -96,7 +98,7 @@ export default async function ProductionPage({ params }: PageProps<"/production/
             {locs.map((l, i) => (
               <li key={l.id}>
                 <Link href={`/?loc=${l.id}`} className="group flex gap-3 py-3 focus-visible:outline-2 focus-visible:outline-accent">
-                  <span className="w-6 pt-0.5 font-mono text-[11px] text-line/60">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="w-6 pt-0.5 font-mono text-[11px] text-line">{String(i + 1).padStart(2, "0")}</span>
                   <TypeIcon type={l.type} className="mt-0.5 size-5 shrink-0 text-accent/80" />
                   <span className="min-w-0">
                     <span className="block font-display text-xl leading-none tracking-wide group-hover:text-accent">{l.name}</span>

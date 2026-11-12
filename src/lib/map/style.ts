@@ -1,4 +1,4 @@
-import type { ExpressionSpecification, StyleSpecification } from "maplibre-gl";
+import type { ExpressionSpecification, LayerSpecification, Map as MLMap, StyleSpecification } from "maplibre-gl";
 import georgiaClip from "@/data/geo/georgia-clip.json";
 import { QUALITY_SETTINGS, TERRAIN_ATTRIBUTION } from "./config";
 import { CLIPPED_DEM_TILES } from "./clippedDem";
@@ -45,7 +45,6 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
         tileSize: 256,
         maxzoom: quality === "high" ? 13 : 11,
       },
-      contours: { type: "vector", tiles: [contourTiles(quality)], maxzoom: 15 },
     },
     sky: {
       "sky-color": BP.sky,
@@ -180,40 +179,6 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
           ] satisfies StyleSpecification["layers"])
         : []),
 
-      // Topographic contours: minor lines faint, index (major) lines brighter with labels.
-      {
-        id: "contour-minor",
-        type: "line",
-        source: "contours",
-        "source-layer": "contours",
-        filter: ["==", ["get", "level"], 0],
-        paint: { "line-color": BP.line, "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.4, 12, 0.7], "line-opacity": ["interpolate", ["linear"], ["zoom"], 5, 0.18, 10, 0.38] },
-      },
-      {
-        id: "contour-major",
-        type: "line",
-        source: "contours",
-        "source-layer": "contours",
-        filter: [">", ["get", "level"], 0],
-        paint: { "line-color": BP.lineBright, "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.7, 12, 1.3], "line-opacity": ["interpolate", ["linear"], ["zoom"], 5, 0.35, 10, 0.7] },
-      },
-      {
-        id: "contour-label",
-        type: "symbol",
-        source: "contours",
-        "source-layer": "contours",
-        minzoom: 9,
-        filter: ["all", [">", ["get", "level"], 0], inGeorgia],
-        layout: {
-          "symbol-placement": "line",
-          "text-field": ["concat", ["number-format", ["get", "ele"], {}], " m"],
-          "text-font": font,
-          "text-size": 9,
-          "text-letter-spacing": 0.1,
-        },
-        paint: { "text-color": BP.line, "text-halo-color": BP.paper, "text-halo-width": 1.2 },
-      },
-
       {
         id: "place-town",
         type: "symbol",
@@ -248,4 +213,52 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
       },
     ],
   };
+}
+
+/**
+ * Topographic contours: minor lines faint, index (major) lines brighter with
+ * labels. Added once the map first goes idle, so their generation (in a worker)
+ * and tile parsing don't compete with the first render.
+ */
+export function addContours(map: MLMap, quality: Quality) {
+  if (map.getSource("contours")) return;
+  const font = ["Noto Sans Regular"];
+  const inGeorgia = ["within", georgiaClip] as unknown as ExpressionSpecification;
+  map.addSource("contours", { type: "vector", tiles: [contourTiles(quality)], maxzoom: 15 });
+  const layers: LayerSpecification[] = [
+    {
+      id: "contour-minor",
+      type: "line",
+      source: "contours",
+      "source-layer": "contours",
+      filter: ["==", ["get", "level"], 0],
+      paint: { "line-color": BP.line, "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.4, 12, 0.7], "line-opacity": ["interpolate", ["linear"], ["zoom"], 5, 0.18, 10, 0.38] },
+    },
+    {
+      id: "contour-major",
+      type: "line",
+      source: "contours",
+      "source-layer": "contours",
+      filter: [">", ["get", "level"], 0],
+      paint: { "line-color": BP.lineBright, "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.7, 12, 1.3], "line-opacity": ["interpolate", ["linear"], ["zoom"], 5, 0.35, 10, 0.7] },
+    },
+    {
+      id: "contour-label",
+      type: "symbol",
+      source: "contours",
+      "source-layer": "contours",
+      minzoom: 9,
+      filter: ["all", [">", ["get", "level"], 0], inGeorgia],
+      layout: {
+        "symbol-placement": "line",
+        "text-field": ["concat", ["number-format", ["get", "ele"], {}], " m"],
+        "text-font": font,
+        "text-size": 9,
+        "text-letter-spacing": 0.1,
+      },
+      paint: { "text-color": BP.line, "text-halo-color": BP.paper, "text-halo-width": 1.2 },
+    },
+  ];
+  // Beneath the place labels, above the base map.
+  for (const layer of layers) map.addLayer(layer, map.getLayer("place-town") ? "place-town" : undefined);
 }

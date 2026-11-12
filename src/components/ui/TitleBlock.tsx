@@ -7,7 +7,7 @@ import { SITE } from "@/lib/site";
 export function TitleBlock({ locations, productions }: { locations: number; productions: number }) {
   const disclaimer = `${SITE.disclaimer} Designed and built by ${SITE.author}.`;
   const cell = "border-line/30 px-2.5 py-1.5";
-  const label = "block text-[8px] tracking-[0.25em] text-line/60";
+  const label = "block text-[9px] tracking-[0.25em] text-line/80";
   return (
     <div className="font-mono uppercase">
       <p className="max-w-md text-[10px] leading-snug tracking-wide text-paper/55 normal-case sm:hidden">{disclaimer}</p>
@@ -36,7 +36,7 @@ export function TitleBlock({ locations, productions }: { locations: number; prod
             WGS 84
           </div>
         </div>
-        <p className={`border-t text-[9px] leading-snug tracking-wide text-paper/55 normal-case ${cell}`}>{disclaimer}</p>
+        <p className={`border-t text-[10px] leading-snug tracking-wide text-paper/55 normal-case ${cell}`}>{disclaimer}</p>
       </div>
     </div>
   );

@@ -12,11 +12,12 @@ import { useMediaQuery } from "@/lib/useMediaQuery";
 import { SearchBox } from "./SearchBox";
 import { FilterPanel } from "./FilterPanel";
 import { LocationPanel, type Playback } from "./LocationPanel";
-import { TourPanel } from "./TourPanel";
 import { LoadingScreen } from "./LoadingScreen";
 import { IntroSequence } from "./IntroSequence";
 
 const GeorgiaMap = dynamic(() => import("@/components/map/GeorgiaMap"), { ssr: false });
+// The tour panel (and its drag-and-drop library) loads the first time it's opened.
+const TourPanel = dynamic(() => import("./TourPanel").then((m) => m.TourPanel), { ssr: false });
 
 /** Per stop during Play tour: the camera flight (see camera.ts) plus time to read the card. */
 const FLIGHT_MS = 3600;
@@ -221,6 +222,7 @@ export default function Explorer() {
             type="button"
             aria-expanded={open === "filters"}
             aria-controls="filter-panel"
+            aria-label={nActive > 0 ? `Filters, ${nActive} active` : "Filters"}
             onClick={() => setOpen((o) => (o === "filters" ? null : "filters"))}
             className={barBtn(open === "filters" || nActive > 0)}
           >
@@ -229,12 +231,12 @@ export default function Explorer() {
             </svg>
             <span className="hidden sm:inline">Filters</span>
             {nActive > 0 && <span className="text-paper">{nActive}</span>}
-            <span className="sr-only">{nActive > 0 ? `${nActive} active` : ""}</span>
           </button>
           <button
             type="button"
             aria-expanded={open === "tour"}
             aria-controls="tour-panel"
+            aria-label={`Film tour, ${tour.length} stop${tour.length === 1 ? "" : "s"}`}
             onClick={() => setOpen((o) => (o === "tour" ? null : "tour"))}
             className={barBtn(open === "tour" || tour.length > 0)}
           >
@@ -245,7 +247,6 @@ export default function Explorer() {
             </svg>
             <span className="hidden sm:inline">Tour</span>
             {tour.length > 0 && <span className="text-paper">{tour.length}</span>}
-            <span className="sr-only">{tour.length} stops</span>
           </button>
         </div>
 
