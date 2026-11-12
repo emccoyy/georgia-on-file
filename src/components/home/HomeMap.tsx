@@ -21,7 +21,7 @@ export function HomeMap() {
             transition={{ duration: 0.8 }}
             aria-live="polite"
           >
-            <p className="font-display text-sm tracking-[0.4em] text-amber/80 uppercase">Loading terrain…</p>
+            <p className="cursor-blink font-mono text-xs tracking-[0.3em] text-accent uppercase">Initializing terrain model</p>
           </motion.div>
         )}
       </AnimatePresence>

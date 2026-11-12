@@ -4,6 +4,8 @@ import georgiaClip from "@/data/geo/georgia-clip.json";
 import georgiaMask from "@/data/geo/georgia-mask.json";
 import { locationsToBeams, locationsToPoints } from "@/data";
 import { ACCENT, BASE_ELEVATION_M, BEAM_MIN_ZOOM, CLUSTER_MAX_ZOOM, TYPE_COLORS } from "./config";
+import { graticule } from "./graticule";
+import { BP } from "./theme";
 
 /** Layer ids that respond to hover/click. */
 export const INTERACTIVE_LAYERS = ["pin-core", "pin-halo", "beam-near-core", "beam-far-core"] as const;
@@ -30,11 +32,11 @@ export function addOverlays(map: MLMap) {
     type: "fill",
     source: "ga-mask",
     // Fully opaque: everything outside Georgia disappears into the void floor.
-    paint: { "fill-color": "#050506", "fill-opacity": 1 },
+    paint: { "fill-color": BP.floor, "fill-opacity": 1 },
   });
   // Cliff walls: only elevations between the void floor and just below sea level
-  // exist on the walls, so a color ramp over that band paints them (dark umber
-  // at the base → warm amber at the rim) and leaves land, sea and floor untouched.
+  // exist on the walls, so a color ramp over that band paints them (deep navy
+  // at the base → cyan at the rim) and leaves land, sea and floor untouched.
   const B = BASE_ELEVATION_M;
   map.addLayer({
     id: "ga-walls",
@@ -47,12 +49,24 @@ export function addOverlays(map: MLMap) {
         ["linear"],
         ["elevation"],
         B, "rgba(0,0,0,0)",
-        B + 15, "#0d0905",
-        B * 0.55, "#2b1b0c",
-        B * 0.2, "#6a4420",
-        -260, "#b07a3c",
+        B + 15, "#061a30",
+        B * 0.55, "#0c3358",
+        B * 0.2, "#1d6a9e",
+        -260, "#6fd3f5",
         -250, "rgba(0,0,0,0)",
       ],
+    },
+  });
+  // Drafting grid: 0.25° minor / 1° major, draped over floor and state alike.
+  map.addSource("grid", { type: "geojson", data: graticule() });
+  map.addLayer({
+    id: "grid",
+    type: "line",
+    source: "grid",
+    paint: {
+      "line-color": BP.line,
+      "line-width": ["case", ["get", "major"], 0.9, 0.5],
+      "line-opacity": ["interpolate", ["linear"], ["zoom"], 5, ["case", ["get", "major"], 0.22, 0.05], 8, ["case", ["get", "major"], 0.22, 0.1]],
     },
   });
   map.addLayer({
@@ -71,7 +85,7 @@ export function addOverlays(map: MLMap) {
       "line-color": ACCENT,
       "line-width": ["interpolate", ["linear"], ["zoom"], 5, 14, 10, 34],
       "line-blur": ["interpolate", ["linear"], ["zoom"], 5, 12, 10, 28],
-      "line-opacity": 0.22,
+      "line-opacity": 0.18,
     },
   });
   map.addLayer({
@@ -79,14 +93,14 @@ export function addOverlays(map: MLMap) {
     type: "line",
     source: "ga",
     layout: { "line-join": "round" },
-    paint: { "line-color": "#ffb547", "line-width": 4, "line-blur": 3, "line-opacity": 0.55 },
+    paint: { "line-color": BP.cyan, "line-width": 3, "line-blur": 2.5, "line-opacity": 0.6 },
   });
   map.addLayer({
     id: "ga-glow-core",
     type: "line",
     source: "ga",
     layout: { "line-join": "round" },
-    paint: { "line-color": "#ffe2a8", "line-width": 1.1, "line-opacity": 0.95 },
+    paint: { "line-color": BP.ink, "line-width": 1.1, "line-opacity": 0.95 },
   });
 
   // --- Pins -------------------------------------------------------------------
@@ -112,7 +126,7 @@ export function addOverlays(map: MLMap) {
       "circle-color": ACCENT,
       "circle-radius": ["step", ["get", "point_count"], 22, 4, 28, 10, 36],
       "circle-blur": 1,
-      "circle-opacity": 0.35,
+      "circle-opacity": 0.22,
       "circle-pitch-alignment": "map",
     },
   });
@@ -122,10 +136,11 @@ export function addOverlays(map: MLMap) {
     source: "pins",
     filter: ["has", "point_count"],
     paint: {
-      "circle-color": "#120d07",
+      "circle-color": BP.floor,
+      "circle-opacity": 0.85,
       "circle-radius": ["step", ["get", "point_count"], 12, 4, 15, 10, 19],
       "circle-stroke-color": ACCENT,
-      "circle-stroke-width": 1.5,
+      "circle-stroke-width": 1.2,
       "circle-pitch-alignment": "map",
     },
   });
@@ -141,7 +156,7 @@ export function addOverlays(map: MLMap) {
       "text-allow-overlap": true,
       "text-pitch-alignment": "viewport",
     },
-    paint: { "text-color": "#ffe2a8" },
+    paint: { "text-color": BP.ink },
   });
 
   // Individual pins: ground glow + bright core
@@ -151,10 +166,13 @@ export function addOverlays(map: MLMap) {
     source: "pins",
     filter: ["!", ["has", "point_count"]],
     paint: {
+      // Hollow survey-marker ring around each location.
       "circle-color": typeColor,
-      "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, hovered(20, 12), 14, hovered(30, 22)],
-      "circle-blur": 1,
-      "circle-opacity": hovered(0.7, 0.4),
+      "circle-opacity": hovered(0.18, 0.06),
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, hovered(12, 8), 14, hovered(20, 14)],
+      "circle-stroke-color": typeColor,
+      "circle-stroke-width": hovered(1.6, 1),
+      "circle-stroke-opacity": 0.85,
       "circle-pitch-alignment": "map",
     },
   });
@@ -187,10 +205,10 @@ export function addOverlays(map: MLMap) {
       minzoom,
       maxzoom,
       paint: {
-        "fill-extrusion-color": hovered("#fff4dc", typeColor),
+        "fill-extrusion-color": hovered(BP.ink, typeColor),
         "fill-extrusion-height": beamHeight,
         "fill-extrusion-base": 0,
-        "fill-extrusion-opacity": fade(range === "far" ? 0.8 : 0.55),
+        "fill-extrusion-opacity": fade(range === "far" ? 0.7 : 0.5),
         "fill-extrusion-vertical-gradient": false,
       },
     });
@@ -202,10 +220,10 @@ export function addOverlays(map: MLMap) {
     source: "pins",
     filter: ["!", ["has", "point_count"]],
     paint: {
-      "circle-color": "#fff4dc",
-      "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, hovered(5, 3), 14, hovered(7, 5)],
-      "circle-stroke-color": typeColor,
-      "circle-stroke-width": 2,
+      "circle-color": typeColor,
+      "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, hovered(3.5, 2), 14, hovered(5, 3.5)],
+      "circle-stroke-color": BP.ink,
+      "circle-stroke-width": hovered(1.2, 0),
       "circle-pitch-alignment": "map",
     },
   });

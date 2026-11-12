@@ -8,16 +8,16 @@ export const GEORGIA_BOUNDS: [[number, number], [number, number]] = [
   [-80.84, 35.0],
 ];
 
-/** Pin colors by production type (on near-black, all pass 3:1 non-text contrast). */
+/** Pin colors by production type (all pass 3:1 non-text contrast on the navy sheet). */
 export const TYPE_COLORS: Record<ProductionType, string> = {
-  "feature film": "#F5A524", // film-leader amber
-  "TV series": "#5EEAD4", // teal
-  "limited series": "#F472B6", // rose
-  "TV movie": "#60A5FA", // sky blue
-  documentary: "#A78BFA", // violet
+  "feature film": "#5CE1FF", // cyan light-pen
+  "TV series": "#FFC857", // drafting amber
+  "limited series": "#FF7AA8", // redline pink
+  "TV movie": "#9CF6B0", // mint
+  documentary: "#C4B5FD", // lavender
 };
 
-export const ACCENT = "#F5A524";
+export const ACCENT = "#5CE1FF";
 
 export const TERRAIN_TILES = "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png";
 export const TERRAIN_ATTRIBUTION =

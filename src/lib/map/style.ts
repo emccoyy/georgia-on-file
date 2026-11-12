@@ -1,20 +1,23 @@
-import type { StyleSpecification } from "maplibre-gl";
-import type { ExpressionSpecification } from "maplibre-gl";
+import type { ExpressionSpecification, StyleSpecification } from "maplibre-gl";
 import georgiaClip from "@/data/geo/georgia-clip.json";
 import { QUALITY_SETTINGS, TERRAIN_ATTRIBUTION } from "./config";
 import { CLIPPED_DEM_TILES } from "./clippedDem";
+import { contourTiles } from "./contours";
+import { BP } from "./theme";
 import type { Quality } from "@/lib/device";
 
 /**
- * Custom dark "establishing shot" base style on OpenFreeMap vector tiles
- * (OpenMapTiles schema). Overlay layers (mask, Georgia glow, pins) are added
- * at runtime in layers.ts so they can reference app data.
+ * Blueprint base style on OpenFreeMap vector tiles (OpenMapTiles schema):
+ * navy "paper", cyan/white line work, topographic contours, translucent
+ * buildings. Overlays (mask, slab walls, grid, rim, pins) are added at runtime
+ * in layers.ts.
  */
 export function buildBaseStyle(quality: Quality): StyleSpecification {
   const q = QUALITY_SETTINGS[quality];
   const font = ["Noto Sans Regular"];
   // Labels only for places inside Georgia: the rest of the map is a void.
   const inGeorgia = ["within", georgiaClip] as unknown as ExpressionSpecification;
+  const name: ExpressionSpecification = ["coalesce", ["get", "name:en"], ["get", "name"]];
 
   return {
     version: 8,
@@ -42,40 +45,37 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
         tileSize: 256,
         maxzoom: quality === "high" ? 13 : 11,
       },
+      contours: { type: "vector", tiles: [contourTiles(quality)], maxzoom: 15 },
     },
     sky: {
-      "sky-color": "#06070b",
-      "horizon-color": "#2a1a0c",
-      "fog-color": "#0c0a09",
-      "sky-horizon-blend": 0.55,
-      "horizon-fog-blend": 0.65,
-      "fog-ground-blend": 0.55,
+      "sky-color": BP.sky,
+      "horizon-color": BP.horizon,
+      "fog-color": BP.floor,
+      "sky-horizon-blend": 0.6,
+      "horizon-fog-blend": 0.7,
+      "fog-ground-blend": 0.6,
       "atmosphere-blend": ["interpolate", ["linear"], ["zoom"], 0, 1, 9, 1, 12, 0],
     },
-    // Warm low-angle "key light" for building extrusions and beams.
-    light: { anchor: "map", position: [1.4, 215, 35], color: "#ffd8a3", intensity: 0.35 },
+    light: { anchor: "map", position: [1.4, 215, 35], color: "#d6f0ff", intensity: 0.3 },
     layers: [
-      { id: "background", type: "background", paint: { "background-color": "#0a0a0b" } },
+      { id: "background", type: "background", paint: { "background-color": BP.paper } },
 
-      // Elevation tint: near-black lowlands warming to umber on the ridgelines.
+      // Altitude tint: the sheet brightens slightly toward the ridgelines.
       {
         id: "relief",
         type: "color-relief",
         source: "demShade",
         paint: {
-          "color-relief-opacity": 0.9,
+          "color-relief-opacity": 1,
           "color-relief-color": [
             "interpolate",
             ["linear"],
             ["elevation"],
-            0, "#0a0a0b",
-            100, "#0d0c0b",
-            250, "#14110e",
-            450, "#211a13",
-            700, "#33271a",
-            1000, "#4d3922",
-            1300, "#6b4f2e",
-            1700, "#8a683c",
+            0, BP.paper,
+            300, "#0d3156",
+            700, "#12406c",
+            1100, "#185083",
+            1600, "#1f6299",
           ],
         },
       },
@@ -85,28 +85,13 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
         source: "demShade",
         paint: {
           "hillshade-method": "standard",
-          "hillshade-exaggeration": ["interpolate", ["linear"], ["zoom"], 5, 1, 9, 0.8, 14, 0.5],
-          "hillshade-shadow-color": "#000000",
-          "hillshade-highlight-color": "#9c7a4e",
-          "hillshade-accent-color": "#24180c",
+          "hillshade-exaggeration": ["interpolate", ["linear"], ["zoom"], 5, 0.7, 10, 0.5, 14, 0.35],
+          "hillshade-shadow-color": "#020b16",
+          "hillshade-highlight-color": "#4f9ccf",
+          "hillshade-accent-color": "#071d36",
           "hillshade-illumination-direction": 315,
           "hillshade-illumination-anchor": "map",
         },
-      },
-      {
-        id: "landcover-wood",
-        type: "fill",
-        source: "omt",
-        "source-layer": "landcover",
-        filter: ["==", ["get", "class"], "wood"],
-        paint: { "fill-color": "#101511", "fill-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.15, 12, 0.35] },
-      },
-      {
-        id: "park",
-        type: "fill",
-        source: "omt",
-        "source-layer": "park",
-        paint: { "fill-color": "#111a13", "fill-opacity": 0.45 },
       },
       {
         id: "landuse-urban",
@@ -114,14 +99,16 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
         source: "omt",
         "source-layer": "landuse",
         filter: ["match", ["get", "class"], ["residential", "commercial", "industrial", "retail"], true, false],
-        paint: { "fill-color": "#16130f", "fill-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.6, 13, 0.3] },
+        paint: { "fill-color": "#103a63", "fill-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.5, 13, 0.25] },
       },
+      // Water as drafted outlines over a darker fill.
+      { id: "water", type: "fill", source: "omt", "source-layer": "water", paint: { "fill-color": BP.water } },
       {
-        id: "water",
-        type: "fill",
+        id: "water-outline",
+        type: "line",
         source: "omt",
         "source-layer": "water",
-        paint: { "fill-color": "#060b12", "fill-antialias": true },
+        paint: { "line-color": BP.line, "line-width": ["interpolate", ["linear"], ["zoom"], 6, 0.4, 14, 1.2], "line-opacity": 0.55 },
       },
       {
         id: "waterway",
@@ -129,7 +116,7 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
         source: "omt",
         "source-layer": "waterway",
         filter: ["==", ["get", "class"], "river"],
-        paint: { "line-color": "#0d1724", "line-width": ["interpolate", ["linear"], ["zoom"], 7, 0.6, 14, 3] },
+        paint: { "line-color": BP.line, "line-width": ["interpolate", ["linear"], ["zoom"], 7, 0.4, 14, 2], "line-opacity": 0.45 },
       },
       {
         id: "roads-minor",
@@ -139,9 +126,9 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
         minzoom: 12,
         filter: ["match", ["get", "class"], ["minor", "service", "tertiary"], true, false],
         paint: {
-          "line-color": "#2a2520",
-          "line-width": ["interpolate", ["exponential", 1.6], ["zoom"], 12, 0.4, 17, 4],
-          "line-opacity": 0.8,
+          "line-color": BP.lineFaint,
+          "line-width": ["interpolate", ["exponential", 1.6], ["zoom"], 12, 0.3, 17, 2.5],
+          "line-opacity": 0.6,
         },
       },
       {
@@ -153,10 +140,19 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
         filter: ["match", ["get", "class"], ["motorway", "trunk", "primary", "secondary"], true, false],
         layout: { "line-join": "round", "line-cap": "round" },
         paint: {
-          "line-color": ["match", ["get", "class"], ["motorway", "trunk"], "#5a4428", "#3a3128"],
-          "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 6, 0.4, 10, 1.1, 16, 6],
-          "line-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.45, 10, 0.75],
+          "line-color": ["match", ["get", "class"], ["motorway", "trunk"], BP.lineBright, BP.line],
+          "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 6, 0.35, 10, 0.8, 16, 3.5],
+          "line-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.3, 10, 0.55],
         },
+      },
+      // Building footprints drawn as outlines, then extruded as translucent volumes.
+      {
+        id: "building-outline",
+        type: "line",
+        source: "omt",
+        "source-layer": "building",
+        minzoom: 14,
+        paint: { "line-color": BP.lineBright, "line-width": 0.6, "line-opacity": ["interpolate", ["linear"], ["zoom"], 14, 0, 15, 0.55] },
       },
       ...(q.buildings
         ? ([
@@ -171,18 +167,53 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
                   "interpolate",
                   ["linear"],
                   ["coalesce", ["get", "render_height"], 6],
-                  0, "#17140f",
-                  50, "#221c15",
-                  150, "#33291d",
+                  0, "#2a6fa6",
+                  80, "#4c9ad3",
+                  200, "#8fd0f5",
                 ],
                 "fill-extrusion-height": ["coalesce", ["get", "render_height"], 6],
                 "fill-extrusion-base": ["coalesce", ["get", "render_min_height"], 0],
-                "fill-extrusion-opacity": ["interpolate", ["linear"], ["zoom"], 14.5, 0, 15.5, 0.92],
+                "fill-extrusion-opacity": ["interpolate", ["linear"], ["zoom"], 14.5, 0, 15.5, 0.45],
                 "fill-extrusion-vertical-gradient": true,
               },
             },
           ] satisfies StyleSpecification["layers"])
         : []),
+
+      // Topographic contours: minor lines faint, index (major) lines brighter with labels.
+      {
+        id: "contour-minor",
+        type: "line",
+        source: "contours",
+        "source-layer": "contours",
+        filter: ["==", ["get", "level"], 0],
+        paint: { "line-color": BP.line, "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.4, 12, 0.7], "line-opacity": ["interpolate", ["linear"], ["zoom"], 5, 0.18, 10, 0.38] },
+      },
+      {
+        id: "contour-major",
+        type: "line",
+        source: "contours",
+        "source-layer": "contours",
+        filter: [">", ["get", "level"], 0],
+        paint: { "line-color": BP.lineBright, "line-width": ["interpolate", ["linear"], ["zoom"], 5, 0.7, 12, 1.3], "line-opacity": ["interpolate", ["linear"], ["zoom"], 5, 0.35, 10, 0.7] },
+      },
+      {
+        id: "contour-label",
+        type: "symbol",
+        source: "contours",
+        "source-layer": "contours",
+        minzoom: 9,
+        filter: ["all", [">", ["get", "level"], 0], inGeorgia],
+        layout: {
+          "symbol-placement": "line",
+          "text-field": ["concat", ["number-format", ["get", "ele"], {}], " m"],
+          "text-font": font,
+          "text-size": 9,
+          "text-letter-spacing": 0.1,
+        },
+        paint: { "text-color": BP.line, "text-halo-color": BP.paper, "text-halo-width": 1.2 },
+      },
+
       {
         id: "place-town",
         type: "symbol",
@@ -191,13 +222,13 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
         minzoom: 9.5,
         filter: ["all", ["match", ["get", "class"], ["town", "village"], true, false], inGeorgia],
         layout: {
-          "text-field": ["coalesce", ["get", "name:en"], ["get", "name"]],
+          "text-field": name,
           "text-font": font,
-          "text-size": ["interpolate", ["linear"], ["zoom"], 8, 10, 13, 13],
-          "text-letter-spacing": 0.08,
+          "text-size": ["interpolate", ["linear"], ["zoom"], 9, 10, 13, 12],
+          "text-letter-spacing": 0.12,
           "text-transform": "uppercase",
         },
-        paint: { "text-color": "#8d8478", "text-halo-color": "#0a0a0b", "text-halo-width": 1.2 },
+        paint: { "text-color": BP.line, "text-halo-color": BP.paper, "text-halo-width": 1.2 },
       },
       {
         id: "place-city",
@@ -207,13 +238,13 @@ export function buildBaseStyle(quality: Quality): StyleSpecification {
         minzoom: 5,
         filter: ["all", ["==", ["get", "class"], "city"], inGeorgia],
         layout: {
-          "text-field": ["coalesce", ["get", "name:en"], ["get", "name"]],
+          "text-field": name,
           "text-font": font,
-          "text-size": ["interpolate", ["linear"], ["zoom"], 5, 10, 10, 15],
-          "text-letter-spacing": 0.18,
+          "text-size": ["interpolate", ["linear"], ["zoom"], 5, 10, 10, 14],
+          "text-letter-spacing": 0.25,
           "text-transform": "uppercase",
         },
-        paint: { "text-color": "#b3a998", "text-halo-color": "#0a0a0b", "text-halo-width": 1.4 },
+        paint: { "text-color": BP.ink, "text-halo-color": BP.paper, "text-halo-width": 1.4 },
       },
     ],
   };

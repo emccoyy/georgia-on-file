@@ -12,6 +12,7 @@ import { detectQuality, prefersReducedMotion, type Quality } from "@/lib/device"
 import { locationById, type PinProperties } from "@/data";
 import { MapControls } from "./MapControls";
 import { PinTooltip, type TooltipState } from "./PinTooltip";
+import { MapReadout, type Readout } from "./MapReadout";
 
 maplibregl.setWorkerUrl("/vendor/maplibre-gl-worker.mjs");
 registerClippedDem();
@@ -27,6 +28,7 @@ export default function GeorgiaMap({ onReady }: { onReady?: () => void }) {
   const [is3D, setIs3D] = useState(true);
   const [bearing, setBearing] = useState(HOME_BEARING);
   const [error, setError] = useState<string | null>(null);
+  const [readout, setReadout] = useState<Readout>({ lng: null, lat: null, zoom: 6, pitch: 0, bearing: HOME_BEARING });
 
   /** Camera that frames the whole state at the device's home pitch. */
   const homeCamera = useCallback((map: MLMap, pitch: number) => {
@@ -75,6 +77,28 @@ export default function GeorgiaMap({ onReady }: { onReady?: () => void }) {
     mapRef.current = map;
     // Top-right keeps attribution clear of the footer disclaimer and legend.
     map.addControl(new maplibregl.AttributionControl({ compact: true }), "top-right");
+    map.addControl(new maplibregl.ScaleControl({ maxWidth: 110, unit: "imperial" }), "bottom-left");
+
+    // HUD readout: cursor position + camera state, throttled to one update per frame.
+    let hudRaf = 0;
+    let cursor: { lng: number; lat: number } | null = null;
+    const pushReadout = () => {
+      cancelAnimationFrame(hudRaf);
+      hudRaf = requestAnimationFrame(() =>
+        setReadout({
+          lng: cursor?.lng ?? null,
+          lat: cursor?.lat ?? null,
+          zoom: map.getZoom(),
+          pitch: map.getPitch(),
+          bearing: map.getBearing(),
+        }),
+      );
+    };
+    map.on("move", pushReadout);
+    map.on("mousemove", (e) => {
+      cursor = e.lngLat;
+      pushReadout();
+    });
     // Handy for tuning the look from devtools: open with ?debug to get window.__map.
     if (new URLSearchParams(window.location.search).has("debug")) (window as unknown as { __map: MLMap }).__map = map;
     map.jumpTo(homeCamera(map, q.homePitch));
@@ -150,6 +174,7 @@ export default function GeorgiaMap({ onReady }: { onReady?: () => void }) {
 
     return () => {
       cancelAnimationFrame(raf);
+      cancelAnimationFrame(hudRaf);
       map.remove();
       mapRef.current = null;
     };
@@ -203,6 +228,7 @@ export default function GeorgiaMap({ onReady }: { onReady?: () => void }) {
         aria-label="3D map of filming locations in Georgia. Use arrow keys to pan, plus and minus to zoom, shift plus arrows to rotate and tilt."
       />
       <PinTooltip state={tooltip} />
+      <MapReadout r={readout} />
       <MapControls
         is3D={is3D}
         bearing={bearing}
