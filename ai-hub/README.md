@@ -8,7 +8,7 @@ It runs on your own computer. Behind the scenes it drives each company's **offic
 |---|---|---|
 | Claude | [Claude Code](https://docs.anthropic.com/en/docs/claude-code) (`claude`) | Claude Pro / Max |
 | ChatGPT | [Codex CLI](https://github.com/openai/codex) (`codex`) | ChatGPT Plus / Pro |
-| Gemini | [Gemini CLI](https://github.com/google-gemini/gemini-cli) (`gemini`) | Google account (AI Pro raises the limits) |
+| Gemini | [Antigravity CLI](https://antigravity.google) (`agy`) | Google AI Pro / Ultra |
 
 Usage counts against your subscription's normal limits, the same as using those apps directly.
 
@@ -27,8 +27,16 @@ You need [Node.js](https://nodejs.org) 20 or newer.
 **1. Install the AI apps you subscribe to** (skip any you don't have):
 
 ```bash
-npm install -g @anthropic-ai/claude-code @openai/codex @google/gemini-cli
+npm install -g @anthropic-ai/claude-code @openai/codex
 ```
+
+For Gemini, install Google's Antigravity CLI:
+
+```bash
+curl -fsSL https://antigravity.google/cli/install.sh | bash
+```
+
+> Google retired Gemini CLI for personal Google AI Pro accounts on 18 June 2026 ("This client is no longer supported for Gemini Code Assist for individuals"). Antigravity CLI is its replacement, and it's what the hub uses.
 
 **2. Sign in to each once, with your subscription account:**
 
@@ -43,10 +51,10 @@ codex login
 Choose **Sign in with ChatGPT**, not an API key.
 
 ```bash
-gemini
+agy
 ```
 
-Choose **Sign in with Google**, then type `/quit`.
+Sign in with your Google account, then type `/quit`.
 
 **3. Start the hub:**
 
@@ -65,7 +73,7 @@ Open <http://localhost:4317>. The **Setup** tab shows which AIs are ready and wh
 - The hub never calls a paid API. It runs the official apps, and those apps use your subscription login.
 - If `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GEMINI_API_KEY` or similar are set in your terminal, the apps would bill those keys instead. **The hub removes them** for every AI it starts, and the Setup tab warns you if one of the apps is signed in with an API key.
 - Your subscription's usage limits still apply (for example Claude Max's 5-hour windows). If you hit one, the hub tells you and you can switch to another AI.
-- Each AI runs in a private `ai-hub/workspace/` folder with its tools off or read-only, so a chat can't change files on your computer.
+- Each AI runs in a private `ai-hub/workspace/` folder with its tools off or read-only (Claude: no tools; Codex: read-only sandbox; Antigravity: plan mode in its sandbox), so a chat can't change files on your computer.
 - The hub only listens on `127.0.0.1` and refuses requests from other websites, so nothing else on your network or in your browser can use your subscriptions through it.
 
 ### Animation and video tools

@@ -11,6 +11,12 @@ if (process.argv.includes("--fail")) {
   console.error("Error: not logged in");
   process.exit(1);
 }
+const at = process.argv.indexOf("--print");
+if (at > 0) {
+  // Prompt-as-argument mode (like Antigravity's agy).
+  process.stdout.write(`ARG: ${process.argv[at + 1]}`);
+  process.exit(0);
+}
 let input = "";
 process.stdin.setEncoding("utf8");
 process.stdin.on("data", (d) => (input += d));

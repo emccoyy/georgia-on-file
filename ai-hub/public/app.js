@@ -238,7 +238,7 @@ function renderSetup(strippedEnvVars = []) {
       const h = el("h3", {}, el("span", { className: "dot", style: `background:${p.color}` }), p.name, el("span", { className: `badge ${cls}`, textContent: label }));
       card.append(h, el("p", { className: "sub", textContent: `Uses: ${p.subscription ?? "your subscription"}` }));
       const steps = el("ol");
-      steps.append(el("li", {}, "Install it (needs Node.js):", cmdRow(p.install)));
+      steps.append(el("li", {}, "Install it:", cmdRow(p.install)));
       steps.append(el("li", {}, "Sign in once with your subscription account:", cmdRow(p.login)));
       steps.append(el("li", { textContent: "Click Re-check above." }));
       card.append(steps);

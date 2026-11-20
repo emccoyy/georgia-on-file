@@ -7,7 +7,7 @@
 
 import { spawn } from "node:child_process";
 import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
-import { homedir, tmpdir } from "node:os";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 const HUB_SYSTEM_PROMPT =
@@ -67,20 +67,27 @@ export const DEFAULT_PROVIDERS = {
   },
   gemini: {
     name: "Gemini",
-    subscription: "Google AI Pro (via Gemini CLI)",
+    subscription: "Google AI Pro / Ultra (via Antigravity CLI)",
     color: "#4f8df5",
-    command: "gemini",
+    command: "agy",
+    // Google retired Gemini CLI for personal accounts on 18 June 2026; Antigravity
+    // CLI replaced it. "plan" mode plus --sandbox keeps it read-only. agy takes the
+    // prompt as an argument, so {prompt} must stay last, straight after --print.
     args: [
+      "--mode", "plan",
+      "--sandbox",
       "--output-format", "text",
-      "--approval-mode", "plan",
-      "--skip-trust",
-      "-p", "Reply to the conversation above.",
+      "--disable-slash-commands",
+      "--print", "{prompt}",
     ],
     modelFlag: "--model",
-    install: "npm install -g @google/gemini-cli",
-    login: "gemini   (then choose \"Sign in with Google\")",
-    // Gemini CLI has no status command; a cached Google login lives here.
-    credentialFile: join(homedir(), ".gemini", "oauth_creds.json"),
+    // agy is a native binary, not an npm .cmd shim, so Windows needs no shell.
+    // That matters here because user text is on the command line.
+    noShell: true,
+    versionArgs: ["--help"],
+    install: "curl -fsSL https://antigravity.google/cli/install.sh | bash",
+    login: "agy   (sign in with Google, then type /quit)",
+    loginNote: "agy has no sign-in check; the hub finds out when you send the first message.",
   },
 };
 
@@ -111,8 +118,8 @@ const isWin = process.platform === "win32";
 
 // On Windows the npm-installed CLIs are .cmd shims, which need a shell. Every
 // argument here is fixed config (never user text), so plain quoting is enough.
-function spawnCli(command, args, opts) {
-  if (!isWin) return spawn(command, args, opts);
+function spawnCli(command, args, opts, { noShell = false } = {}) {
+  if (!isWin || noShell) return spawn(command, args, opts);
   const quoted = args.map((a) => `"${String(a).replace(/"/g, '""')}"`);
   return spawn(command, quoted, { ...opts, shell: true });
 }
@@ -144,11 +151,16 @@ function capture(command, args, { timeoutMs = 15000, env } = {}) {
 
 /** Is the CLI installed, and is it signed in with a subscription? */
 export async function checkProvider(p) {
-  const version = await capture(p.command, ["--version"]);
+  const version = await capture(p.command, p.versionArgs ?? ["--version"]);
   if (!version.ok && (version.code === null || /not installed|not found|not recognized/i.test(version.out))) {
     return { installed: false, loggedIn: false, detail: "Not installed" };
   }
-  const result = { installed: true, version: version.out.split("\n")[0], loggedIn: null, detail: "" };
+  const result = {
+    installed: true,
+    version: p.versionArgs ? "" : version.out.split("\n")[0],
+    loggedIn: null,
+    detail: p.loginNote ?? "",
+  };
 
   if (p.statusCommand) {
     const s = await capture(p.command, p.statusCommand);
@@ -174,14 +186,22 @@ export async function checkProvider(p) {
 export function runProvider(p, prompt, { cwd, model, onChunk = () => {}, timeoutMs = 10 * 60 * 1000 } = {}) {
   const scratch = mkdtempSync(join(tmpdir(), "ai-hub-"));
   const lastMessageFile = join(scratch, "last-message.txt");
-  const args = p.args.map((a) => a.replaceAll("{lastMessageFile}", lastMessageFile));
+  // A provider either reads the prompt on stdin (default) or takes it as an
+  // argument via a "{prompt}" placeholder. Arguments go straight to the program
+  // with no shell in between, so the text can't be interpreted as a command.
+  const promptAsArg = p.args.some((a) => a === "{prompt}");
+  const args = p.args.map((a) => (a === "{prompt}" ? safeArg(prompt) : a.replaceAll("{lastMessageFile}", lastMessageFile)));
+  if (promptAsArg && isWin && !p.noShell) {
+    rmSync(scratch, { recursive: true, force: true });
+    return { promise: Promise.reject(new Error(`${p.name}: "{prompt}" arguments need "noShell": true on Windows.`)), cancel() {} };
+  }
   if (model && p.modelFlag) args.unshift(p.modelFlag, model);
 
   let child;
   let cancelled = false;
   const promise = new Promise((resolve, reject) => {
     try {
-      child = spawnCli(p.command, args, { cwd, env: cleanEnv(), stdio: ["pipe", "pipe", "pipe"] });
+      child = spawnCli(p.command, args, { cwd, env: cleanEnv(), stdio: ["pipe", "pipe", "pipe"] }, { noShell: p.noShell });
     } catch (err) {
       reject(err);
       return;
@@ -198,7 +218,7 @@ export function runProvider(p, prompt, { cwd, model, onChunk = () => {}, timeout
     });
     child.stderr.on("data", (d) => (stderr += d));
     child.stdin.on("error", () => {}); // CLI exited before reading everything
-    child.stdin.end(prompt);
+    child.stdin.end(promptAsArg ? "" : prompt);
 
     child.on("error", (err) => {
       clearTimeout(timer);
@@ -228,6 +248,10 @@ export function runProvider(p, prompt, { cwd, model, onChunk = () => {}, timeout
     },
   };
 }
+
+// A prompt that starts with "-" could be mistaken for a flag; a leading space
+// makes it plain text without changing what the model reads.
+const safeArg = (text) => (text.startsWith("-") ? ` ${text}` : text);
 
 function friendlyError(p, stderr, code) {
   const s = stderr.trim();

@@ -21,7 +21,7 @@ before(async () => {
       providers: {
         claude: { command: process.execPath, args: [fake], statusCommand: ["--version"] },
         chatgpt: { command: process.execPath, args: [fake, "--fail"], statusCommand: ["--version"] },
-        gemini: { enabled: false },
+        gemini: { command: process.execPath, args: [fake, "--mode", "plan", "--print", "{prompt}"], versionArgs: ["--version"] },
       },
     }),
   );
@@ -49,7 +49,7 @@ async function run(body) {
 
 test("config lists enabled providers and studios", async () => {
   const cfg = await (await fetch(`${base}/api/config`)).json();
-  assert.deepEqual(cfg.providers.map((p) => p.id), ["claude", "chatgpt"]);
+  assert.deepEqual(cfg.providers.map((p) => p.id), ["claude", "chatgpt", "gemini"]);
   assert.ok(cfg.studios.some((s) => s.id === "sora"));
 });
 
@@ -60,6 +60,13 @@ test("streams a reply and hides API keys from the CLI", async () => {
   assert.equal(done.type, "done");
   assert.match(done.text, /ECHO: hello hub/);
   assert.match(done.text, /LEAKED: none/);
+});
+
+test("prompt-as-argument providers get the text as one safe argument", async () => {
+  const { events } = await run({ kind: "chat", provider: "gemini", history: [], message: "--help; rm -rf ~ $(whoami)" });
+  assert.equal(events.at(-1).type, "done");
+  // Leading "-" gets a space so it is never parsed as a flag.
+  assert.equal(events.at(-1).text, "ARG:  --help; rm -rf ~ $(whoami)");
 });
 
 test("a failing CLI produces a friendly sign-in error", async () => {
