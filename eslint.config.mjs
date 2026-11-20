@@ -13,6 +13,8 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
     "public/vendor/**",
+    // Standalone AI Hub app (plain Node, no Next.js).
+    "ai-hub/**",
   ]),
 ]);
 

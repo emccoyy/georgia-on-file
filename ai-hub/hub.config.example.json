@@ -1,0 +1,24 @@
+{
+  "providers": {
+    "claude": { "args": ["-p", "--output-format", "text", "--tools", "", "--no-session-persistence", "--model", "opus"] },
+    "gemini": { "enabled": true },
+    "my-local-model": {
+      "name": "Llama (Ollama)",
+      "color": "#c9a227",
+      "command": "ollama",
+      "args": ["run", "llama3.3"],
+      "install": "https://ollama.com/download",
+      "login": "(no sign-in needed)"
+    }
+  },
+  "studios": [
+    { "id": "pika", "enabled": false },
+    {
+      "id": "hailuo",
+      "name": "Hailuo (MiniMax)",
+      "url": "https://hailuoai.video",
+      "includedWith": "Hailuo subscription",
+      "style": "Hailuo: subject + action + scene + camera movement in brackets, e.g. [Pan left], [Push in]."
+    }
+  ]
+}
