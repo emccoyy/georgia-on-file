@@ -558,6 +558,9 @@ async function boot() {
   if (!ready.length) showTab("setup");
 }
 
+// Let the background server know a window is still open (see AI_HUB_IDLE_EXIT_MIN).
+setInterval(() => fetch("/api/ping").catch(() => {}), 60_000);
+
 boot().catch((err) => {
   document.body.prepend(el("div", { className: "notice", textContent: `Couldn't start: ${err.message}` }));
 });

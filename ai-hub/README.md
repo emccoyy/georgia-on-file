@@ -68,6 +68,21 @@ npm start
 
 Open <http://localhost:4317>. The **Setup** tab shows which AIs are ready and what's missing.
 
+## Make it a Mac app
+
+So you can open it from Launchpad, Spotlight or the Dock instead of Terminal:
+
+```bash
+bash ~/Desktop/ai-hub/mac/make-app.sh
+```
+
+This puts **AI Hub** in your Applications folder. Opening it starts the hub in the background and shows it in its own window (in Chrome, Brave or Edge if you have one, otherwise your default browser). The background server quits by itself about 10 minutes after you close the window.
+
+- The app has its own copy of the hub, so you can delete the `ai-hub` folder afterwards.
+- Chats and settings are kept in `~/Library/Application Support/AI Hub` (put `hub.config.json` there).
+- If something goes wrong, the log is at `~/Library/Logs/AI Hub.log`.
+- To update: download the newer hub and run the same command again.
+
 ## How "no tokens" works, and its limits
 
 - The hub never calls a paid API. It runs the official apps, and those apps use your subscription login.

@@ -28,6 +28,10 @@ export function createHub({
   mkdirSync(convDir, { recursive: true });
   mkdirSync(workspaceDir, { recursive: true });
 
+  // Used by the Mac app to shut the background server down once you close it.
+  let lastSeen = Date.now();
+  let activeRuns = 0;
+
   let statusCache = null;
   let statusAt = 0;
   async function getStatus(refresh) {
@@ -76,6 +80,8 @@ export function createHub({
     const prompt = promptFor(body);
     if (!prompt.trim()) throw httpError(400, "Empty prompt");
 
+    activeRuns++;
+    res.on("close", () => activeRuns--);
     res.writeHead(200, { "content-type": "application/x-ndjson; charset=utf-8", "cache-control": "no-store" });
     const send = (obj) => res.writableEnded || res.write(JSON.stringify(obj) + "\n");
     const run = runProvider(p, prompt, {
@@ -119,6 +125,7 @@ export function createHub({
     const path = url.pathname;
 
     if (path === "/api/config" && req.method === "GET") return json(res, publicConfig());
+    if (path === "/api/ping" && req.method === "GET") return json(res, { ok: true });
     if (path === "/api/status" && req.method === "GET") return json(res, await getStatus(url.searchParams.has("refresh")));
     if (path === "/api/run" && req.method === "POST") return handleRun(req, res);
 
@@ -144,7 +151,8 @@ export function createHub({
     throw httpError(404, "Not found");
   }
 
-  return async function handler(req, res) {
+  async function handler(req, res) {
+    lastSeen = Date.now();
     try {
       // Only answer requests for this machine, from this app. This blocks other
       // websites (and DNS-rebinding tricks) from driving your AIs.
@@ -160,7 +168,9 @@ export function createHub({
       if (res.headersSent) return res.end();
       json(res, { error: err.message }, err.status ?? 500);
     }
-  };
+  }
+  handler.idleMs = () => (activeRuns > 0 ? 0 : Date.now() - lastSeen);
+  return handler;
 }
 
 const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".svg": "image/svg+xml" };
@@ -211,7 +221,14 @@ function readJson(req, limit = 4 * 1024 * 1024) {
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const port = Number(process.env.PORT ?? 4317);
-  const server = createServer(createHub());
+  const hub = createHub();
+  const server = createServer(hub);
+  // The Mac app starts the hub in the background and sets this, so it quits by
+  // itself a few minutes after the last window closes (open pages ping it).
+  const idleMin = Number(process.env.AI_HUB_IDLE_EXIT_MIN ?? 0);
+  if (idleMin > 0) {
+    setInterval(() => hub.idleMs() > idleMin * 60_000 && process.exit(0), 30_000).unref();
+  }
   server.listen(port, "127.0.0.1", () => {
     console.log(`\n  AI Hub is running:  http://localhost:${port}\n`);
     const set = BILLING_ENV_VARS.filter((k) => process.env[k]);
